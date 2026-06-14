@@ -127,6 +127,59 @@ body {
     letter-spacing: 0.04em;
 }
 
+
+.github-section {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.github-section h2 {
+    margin-bottom: 1rem;
+}
+
+.github-chart-container {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    overflow-x: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.github-chart {
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+    filter:
+        brightness(0.95)
+        contrast(1.05);
+    transition:
+        transform 0.3s ease,
+        filter 0.3s ease;
+}
+
+.github-chart:hover {
+    transform: scale(1.01);
+    filter:
+        brightness(1)
+        contrast(1.08);
+}
+
+.github-chart-container {
+    backdrop-filter: blur(12px);
+}
+
+.github-chart {
+    opacity: 0.95;
+}
+
+
+
 .social-link {
     display: inline-flex;
     align-items: center;
@@ -269,7 +322,6 @@ blockquote {
 .motto-section blockquote {
     border: none;
     padding: 0;
-
     font-size: clamp(1.5rem, 4vw, 2.25rem);
     font-weight: 700;
     letter-spacing: 0.05em;
@@ -301,9 +353,8 @@ blockquote {
 }
 
 .site-footer {
-    margin-top: 6rem;
+    margin-top: 1rem;
     padding: 3rem 2rem;
-
     border-top: 1px solid var(--border);
 }
 
@@ -334,3 +385,9 @@ blockquote {
     width: 20px;
     height: 20px;
 }
+
+
+
+
+
+
