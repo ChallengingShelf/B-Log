@@ -8,8 +8,11 @@
     <title>Daniel Hamilton | Cyber</title>
     <link rel="icon" type="image/png" href="afavicon.png">
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
+
+    <canvas id="bg" aria-hidden="true"></canvas>
 
     <button
         class="theme-toggle"
@@ -185,9 +188,9 @@
 
     <div class="github-chart-container">
         
-        <a href="https://github.com/ChallengingShelf">    
+        <a href="https://github.com/ChallengingShelf" target="_blank" rel="noopener noreferrer">    
         <img
-            src="https://ghchart.rshah.org/fdf0d5/ChallengingShelf"
+            src="https://ghchart.rshah.org/ChallengingShelf"
             alt="GitHub Contribution Graph"
             class="github-chart"
             loading="lazy">
@@ -203,36 +206,11 @@
         </section>
 
     </main>
-
-    <script>
-        const toggle = document.getElementById('themeToggle');
-        const root = document.documentElement;
-
-        const savedTheme = localStorage.getItem('theme');
-
-        if (savedTheme === 'light') {
-            root.setAttribute('data-theme', 'light');
-            toggle.textContent = '🌙';
-        }
-
-        toggle.addEventListener('click', () => {
-            const isLight = root.getAttribute('data-theme') === 'light';
-
-            if (isLight) {
-                root.removeAttribute('data-theme');
-                localStorage.setItem('theme', 'dark');
-                toggle.textContent = '☀';
-            } else {
-                root.setAttribute('data-theme', 'light');
-                localStorage.setItem('theme', 'light');
-                toggle.textContent = '🌙';
-            }
-        });
-    </script>
-
-
-
 <footer class="site-footer">
+
+    <p class="footer-date">
+        © Daniel Hamilton · <span data-today-date></span>
+    </p>
 
     <div class="footer-links">
 

@@ -101,6 +101,13 @@ body::before {
     z-index: 2;
 }
 
+@media (max-width: 768px), (prefers-reduced-motion: reduce) {
+    #bg,
+    body::before {
+        display: none;
+    }
+}
+
 .container {
     max-width: var(--container);
     margin: 0 auto;
@@ -177,7 +184,6 @@ body::before {
 }
 
 
-
 .github-section {
     margin-top: 3rem;
     margin-bottom: 3rem;
@@ -188,30 +194,44 @@ body::before {
 }
 
 .github-chart-container {
-    width: 100%;
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: var(--radius);
     padding: 2rem;
     box-shadow: var(--shadow);
     overflow-x: auto;
-}
-
-.github-chart-container a {
-    display: block;
-    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .github-chart {
-    display: block;
     width: 100%;
-    max-width: none;
+    max-width: 900px;
     height: auto;
-    transition: transform 0.2s ease;
+    display: block;
+    border-radius: 12px;
+    filter:
+        brightness(0.95)
+        contrast(1.05);
+    transition:
+        transform 0.3s ease,
+        filter 0.3s ease;
 }
 
 .github-chart:hover {
-    transform: translateY(-1px);
+    transform: scale(1.01);
+    filter:
+        brightness(1)
+        contrast(1.08);
+}
+
+.github-chart-container {
+    backdrop-filter: blur(12px);
+}
+
+.github-chart {
+    opacity: 0.95;
 }
 
 
@@ -344,14 +364,6 @@ blockquote {
     }
 }
 
-
-@media (max-width: 640px) {
-    #bg,
-    body::before {
-        display: none;
-    }
-}
-
 ::selection {
     color: #28282B;
     background: #FFC300;
@@ -431,22 +443,44 @@ blockquote {
 }
 
 
+/* GitHub contribution graph */
+.github-chart-container {
+    width: 100%;
+}
 
+.github-chart-container a {
+    display: block;
+    width: 100%;
+}
 
+.github-chart {
+    width: 100%;
+    max-width: none;
+    height: auto;
+    display: block;
+    border-radius: 0;
+    filter: none;
+    opacity: 1;
+    transition: transform 0.2s ease;
+}
 
-
-
+.github-chart:hover {
+    transform: translateY(-1px);
+    filter: none;
+}
 
 /* Moving background integration */
 .card,
 .about-section,
+.github-chart-container,
 .social-link,
 .theme-toggle {
     backdrop-filter: blur(14px);
 }
 
 .card,
-.about-section {
+.about-section,
+.github-chart-container {
     background: color-mix(in srgb, var(--surface) 88%, transparent);
 }
 
