@@ -240,6 +240,8 @@
             const ctx = canvas.getContext('2d');
             if (!ctx) return;
 
+            const mobileBackgroundQuery = window.matchMedia('(max-width: 640px)');
+
             let w = 0;
             let h = 0;
             const particles = [];
@@ -265,6 +267,19 @@
             function resizeCanvas() {
                 w = canvas.width = window.innerWidth;
                 h = canvas.height = window.innerHeight;
+            }
+
+            function syncBackgroundForViewport() {
+                if (mobileBackgroundQuery.matches) {
+                    stopAnimation();
+                    canvas.style.display = 'none';
+                    return;
+                }
+
+                canvas.style.display = 'block';
+                resizeCanvas();
+                refreshBackgroundColors();
+                startAnimation();
             }
 
             class Particle {
@@ -364,7 +379,7 @@
             refreshBackgroundColors();
             for (let i = 0; i < PARTICLE_COUNT; i += 1) particles.push(new Particle());
 
-            window.addEventListener('resize', resizeCanvas);
+            window.addEventListener('resize', syncBackgroundForViewport);
             window.addEventListener('mousemove', (event) => {
                 mouse.x = event.clientX;
                 mouse.y = event.clientY;
@@ -380,8 +395,10 @@
                 attributeFilter: ['data-theme'],
             });
 
+            mobileBackgroundQuery.addEventListener('change', syncBackgroundForViewport);
+
             document.addEventListener('visibilitychange', () => {
-                if (document.hidden) {
+                if (document.hidden || mobileBackgroundQuery.matches) {
                     stopAnimation();
                 } else {
                     refreshBackgroundColors();
@@ -389,7 +406,7 @@
                 }
             });
 
-            startAnimation();
+            syncBackgroundForViewport();
         }
 
         function initSharedTodayDate() {

@@ -344,6 +344,14 @@ blockquote {
     }
 }
 
+
+@media (max-width: 640px) {
+    #bg,
+    body::before {
+        display: none;
+    }
+}
+
 ::selection {
     color: #28282B;
     background: #FFC300;
