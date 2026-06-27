@@ -1,0 +1,346 @@
+<!--
+                 uuuuuuu
+             uu$$$$$$$$$$$uu
+          uu$$$$$$$$$$$$$$$$$uu
+         u$$$$$$$$$$$$$$$$$$$$$u
+        u$$$$$$$$$$$$$$$$$$$$$$$u
+       u$$$$$$$$$$$$$$$$$$$$$$$$$u
+       u$$$$$$$$$$$$$$$$$$$$$$$$$u
+       u$$$$$$"   "$$$"   "$$$$$$u
+       "$$$$"      u$u       $$$$"
+        $$$u       u$u       u$$$
+        $$$u      u$$$u      u$$$
+         "$$$$uu$$$   $$$uu$$$$"
+          "$$$$$$$"   "$$$$$$$"
+            u$$$$$$$u$$$$$$$u
+             u$"$"$"$"$"$"$u
+  uuu        $$u$ $ $ $ $u$$       uuu
+ u$$$$        $$$$$u$u$u$$$       u$$$$
+  $$$$$uu      "$$$$$$$$$"     uu$$$$$$
+u$$$$$$$$$$$uu    """""    uuuu$$$$$$$$$$
+$$$$"""$$$$$$$$$$uuu   uu$$$$$$$$$"""$$$"
+ """      ""$$$$$$$$$$$uu ""$"""
+           uuuu ""$$$$$$$$$$uuu
+  u$$$uuu$$$$$$$$$uu ""$$$$$$$$$$$uuu$$$
+  $$$$$$$$$$""""           ""$$$$$$$$$$$"
+   "$$$$$"                      ""$$$$""
+     $$$"                         $$$$"
+
+██╗    ██╗███████╗██╗      ██████╗ ██████╗ ███╗   ███╗███████╗
+██║    ██║██╔════╝██║     ██╔════╝██╔═══██╗████╗ ████║██╔════╝
+██║ █╗ ██║█████╗  ██║     ██║     ██║   ██║██╔████╔██║█████╗  
+██║███╗██║██╔══╝  ██║     ██║     ██║   ██║██║╚██╔╝██║██╔══╝  
+╚███╔███╔╝███████╗███████╗╚██████╗╚██████╔╝██║ ╚═╝ ██║███████╗
+ ╚══╝╚══╝ ╚══════╝╚══════╝ ╚═════╝ ╚═════╝ ╚═╝     ╚═╝╚══════╝
+-->
+
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Template blog article for Daniel Hamilton's cybersecurity portfolio.">
+    <meta name="theme-color" content="#28282B">
+    <title>Blockhain IoT Blog | DH Cyber</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="bg" aria-hidden="true"></canvas>
+
+    <button
+        class="theme-toggle"
+        id="themeToggle"
+        type="button"
+        aria-label="Toggle theme"
+        aria-pressed="false"
+        title="Toggle theme">
+        ☀
+    </button>
+
+    <main class="container blog-page">
+        <article class="blog-post-shell">
+            <a class="blog-back-link" href="index.html">← Back to home</a><br><br>
+
+            <header class="blog-post-header">
+                <div class="blog-post-hero-image" aria-hidden="true">
+                    <img src="iot.png" alt="poster of iot blockchain authentication" />
+                </div>
+                <h1 class="blog-post-title">Using Ethereum Blockchain to Authenticate IoT Node Transaction: What I Found Out</h1>
+                <p class="blog-post-subheading">
+                    Themes: Blockchain | IoT Nodes | Network Transactions | Sissyphus' boulder
+                </p>
+
+                <div class="blog-post-meta" aria-label="Article metadata">
+                    <span>Daniel Hamilton</span>
+                    <span><span data-today-date></span></span>
+                </div>
+            </header>
+
+            <div class="blog-post-content">
+                <h2>What this was about</h2>
+                <p>
+                    I investigated whether Ethereum blockchain technology could be used to authenticate communications between IoT 
+                    devices in a simulated network. The idea was straightforward: instead of relying on weak or absent security 
+                    measures on low-powered IoT devices, use a smart contract on the Ethereum blockchain as a gatekeeper. 
+                    Nodes register their public keys on the blockchain, and before any two nodes communicate, the smart contract 
+                    verifies both are registered and legitimate. To my knowledge, this hadn't been done before in quite this way, 
+                    which made it interesting — and at times, very difficult.
+                </p>
+                <h2>Why IoT Security is a problem worth solving</h2>
+                <p>
+                    IoT is everywhere. Smart speakers, video doorbells, thermostats, wearables — there are projected to be 55.7 billion IoT devices worldwide by 2025*, 
+                    generating 80 zettabytes of data. These devices are used in homes, hospitals, supply chains, and increasingly in critical infrastructure. The security 
+                    situation is bad. Here's why:
+                </p>
+                <ul>
+                    <li>IoT devices are low-powered. They often can't run encryption because the computational cost drains their batteries. So often communications are unencrypted.</li>
+                    <li>Weak default passwords ship with devices and rarely get changed.</li>
+                    <li>Software goes unpatched for months or years, sometimes indefinitely, because devices can't afford downtime.</li>
+                    <li>No standardisation exists. Every IoT network is different, with different hardware, software, and protocols. There's no blanket security approach that works across the board.</li>
+                    <li>Centralised data structures create single points of failure. If that server goes down — or gets attacked — the whole network is affected.</li>
+                </ul>
+                <p>
+                    Traditional cybersecurity tools like TLS and PKI certificates require too much processing power for most IoT devices. Lightweight encryption alternatives exist but are weak enough that a determined attacker can break them. The field is stuck.
+                </p>
+
+
+
+                <div class="blog-post-callout">
+                    <p>
+                        Note: This blog post is adapted from a 25,000 word research paper I conducted in 2023. Statistics will have changed, details will have been dropped. Don't trust everything you read on the internet.
+                    </p>
+                </div>
+
+                <h2>The Proposed Solution</h2>
+                <h4>Jarvis, initiaze buzzword maximisation sequence.</h4>
+                <p>
+                    My proposal: use the Ethereum blockchain and a smart contract to handle node authentication. The mechanism works like this:
+                </p>
+                <ul>
+                    <li>Each IoT node has a public key (unique identifier).</li>
+                    <li>When a node joins the network, it registers its public key with a smart contract deployed on the Ethereum blockchain.</li>
+                    <li>Before any two nodes communicate, the smart contract checks whether both nodes have registered public keys.</li>
+                    <li>If both are registered, communication is authenticated and proceeds. If not, it's rejected. Because blockchain records are 
+                        famously immutable — they can't be altered once written — a node's identity can't be faked. A malicious node that hasn't 
+                        registered simply can't communicate with the rest of the network.
+                    </li>
+                </ul>
+                <p>
+                    The smart contract (`smartContractDan`) was written in Solidity and deployed on the Goerli Ethereum test network via Remix IDE. 
+                    A MetaMask wallet was configured to cover transaction costs and sign interactions with the blockchain.
+                </p>
+                <h4>That's pretty neat huh, if it works.</h4>
+
+                <h2>Tech Stack</h2>
+                <h3>What's in use here?</h3>
+                <ul>
+                    <li>Contiki OS / Cooja simulator — used to simulate the IoT network with Sky mote nodes running `hello-world.c` firmware. Very simple.
+                    </li>
+                    <li>Ubuntu 22.10 — required because older versions of Ubuntu (bundled with Contiki 3.0) don't support Web3</li>
+                    <li>Solidity / Remix IDE — for writing and deploying the smart contract</li>
+                    <li>MetaMask — browser wallet used to deploy the contract and sign transactions</li>
+                    <li>MQTT (Message Queuing Telemetry Transport) — protocol used to connect the C firmware with the JavaScript function calling the smart contract</li>
+                    <li>Paho MQTT C client library — to enable MQTT within the Contiki C firmware </li>
+                </ul>
+
+                <div class="blog-post-hero-image" aria-hidden="true">
+                    <img src="node.png" alt="picture of metamask in use" />
+                </div><h8>IoT Node Setup</h8>
+
+
+                <h2>What Actually Happened</h2>
+
+                <p>
+                    I'll be direct: <i>the full implementation didn't work.</i> The smart contract was written, compiled, and successfully deployed on the Goerli test network. 
+                    MetaMask was configured. The `hello-world.c` firmware was modified to include MQTT functionality. The JavaScript file was written to interface with the smart 
+                    contract. All the individual components were built. <br><br>
+                    The problem was the Cooja simulator itself. After multiple attempts to get the full pipeline running — including reinstalling Ubuntu and Contiki from scratch 
+                    several times — a fatal build directory error in Cooja (`fatal: Not a valid object name HEAD`) prevented simulations from running. The JavaScript integration 
+                    also remained incomplete; the link between the C firmware and the JavaScript file via MQTT was written but couldn't be evidenced as functional. This meant I 
+                    couldn't generate the comparison data I intended to: power consumption before versus after blockchain authentication, packet delivery ratios, and latency figures.
+                </p>
+
+
+                <h2>Okay, still, what does the baseline show and what does related research say?</h2>
+                <h4>Baseline</h4>
+                <p> 
+                    Before the blockchain integration was attempted, the basic Cooja simulation ran successfully. Three Sky mote nodes ran the `hello-world.c` firmware for 15 minutes. 
+                    The average power consumption across the network was 1.432 milliwatts (mW). This baseline is useful context: it's the starting point against which any increase from 
+                    blockchain authentication would be measured. It was expected — and is supported by related literature — that adding blockchain authentication would significantly 
+                    increase power consumption. This is the core problem with applying blockchain to IoT. The computational overhead of interacting with a blockchain per-communication
+                     is non-trivial for devices designed to sip power over months or years.
+                </p>
+
+                <h4>Related Research</h4>
+                <p>
+                    At the time of writing, there aren't many papers exploring exactly this topic — blockchain authentication of node-to-node communication in IoT simulations.
+                    The few that exist reach similar conclusions:
+                <ul>
+                    <li> Blockchain can provide trust, integrity, and authentication in IoT environments.</li>
+                    <li>It is likely not feasible in current IoT deployments because of resource-constrained, low-powered devices.</li>
+                    <li>IoT devices would need significantly more computing power and battery capacity before this becomes practical at scale.</li>
+                </ul>
+                <p>Yeah, that's fair enough, that's the expected result. The concept is sound but the hardware isn't there yet. Any maybe it won't be. It is a juxtaposition to be 
+                    abusing IoT devices like this and expecting them to run highly resource consumptive process when they are simply not designed to by their nature. I'm okay with that.
+                </p>          
+                </p>
+
+
+                <h2>The Cost Problem</h2>
+                <p>There's also a financial reality to acknowledge. Every interaction with a smart contract on the Ethereum network costs Ether (gas fees). Deploying the contract costs 
+                    a small amount. Every node registration costs a small amount. Every authentication check costs a small amount. In a small network this is manageable. In a network with
+                     hundreds or thousands of nodes all constantly authenticating communications, costs accumulate fast. For organisations that already underspend on cybersecurity, this is
+                      a hard sell. <br><br>The Goerli test network was used throughout to avoid real costs, but any real-world deployment would require the Ethereum mainnet. <h5><i>Expensive</i></h5>
+                </p>
+
+                <h2>Honest Reflections and next steps for research</h2>
+                <p> Despite not producing simulation results, this paper does achieve its goals to an extent. Provides a working, deployed smart contract for IoT node authentication (source code included, 
+                    verifiable on Etherscan). It also documents the full methodology: network setup, wallet configuration, contract deployment, and MQTT integration attempt. This establishes a proof of 
+                    concept backed by extensive literature. Identifies the specific technical blockers — Cooja compatibility issues, MQTT broker configuration complexity — that future researchers need to solve. 
+                    Also this sets a baseline power consumption reading for comparison in future work
+                </p>
+
+                <h2>Strengths & Weaknesses of the project</h2>
+                <h4>Strengths</h4>
+
+                <ul>
+                    <li>Immutable identity records on the blockchain mean node identities genuinely cannot be faked</li>
+                    <li>Decentralised authentication removes the single point of failure problem</li>
+                    <li>The method is theoretically scalable. Theoretically.</li>
+                    <li>Uses proven, existing technologies (Ethereum, Solidity, Web3)</li>
+                </ul>
+
+                <h4>Weaknesses</h4>
+                <ul>
+                    <li>Power consumption will increase — by how much remains unquantified because the simulation failed</li>
+                    <li>Transaction costs make this impractical at scale on the Ethereum mainnet</li>
+                    <li>The MQTT communications between node and JavaScript file are themselves unencrypted, which introduces its own vulnerability.</li>
+                    <li>IoT authentication is not currently a priority for many organisations; lightweight encryption is considered good enough by most</li>
+                </ul>
+                
+                <h2>Next Steps for Research</h2>
+                <p>The two conditions that need to change before this becomes viable. <h4>Better IoT batteries</h4> More processing headroom means devices can handle the computational overhead 
+                    of blockchain interactions.<br> <h4>Standardisation.</h4> If an organisation like NIST were to standardise a blockchain-based authentication approach for IoT, it would force 
+                    device manufacturers to build it in from the start. Future research should run this on real IoT hardware rather than Cooja, resolve the MQTT broker configuration, and produce
+                     actual power consumption comparison data. The methodology is here. The smart contract is deployed and verifiable.
+                </p>
+
+                <h2>At a glance:</h2>
+                <div class="blog-post-hero-image" aria-hidden="true">
+                    <img src="blockchainIoTOverview.png" alt="Project Overview Graph" />
+                </div>
+                
+
+
+            </div>
+        </article>
+
+        
+        <section class="blog-carousel-section" aria-labelledby="blog-carousel-title">
+            <div class="section-heading-row">
+                <div>
+                    <p class="eyebrow">Writing + Learning</p>
+                    <h2 id="blog-carousel-title">Blog</h2>
+                </div>
+            </div>
+
+            <div class="carousel-shell" data-carousel>
+                <button class="carousel-control carousel-control-prev" type="button" data-carousel-prev aria-label="Previous blog posts">
+                    <span aria-hidden="true">←</span>
+                </button>
+
+                <div class="blog-carousel" data-carousel-track tabindex="0" aria-label="Blog post carousel">
+                    <a class="blog-card" href="velocihacktor.html" target="_blank" rel="noopener noreferrer" aria-label="Read blog post: Jurassic Park was an inside job.">
+                        <img class="blog-card-image" src="velocihacktor.png" alt="" loading="lazy">
+                        <p class="blog-meta">Insider Threats</p>
+                        <h3>Jurassic Park was an inside job.</h3>
+                        <p>In the classic 1994 movie Jurassic Park, it is deliberate power sabotage that causes the physical security system to fail, 
+                    allowing the genetically engineered dinosaurs to escape their enclosures and cause chaos around the island.</p>
+                        <span class="blog-card-link" aria-hidden="true">Read More</span>
+                    </a>
+
+                    <a class="blog-card" href="IoTBlockchain.html" target="_blank" rel="noopener noreferrer" aria-label="Read blog post: Ethereum Blockchain for IoT Network Transactions.">
+                        <img class="blog-card-image" src="iot.png" alt="" loading="lazy">
+                        <p class="blog-meta">Blockchain + IoT</p>
+                        <h3>Ethereum Blockchain for IoT Node Transaction Authentication</h3>
+                        <p>Can Blockchain be used to authenticate communications between IoT devices in a simulated network? Yes, but it's complicated. The idea was straightforward: instead of relying on weak or absent security measures on low-powered IoT devices, use a smart contract on the Ethereum blockchain as a gatekeeper.</p>
+                        <span class="blog-card-link" aria-hidden="true">Read More</span>
+                    </a>
+
+                    <a class="blog-card" href="index.html" target="_blank" rel="noopener noreferrer" aria-label="Read blog post: IoT Authentication with Smart Contracts">
+                        <img class="blog-card-image" src="image.png" alt="" loading="lazy">
+                        <p class="blog-meta">Research</p>
+                        <h3>Lorem Ipsum Dolor Sit Amet</h3>
+                        <p>Lorem Ipsum Dolor Sit Amet</p>
+                        <span class="blog-card-link" aria-hidden="true">Read More</span>
+                    </a>
+
+                    <a class="blog-card" href="index.html" target="_blank" rel="noopener noreferrer" aria-label="Read blog post: IoT Authentication with Smart Contracts">
+                        <img class="blog-card-image" src="image.png" alt="" loading="lazy">
+                        <p class="blog-meta">Research</p>
+                        <h3>Lorem Ipsum Dolor Sit Amet</h3>
+                        <p>Lorem Ipsum Dolor Sit Amet</p>
+                        <span class="blog-card-link" aria-hidden="true">Read More</span>
+                    </a>
+<!--
+                    <a class="blog-card" href="blog-template.html" target="_blank" rel="noopener noreferrer" aria-label="Read blog post: Preparing for a Security Conference">
+                        <img class="blog-card-image" src="image.png" alt="" loading="lazy">
+                        <p class="blog-meta">Events · 3 min read</p>
+                        <h3>Preparing for a Security Conference</h3>
+                        <p>A lightweight checklist for getting value from talks, hallway conversations, and post-event follow-up.</p>
+                        <span class="blog-card-link" aria-hidden="true">Read template</span>
+                    </a>
+                </div>
+-->
+                <button class="carousel-control carousel-control-next" type="button" data-carousel-next aria-label="Next blog posts">
+                    <span aria-hidden="true">→</span>
+                </button>
+            </div>
+        </section>
+
+
+
+
+    </main>
+
+
+    <footer class="site-footer">
+        <p class="footer-date">Updated <span data-today-date></span></p>
+        <div class="footer-links">
+            <a
+                href="https://github.com/ChallengingShelf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="footer-link">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill="currentColor" d="M12 .5C5.65.5.5 5.65.5 12c0 5.09 3.29 9.41 7.86 10.94.57.1.78-.25.78-.55v-2.14c-3.2.69-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.71.08-.71 1.16.08 1.78 1.2 1.78 1.2 1.04 1.76 2.71 1.25 3.37.96.1-.75.41-1.25.74-1.54-2.55-.29-5.24-1.27-5.24-5.68 0-1.26.45-2.3 1.19-3.11-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.19a10.96 10.96 0 0 1 5.79 0c2.2-1.5 3.17-1.19 3.17-1.19.64 1.59.24 2.77.12 3.06.74.81 1.18 1.85 1.18 3.11 0 4.42-2.69 5.39-5.25 5.67.42.36.79 1.06.79 2.14v3.17c0 .31.2.66.79.55A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/>
+                </svg>
+                GitHub
+            </a>
+
+            <a
+                href="https://www.linkedin.com/in/daniel-hamilton-cyber"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="footer-link">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill="currentColor" d="M4.98 3.5C4.98 4.88 3.86 6 2.49 6S0 4.88 0 3.5 1.12 1 2.49 1s2.49 1.12 2.49 2.5ZM.29 8h4.4v15.5H.29V8Zm7.01 0h4.22v2.12h.06c.59-1.12 2.03-2.3 4.18-2.3 4.47 0 5.3 2.94 5.3 6.77v8.91h-4.39v-7.9c0-1.89-.03-4.32-2.63-4.32-2.63 0-3.03 2.05-3.03 4.18v8.04H7.3V8Z"/>
+                </svg>
+                LinkedIn
+            </a>
+        </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+</body>
+
+<!--
+██╗      ██████╗  ██████╗ ██╗  ██╗██╗███╗   ██╗ ██████╗     ██████╗ 
+██║     ██╔═══██╗██╔═══██╗██║ ██╔╝██║████╗  ██║██╔════╝     ╚════██╗
+██║     ██║   ██║██║   ██║█████╔╝ ██║██╔██╗ ██║██║  ███╗      ▄███╔╝
+██║     ██║   ██║██║   ██║██╔═██╗ ██║██║╚██╗██║██║   ██║      ▀▀══╝ 
+███████╗╚██████╔╝╚██████╔╝██║  ██╗██║██║ ╚████║╚██████╔╝      ██╗   
+╚══════╝ ╚═════╝  ╚═════╝ ╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝ ╚═════╝       ╚═╝   
+-->
+</html>
