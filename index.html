@@ -1,3 +1,40 @@
+<!--
+                 uuuuuuu
+             uu$$$$$$$$$$$uu
+          uu$$$$$$$$$$$$$$$$$uu
+         u$$$$$$$$$$$$$$$$$$$$$u
+        u$$$$$$$$$$$$$$$$$$$$$$$u
+       u$$$$$$$$$$$$$$$$$$$$$$$$$u
+       u$$$$$$$$$$$$$$$$$$$$$$$$$u
+       u$$$$$$"   "$$$"   "$$$$$$u
+       "$$$$"      u$u       $$$$"
+        $$$u       u$u       u$$$
+        $$$u      u$$$u      u$$$
+         "$$$$uu$$$   $$$uu$$$$"
+          "$$$$$$$"   "$$$$$$$"
+            u$$$$$$$u$$$$$$$u
+             u$"$"$"$"$"$"$u
+  uuu        $$u$ $ $ $ $u$$       uuu
+ u$$$$        $$$$$u$u$u$$$       u$$$$
+  $$$$$uu      "$$$$$$$$$"     uu$$$$$$
+u$$$$$$$$$$$uu    """""    uuuu$$$$$$$$$$
+$$$$"""$$$$$$$$$$uuu   uu$$$$$$$$$"""$$$"
+ """      ""$$$$$$$$$$$uu ""$"""
+           uuuu ""$$$$$$$$$$uuu
+  u$$$uuu$$$$$$$$$uu ""$$$$$$$$$$$uuu$$$
+  $$$$$$$$$$""""           ""$$$$$$$$$$$"
+   "$$$$$"                      ""$$$$""
+     $$$"                         $$$$"
+
+██╗    ██╗███████╗██╗      ██████╗ ██████╗ ███╗   ███╗███████╗
+██║    ██║██╔════╝██║     ██╔════╝██╔═══██╗████╗ ████║██╔════╝
+██║ █╗ ██║█████╗  ██║     ██║     ██║   ██║██╔████╔██║█████╗  
+██║███╗██║██╔══╝  ██║     ██║     ██║   ██║██║╚██╔╝██║██╔══╝  
+╚███╔███╔╝███████╗███████╗╚██████╗╚██████╔╝██║ ╚═╝ ██║███████╗
+ ╚══╝╚══╝ ╚══════╝╚══════╝ ╚═════╝ ╚═════╝ ╚═╝     ╚═╝╚══════╝
+-->
+
+
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
@@ -10,44 +47,38 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <canvas id="bg" aria-hidden="true"></canvas>
 
     <button
         class="theme-toggle"
         id="themeToggle"
+        type="button"
         aria-label="Toggle theme"
+        aria-pressed="false"
         title="Toggle theme">
         ☀
     </button>
 
     <main class="container">
-
         <section class="hero">
-            <p class="eyebrow">IN CYBERSPACE</p>
+            <p class="eyebrow">Cybersecurity</p>
 
-            <h1 class="hero-title">
-                Daniel Hamilton
-            </h1>
+            <h1 class="hero-title">Daniel Hamilton</h1>
 
             <p class="hero-description">
-                Current Technical Account Manager II with a First-Class
-                BEng (Hons) in Cybersecurity &amp; Forensics. Focused on delivering
-                high-quality outcomes through technical expertise, customer
-                engagement, teamwork, and always continuous learning in cyber.
+                Cybersecurity professional with a First-Class BEng (Hons) degree in Cybersecurity &amp; Forensics and numerous years of industry experience. Focused on delivering
+                high-quality outcomes through technical expertise, teamwork, and always continuous learning in cybersecurity and general tech.
             </p>
 
             <div class="hero-actions">
-
                 <a
                     href="https://github.com/ChallengingShelf"
                     target="_blank"
                     rel="noopener noreferrer"
                     class="social-link">
-
                     <svg viewBox="0 0 24 24" aria-hidden="true">
-                        <path fill="currentColor"
-                            d="M12 .5C5.65.5.5 5.65.5 12c0 5.09 3.29 9.41 7.86 10.94.57.1.78-.25.78-.55v-2.14c-3.2.69-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.71.08-.71 1.16.08 1.78 1.2 1.78 1.2 1.04 1.76 2.71 1.25 3.37.96.1-.75.41-1.25.74-1.54-2.55-.29-5.24-1.27-5.24-5.68 0-1.26.45-2.3 1.19-3.11-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.19a10.96 10.96 0 0 1 5.79 0c2.2-1.5 3.17-1.19 3.17-1.19.64 1.59.24 2.77.12 3.06.74.81 1.18 1.85 1.18 3.11 0 4.42-2.69 5.39-5.25 5.67.42.36.79 1.06.79 2.14v3.17c0 .31.2.66.79.55A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/>
+                        <path fill="currentColor" d="M12 .5C5.65.5.5 5.65.5 12c0 5.09 3.29 9.41 7.86 10.94.57.1.78-.25.78-.55v-2.14c-3.2.69-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.71.08-.71 1.16.08 1.78 1.2 1.78 1.2 1.04 1.76 2.71 1.25 3.37.96.1-.75.41-1.25.74-1.54-2.55-.29-5.24-1.27-5.24-5.68 0-1.26.45-2.3 1.19-3.11-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.19a10.96 10.96 0 0 1 5.79 0c2.2-1.5 3.17-1.19 3.17-1.19.64 1.59.24 2.77.12 3.06.74.81 1.18 1.85 1.18 3.11 0 4.42-2.69 5.39-5.25 5.67.42.36.79 1.06.79 2.14v3.17c0 .31.2.66.79.55A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/>
                     </svg>
-
                     GitHub
                 </a>
 
@@ -56,87 +87,71 @@
                     target="_blank"
                     rel="noopener noreferrer"
                     class="social-link">
-
                     <svg viewBox="0 0 24 24" aria-hidden="true">
-                        <path fill="currentColor"
-                            d="M4.98 3.5C4.98 4.88 3.86 6 2.49 6S0 4.88 0 3.5 1.12 1 2.49 1s2.49 1.12 2.49 2.5ZM.29 8h4.4v15.5H.29V8Zm7.01 0h4.22v2.12h.06c.59-1.12 2.03-2.3 4.18-2.3 4.47 0 5.3 2.94 5.3 6.77v8.91h-4.39v-7.9c0-1.89-.03-4.32-2.63-4.32-2.63 0-3.03 2.05-3.03 4.18v8.04H7.3V8Z"/>
+                        <path fill="currentColor" d="M4.98 3.5C4.98 4.88 3.86 6 2.49 6S0 4.88 0 3.5 1.12 1 2.49 1s2.49 1.12 2.49 2.5ZM.29 8h4.4v15.5H.29V8Zm7.01 0h4.22v2.12h.06c.59-1.12 2.03-2.3 4.18-2.3 4.47 0 5.3 2.94 5.3 6.77v8.91h-4.39v-7.9c0-1.89-.03-4.32-2.63-4.32-2.63 0-3.03 2.05-3.03 4.18v8.04H7.3V8Z"/>
                     </svg>
-
                     LinkedIn
                 </a>
-
             </div>
         </section>
 
-
-
         <section class="about-section">
-            <h2>About</h2>
-
+            <h2>$ whois daniel.hamilton</h2>
             <p>
-                Pragmatic, hardworking and highly motivated with strong
-                interpersonal and teamwork skills. Comfortable operating
-                independently or collaboratively while delivering
-                consistently high standards of service.
+                Dan is passionate about cybersecurity. With years of industry experience and a specialised degree, he brings professionalism and knowledge to the table.
+                That in combination with a pragmatic approach and an 'always learning' attitude results in a technical + personal well-rounded professional.
+                He won't always know the answer, but you can guarantee he will find out.
             </p>
 
             <p>
-                Passionate about maintaining and expanding technical
-                knowledge in cybersecurity.
+                Determined to maintain and expand technical knowledge and expertise in cybersecurity.
             </p>
         </section>
 
-
-
         <section class="content-grid">
-               <article class="card">
+            <article class="card">
                 <h2>Education</h2>
-
                 <h3>
                     First Class BEng (Hons)<br>
                     Cybersecurity &amp; Forensics
                 </h3>
-
-                <p>
-                    Edinburgh Napier University
-                </p>
-
-                <p>
-                    NCSC Certified Degree Programme.
-                </p>
+                <p>Edinburgh Napier University</p>
+                <p>NCSC Certified Degree Programme.</p>
             </article>
 
             <article class="card card-wide">
                 <h2>Dissertation / Honours Project</h2>
-
                 <p>
                     Investigation into the use of Ethereum for Internet of
                     Things (IoT) node transaction authentication through smart
                     contracts.
                 </p>
-
                 <p>
                     Utilised MetaMask, blockchain technologies and Cooja
                     network simulation tools to produce a proof-of-concept
                     research paper exploring enhanced security within IoT
                     environments.
                 </p>
+                <h3>TLDR:</h3>
+                <p>Using blockchain for IoT node transaction authentication is incredibly effective however it is complete overkill. 
+                    The low powered and lightweight nature of IoT devices is not suitable for the proposed resource-heavy authentication methodology. 
+                    However, in the future, with advances in computing power and battery technology this method could become viable.
+                </p>
+                <a href="blog-template.html" class="blog-card-link" target="_blank" rel="noopener noreferrer">Read More</a>
+                
+
             </article>
 
             <article class="card card-wide">
                 <h2>Community &amp; Leadership</h2>
-
                 <h3>Edinburgh Napier University Security Society</h3>
-
                 <p>
                     Active cybersecurity community bringing together students,
                     lecturers and industry professionals. Participation included
                     CTF events, TryHackMe, Hack The Box activities and
                     the annual Le Tour De Hack conference.
                 </p>
-
                 <h3>Edinburgh Napier University Futsal Club</h3>
-
                 <p>
                     Co-Founder, Vice President, First-Team Captain, Wellbeing
                     Officer and Social Media Administrator. Experience spanning
@@ -144,10 +159,15 @@
                 </p>
             </article>
 
-
             <article class="card">
                 <h2>Interested In</h2>
-
+                <ul>
+                    <li>Geopolitics</li>
+                    <li>Threat Intelligence</li>
+                    <li></li>
+                    <li></li>
+                </ul>
+                <h2>Events</h2>
                 <ul>
                     <li>Securi-Tay</li>
                     <li>Hack Glasgow</li>
@@ -157,118 +177,144 @@
             </article>
 
             <article class="card">
-                <h2>Listening To</h2>
-
-                <p>
-                    Darknet Diaries
-                </p>
+                <h2>Learning from:</h2>
+                <p>Darknet Diaries</p>
+                <p>HackTheBox</p>
             </article>
-
 
             <article class="card">
-            <h2>Extras</h2>
-
-            <p>
-                Outside of cybersecurity, interests include:
-            </p>
-
-            <ul>
-                <li>Photography</li>
-                <li>Running</li>
-                <li>Hiking</li>
-            </ul>
+                <h2>Extras</h2>
+                <p>Outside of cybersecurity, interests include:</p>
+                <ul>
+                    <li>Photography</li>
+                    <li>Running</li>
+                    <li>Hiking</li>
+                </ul>
             </article>
-
-        </section>
-<section class="github-section">
-    <h2>GitHub Activity</h2>
-
-    <div class="github-chart-container">
-        
-        <a href="https://github.com/ChallengingShelf">    
-        <img
-            src="https://ghchart.rshah.org/fdf0d5/ChallengingShelf"
-            alt="GitHub Contribution Graph"
-            class="github-chart"
-            loading="lazy">
-        </a>
-    </div>
-</section>
-
-
-                <section class="motto-section">
-            <blockquote>
-                WORK HARD &amp; BE NICE TO PEOPLE
-            </blockquote>
         </section>
 
+        <section class="blog-carousel-section" aria-labelledby="blog-carousel-title">
+            <div class="section-heading-row">
+                <div>
+                    <p class="eyebrow">Writing + Learning</p>
+                    <h2 id="blog-carousel-title">Blog</h2>
+                </div>
+                <a class="section-link" href="blog-template.html">Open Blog</a>
+            </div>
+
+            <div class="carousel-shell" data-carousel>
+                <button class="carousel-control carousel-control-prev" type="button" data-carousel-prev aria-label="Previous blog posts">
+                    <span aria-hidden="true">←</span>
+                </button>
+
+                <div class="blog-carousel" data-carousel-track tabindex="0" aria-label="Blog post carousel">
+                    <a class="blog-card" href="blog-template.html" target="_blank" rel="noopener noreferrer" aria-label="Read blog post: Threat Modelling a Home Lab">
+                        <img class="blog-card-image" src="image.png" alt="" loading="lazy">
+                        <p class="blog-meta">Cybersecurity · 6 min read</p>
+                        <h3>Threat Modelling a Home Lab</h3>
+                        <p>Placeholder notes on identifying trust boundaries, crown jewels, and practical controls in a small lab environment.</p>
+                        <span class="blog-card-link" aria-hidden="true">Read template</span>
+                    </a>
+
+                    <a class="blog-card" href="blog-template.html" target="_blank" rel="noopener noreferrer" aria-label="Read blog post: Lessons from Customer Escalations">
+                        <img class="blog-card-image" src="image.png" alt="" loading="lazy">
+                        <p class="blog-meta">Cloud · 5 min read</p>
+                        <h3>Lessons from Customer Escalations</h3>
+                        <p>A sample reflection on triage, communication, and turning technical incidents into repeatable service improvements.</p>
+                        <span class="blog-card-link" aria-hidden="true">Read template</span>
+                    </a>
+
+                    <a class="blog-card" href="blog-template.html" target="_blank" rel="noopener noreferrer" aria-label="Read blog post: IoT Authentication with Smart Contracts">
+                        <img class="blog-card-image" src="image.png" alt="" loading="lazy">
+                        <p class="blog-meta">Research · 7 min read</p>
+                        <h3>IoT Authentication with Smart Contracts</h3>
+                        <p>Placeholder content exploring transaction authentication patterns, network simulation, and resilient IoT design.</p>
+                        <span class="blog-card-link" aria-hidden="true">Read template</span>
+                    </a>
+
+                    <a class="blog-card" href="blog-template.html" target="_blank" rel="noopener noreferrer" aria-label="Read blog post: Building Technical Confidence">
+                        <img class="blog-card-image" src="image.png" alt="" loading="lazy">
+                        <p class="blog-meta">Career · 4 min read</p>
+                        <h3>Building Technical Confidence</h3>
+                        <p>Notes on continuous learning, asking better questions, and creating a sustainable feedback loop for growth.</p>
+                        <span class="blog-card-link" aria-hidden="true">Read template</span>
+                    </a>
+
+                    <a class="blog-card" href="blog-template.html" target="_blank" rel="noopener noreferrer" aria-label="Read blog post: Preparing for a Security Conference">
+                        <img class="blog-card-image" src="image.png" alt="" loading="lazy">
+                        <p class="blog-meta">Events · 3 min read</p>
+                        <h3>Preparing for a Security Conference</h3>
+                        <p>A lightweight checklist for getting value from talks, hallway conversations, and post-event follow-up.</p>
+                        <span class="blog-card-link" aria-hidden="true">Read template</span>
+                    </a>
+                </div>
+
+                <button class="carousel-control carousel-control-next" type="button" data-carousel-next aria-label="Next blog posts">
+                    <span aria-hidden="true">→</span>
+                </button>
+            </div>
+        </section>
+
+        <section class="github-section" aria-labelledby="github-title">
+            <div class="section-heading-row">
+                <div>
+                    <p class="eyebrow">Activity</p>
+                    <h2 id="github-title">GitHub Contributions</h2>
+                </div>
+            </div>
+
+            <div class="github-chart-container">
+                <a href="https://youtu.be/dQw4w9WgXcQ?si=VPleYVrOVwNN6YsC" target="_blank" rel="noopener noreferrer">
+                    <img
+                        src="https://ghchart.rshah.org/2ea043/ChallengingShelf"
+                        alt="GitHub contribution graph for ChallengingShelf"
+                        class="github-chart"
+                        loading="lazy">
+                </a>
+            </div>
+        </section>
+
+        <section class="motto-section">
+            <blockquote>WORK HARD &amp; BE NICE TO PEOPLE</blockquote>
+        </section>
     </main>
 
-    <script>
-        const toggle = document.getElementById('themeToggle');
-        const root = document.documentElement;
+    <footer class="site-footer">
+        <p class="footer-date">Updated <span data-today-date></span></p>
+        <div class="footer-links">
+            <a
+                href="https://github.com/ChallengingShelf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="footer-link">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill="currentColor" d="M12 .5C5.65.5.5 5.65.5 12c0 5.09 3.29 9.41 7.86 10.94.57.1.78-.25.78-.55v-2.14c-3.2.69-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.71.08-.71 1.16.08 1.78 1.2 1.78 1.2 1.04 1.76 2.71 1.25 3.37.96.1-.75.41-1.25.74-1.54-2.55-.29-5.24-1.27-5.24-5.68 0-1.26.45-2.3 1.19-3.11-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.19a10.96 10.96 0 0 1 5.79 0c2.2-1.5 3.17-1.19 3.17-1.19.64 1.59.24 2.77.12 3.06.74.81 1.18 1.85 1.18 3.11 0 4.42-2.69 5.39-5.25 5.67.42.36.79 1.06.79 2.14v3.17c0 .31.2.66.79.55A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/>
+                </svg>
+                GitHub
+            </a>
 
-        const savedTheme = localStorage.getItem('theme');
+            <a
+                href="https://www.linkedin.com/in/daniel-hamilton-cyber"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="footer-link">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill="currentColor" d="M4.98 3.5C4.98 4.88 3.86 6 2.49 6S0 4.88 0 3.5 1.12 1 2.49 1s2.49 1.12 2.49 2.5ZM.29 8h4.4v15.5H.29V8Zm7.01 0h4.22v2.12h.06c.59-1.12 2.03-2.3 4.18-2.3 4.47 0 5.3 2.94 5.3 6.77v8.91h-4.39v-7.9c0-1.89-.03-4.32-2.63-4.32-2.63 0-3.03 2.05-3.03 4.18v8.04H7.3V8Z"/>
+                </svg>
+                LinkedIn
+            </a>
+        </div>
+    </footer>
 
-        if (savedTheme === 'light') {
-            root.setAttribute('data-theme', 'light');
-            toggle.textContent = '🌙';
-        }
-
-        toggle.addEventListener('click', () => {
-            const isLight = root.getAttribute('data-theme') === 'light';
-
-            if (isLight) {
-                root.removeAttribute('data-theme');
-                localStorage.setItem('theme', 'dark');
-                toggle.textContent = '☀';
-            } else {
-                root.setAttribute('data-theme', 'light');
-                localStorage.setItem('theme', 'light');
-                toggle.textContent = '🌙';
-            }
-        });
-    </script>
-
-
-
-<footer class="site-footer">
-
-    <div class="footer-links">
-
-        <a
-            href="https://github.com/ChallengingShelf"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="footer-link">
-
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path fill="currentColor"
-                    d="M12 .5C5.65.5.5 5.65.5 12c0 5.09 3.29 9.41 7.86 10.94.57.1.78-.25.78-.55v-2.14c-3.2.69-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.71.08-.71 1.16.08 1.78 1.2 1.78 1.2 1.04 1.76 2.71 1.25 3.37.96.1-.75.41-1.25.74-1.54-2.55-.29-5.24-1.27-5.24-5.68 0-1.26.45-2.3 1.19-3.11-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.19a10.96 10.96 0 0 1 5.79 0c2.2-1.5 3.17-1.19 3.17-1.19.64 1.59.24 2.77.12 3.06.74.81 1.18 1.85 1.18 3.11 0 4.42-2.69 5.39-5.25 5.67.42.36.79 1.06.79 2.14v3.17c0 .31.2.66.79.55A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/>
-            </svg>
-
-            GitHub
-        </a>
-
-        <a
-            href="https://www.linkedin.com/in/daniel-hamilton-cyber"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="footer-link">
-
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path fill="currentColor"
-                    d="M4.98 3.5C4.98 4.88 3.86 6 2.49 6S0 4.88 0 3.5 1.12 1 2.49 1s2.49 1.12 2.49 2.5ZM.29 8h4.4v15.5H.29V8Zm7.01 0h4.22v2.12h.06c.59-1.12 2.03-2.3 4.18-2.3 4.47 0 5.3 2.94 5.3 6.77v8.91h-4.39v-7.9c0-1.89-.03-4.32-2.63-4.32-2.63 0-3.03 2.05-3.03 4.18v8.04H7.3V8Z"/>
-            </svg>
-
-            LinkedIn
-        </a>
-
-    </div>
-
-</footer>
-
-
-
+    <script src="script.js" defer></script>
 </body>
+
+<!--
+██╗      ██████╗  ██████╗ ██╗  ██╗██╗███╗   ██╗ ██████╗     ██████╗ 
+██║     ██╔═══██╗██╔═══██╗██║ ██╔╝██║████╗  ██║██╔════╝     ╚════██╗
+██║     ██║   ██║██║   ██║█████╔╝ ██║██╔██╗ ██║██║  ███╗      ▄███╔╝
+██║     ██║   ██║██║   ██║██╔═██╗ ██║██║╚██╗██║██║   ██║      ▀▀══╝ 
+███████╗╚██████╔╝╚██████╔╝██║  ██╗██║██║ ╚████║╚██████╔╝      ██╗   
+╚══════╝ ╚═════╝  ╚═════╝ ╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝ ╚═════╝       ╚═╝   
+-->
 </html>

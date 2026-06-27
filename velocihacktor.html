@@ -1,0 +1,238 @@
+<!--
+        ,
+       /|
+      / |
+     /  /
+    |   |
+   /    |
+   |    \_
+   |      \__
+   \       __\_______
+    \                 \_
+    | /                 \
+    \/                   \
+     |                    |
+     \                   \|
+     |                    \
+     \                     |
+     /\    \_               \
+    / |      \__ (   )       \
+   /  \      / |\\  /       __\____
+  |  ,     |  /\ \ \__    |       \_
+   \_/|\___/   \   \}}}\__|  (@)     )
+    \)\)\)      \_\---\   \|       \ \
+                  \>\>\>   \   /\__o_o)
+                            | /  VVVVV
+                            \ \    \
+                             \ \MMMMM                  
+                              \______/         _____ 
+                                              |  O O|
+                                             /___|_|/\_
+                                        ==( |          |
+                                             (o)====(o)
+
+
+██████╗  █████╗ ██╗    ██╗██████╗ 
+██╔══██╗██╔══██╗██║    ██║██╔══██╗
+██████╔╝███████║██║ █╗ ██║██████╔╝
+██╔══██╗██╔══██║██║███╗██║██╔══██╗
+██║  ██║██║  ██║╚███╔███╔╝██║  ██║
+╚═╝  ╚═╝╚═╝  ╚═╝ ╚══╝╚══╝ ╚═╝  ╚═╝                              
+-->
+
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Template blog article for Daniel Hamilton's cybersecurity portfolio.">
+    <meta name="theme-color" content="#28282B">
+    <title>Velocihacktor | Daniel Hamilton Blog</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="bg" aria-hidden="true"></canvas>
+
+    <button
+        class="theme-toggle"
+        id="themeToggle"
+        type="button"
+        aria-label="Toggle theme"
+        aria-pressed="false"
+        title="Toggle theme">
+        ☀
+    </button>
+
+    <main class="container blog-page">
+        <article class="blog-post-shell">
+            <a class="blog-back-link" href="index.html">← Back to home</a> <br>
+
+            <header class="blog-post-header">
+                <div class="blog-post-hero-image" aria-hidden="true">
+                    <img src="velocihacktor.png" alt="ai slop image of a dinosaur" />
+                </div>
+                <h1 class="blog-post-title">Jurassic Park was an inside job.</h1>
+                <p class="blog-post-subheading">
+                    Hear me out. <br>Themes: Identity | Role Based Access Control | MFA | EDR | Dinosaurs
+                </p>
+                <div class="blog-post-meta" aria-label="Article metadata">
+                    <span>Daniel Hamilton</span>
+                    <span><span data-today-date></span></span>
+                </div>
+            </header>
+
+            <div class="blog-post-content">
+                <p>
+                    In the classic 1994 movie Jurassic Park, it is a power failure that causes the physical security system to fail, 
+                    allowing the genetically engineered dinosaurs to escape their enclosures and cause chaos around the island.
+                </p>
+
+                <p>
+                   The villain was the IT guy ‘Dennis Nedry’ (notably an acronym of Nerdy), played by Wayne Knight, whom decided to steal some 
+                   internal company data - in this case genetic code for dinosaurs - and then deliberately sabotage Jurassic Park through a power outage. 
+                   Dennis was an underpaid and overworked ‘computer programmer’ at the park carrying out some serious corporate espionage for a rival 
+                   genetic engineering company.<br><br> In a classic 90s-hacker-‘i’m in the mainframe’-type-scene, Dennis created a backdoor called whte_rbt.obj 
+                   which, according to TyrannosaurTJ from <a class="section-link" href="https://www.jurassic-pedia.com/whte-rbt-obj-sf/">Jurassic-pedia.com</a>, 
+                   is a reference to Alice in Wonderland, the network being wonderland and the rabbit hole being the backdoor in the security. 
+                   In the film, White Rabbit disables the parks entire security system and seems to cover its tracks while doing so. 
+                   Nedrys custom malware focused on security fences and gates/ in the park and cleverly timed these attacks to give him time to reach certain
+                    gates to escape the island. 
+                </p>
+
+                <div class="blog-post-callout">
+                    <p>
+                        Top security tip: Don't keep dinosaurs. Or do? Guard dogs are outdated.
+                    </p>
+                </div>
+
+                <p> Naturally, the movie doesn’t go into much more detail about this all powerful malware but as the viewer, we get it. Dennis Nedry was a trusted 
+                    employee for InGen (the movies dino genetics amusement park corporation), and they had no idea that he was trying to steal dinosaur eggs, 
+                    genetic data and would go to great length to do so. Insider threats are a very real threat that many security teams and companies are facing. 
+                    Whether it's dinosaurs or data you are responsible for, there is always the possibility of an insider threat. Whether it’s a disgruntled employee, 
+                    someone on their way out from the company, corporate espionage, or a complicated remote worker scheme as seen carried out by the DPRK. Allegedly.<br><BR>
+                    
+                    Dennis got what was coming to him - death by Dilophosaurus - but in some cases, these situations don’t result in punishment for the bad guys. 
+                    In some cases, a breached company does not want the public attention, they don’t want wall street knowing that there has been a breach. 
+                    They may quietly fire the employee and carry on as normal. Hopefully reviewing their security structure after. 
+                    Obviously this is an extreme case study but the cybersecurity principles are there and there are some key takeaways to examine, so ...
+                </p>
+
+                <h2>What did we learn from the cyber attack in Jurassic Park?</h2>
+                <p>
+                    No seriously. 
+                <ul>
+                    <li>The principle of least privilege - giving users the least amount of privileges required to carry out their role. Did the IT guy need to have access to all the systems he had access to to run his code?</li>
+                    <li>Role based access control - Publish a clear role catalog with least-privilege entitlements and block conflicting role combos via segregation-of-duties rules.</li>
+                    <li>Physical security is just as important as cyber !</li>
+                    <li>Backup systems in place  - You need to have backup plans. Test restores regularly (not just backups) and document targets for every critical system.</li>
+                    <li>Backup your backups - have an isolated backup network as a failsafe. Keep immutable, air-gapped copies with separate credentials and dual-control required for any deletion.</li>
+                    <li>Ensure employee satisfaction - could this have been avoided with some UberEats Vouchers? Knowing Dennis, I think so.</li>
+                </ul>
+                </p>
+            </div>
+        </article>
+
+        <section class="blog-carousel-section" aria-labelledby="related-blog-carousel-title">
+            <div class="section-heading-row">
+                <div>
+                    <p class="eyebrow">Writing</p>
+                    <h2 id="related-blog-carousel-title">More Blog Posts</h2>
+                </div>
+                <a class="section-link" href="blog-template.html">View blog template</a>
+            </div>
+
+            <div class="carousel-shell" data-carousel>
+                <button class="carousel-control carousel-control-prev" type="button" data-carousel-prev aria-label="Previous blog posts">
+                    <span aria-hidden="true">←</span>
+                </button>
+
+                <div class="blog-carousel" data-carousel-track tabindex="0" aria-label="Blog post carousel">
+                    <a class="blog-card" href="blog-template.html" target="_blank" rel="noopener noreferrer" aria-label="Read blog post: Threat Modelling a Home Lab">
+                        <img class="blog-card-image" src="image.png" alt="" loading="lazy">
+                        <p class="blog-meta">Cybersecurity · 6 min read</p>
+                        <h3>Threat Modelling a Home Lab</h3>
+                        <p>Placeholder notes on identifying trust boundaries, crown jewels, and practical controls in a small lab environment.</p>
+                        <span class="blog-card-link" aria-hidden="true">Read template</span>
+                    </a>
+
+                    <a class="blog-card" href="blog-template.html" target="_blank" rel="noopener noreferrer" aria-label="Read blog post: Lessons from Customer Escalations">
+                        <img class="blog-card-image" src="image.png" alt="" loading="lazy">
+                        <p class="blog-meta">Cloud · 5 min read</p>
+                        <h3>Lessons from Customer Escalations</h3>
+                        <p>A sample reflection on triage, communication, and turning technical incidents into repeatable service improvements.</p>
+                        <span class="blog-card-link" aria-hidden="true">Read template</span>
+                    </a>
+
+                    <a class="blog-card" href="blog-template.html" target="_blank" rel="noopener noreferrer" aria-label="Read blog post: IoT Authentication with Smart Contracts">
+                        <img class="blog-card-image" src="image.png" alt="" loading="lazy">
+                        <p class="blog-meta">Research · 7 min read</p>
+                        <h3>IoT Authentication with Smart Contracts</h3>
+                        <p>Placeholder content exploring transaction authentication patterns, network simulation, and resilient IoT design.</p>
+                        <span class="blog-card-link" aria-hidden="true">Read template</span>
+                    </a>
+
+                    <a class="blog-card" href="blog-template.html" target="_blank" rel="noopener noreferrer" aria-label="Read blog post: Building Technical Confidence">
+                        <img class="blog-card-image" src="image.png" alt="" loading="lazy">
+                        <p class="blog-meta">Career · 4 min read</p>
+                        <h3>Building Technical Confidence</h3>
+                        <p>Notes on continuous learning, asking better questions, and creating a sustainable feedback loop for growth.</p>
+                        <span class="blog-card-link" aria-hidden="true">Read template</span>
+                    </a>
+
+                    <a class="blog-card" href="blog-template.html" target="_blank" rel="noopener noreferrer" aria-label="Read blog post: Preparing for a Security Conference">
+                        <img class="blog-card-image" src="image.png" alt="" loading="lazy">
+                        <p class="blog-meta">Events · 3 min read</p>
+                        <h3>Preparing for a Security Conference</h3>
+                        <p>A lightweight checklist for getting value from talks, hallway conversations, and post-event follow-up.</p>
+                        <span class="blog-card-link" aria-hidden="true">Read template</span>
+                    </a>
+                </div>
+
+                <button class="carousel-control carousel-control-next" type="button" data-carousel-next aria-label="Next blog posts">
+                    <span aria-hidden="true">→</span>
+                </button>
+            </div>
+        </section>
+    </main>
+
+
+    <footer class="site-footer">
+        <p class="footer-date">Updated <span data-today-date></span></p>
+        <div class="footer-links">
+            <a
+                href="https://github.com/ChallengingShelf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="footer-link">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill="currentColor" d="M12 .5C5.65.5.5 5.65.5 12c0 5.09 3.29 9.41 7.86 10.94.57.1.78-.25.78-.55v-2.14c-3.2.69-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.71.08-.71 1.16.08 1.78 1.2 1.78 1.2 1.04 1.76 2.71 1.25 3.37.96.1-.75.41-1.25.74-1.54-2.55-.29-5.24-1.27-5.24-5.68 0-1.26.45-2.3 1.19-3.11-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.19a10.96 10.96 0 0 1 5.79 0c2.2-1.5 3.17-1.19 3.17-1.19.64 1.59.24 2.77.12 3.06.74.81 1.18 1.85 1.18 3.11 0 4.42-2.69 5.39-5.25 5.67.42.36.79 1.06.79 2.14v3.17c0 .31.2.66.79.55A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/>
+                </svg>
+                GitHub
+            </a>
+
+            <a
+                href="https://www.linkedin.com/in/daniel-hamilton-cyber"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="footer-link">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill="currentColor" d="M4.98 3.5C4.98 4.88 3.86 6 2.49 6S0 4.88 0 3.5 1.12 1 2.49 1s2.49 1.12 2.49 2.5ZM.29 8h4.4v15.5H.29V8Zm7.01 0h4.22v2.12h.06c.59-1.12 2.03-2.3 4.18-2.3 4.47 0 5.3 2.94 5.3 6.77v8.91h-4.39v-7.9c0-1.89-.03-4.32-2.63-4.32-2.63 0-3.03 2.05-3.03 4.18v8.04H7.3V8Z"/>
+                </svg>
+                LinkedIn
+            </a>
+        </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+</body>
+
+<!--
+██╗      ██████╗  ██████╗ ██╗  ██╗██╗███╗   ██╗ ██████╗     ██████╗ 
+██║     ██╔═══██╗██╔═══██╗██║ ██╔╝██║████╗  ██║██╔════╝     ╚════██╗
+██║     ██║   ██║██║   ██║█████╔╝ ██║██╔██╗ ██║██║  ███╗      ▄███╔╝
+██║     ██║   ██║██║   ██║██╔═██╗ ██║██║╚██╗██║██║   ██║      ▀▀══╝ 
+███████╗╚██████╔╝╚██████╔╝██║  ██╗██║██║ ╚████║╚██████╔╝      ██╗   
+╚══════╝ ╚═════╝  ╚═════╝ ╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝ ╚═════╝       ╚═╝   
+-->
+</html>

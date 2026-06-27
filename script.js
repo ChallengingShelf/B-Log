@@ -1,270 +1,419 @@
-const MOBILE_BACKGROUND_QUERY = "(max-width: 768px)";
-const REDUCED_MOTION_QUERY = "(prefers-reduced-motion: reduce)";
+(() => {
+    "use strict";
 
-const toggle = document.getElementById("themeToggle");
-const root = document.documentElement;
-const body = document.body;
-
-function syncTheme(theme) {
-    const isLight = theme === "light";
-
-    if (isLight) {
-        root.setAttribute("data-theme", "light");
-        body.setAttribute("data-theme", "light");
-        if (toggle) toggle.textContent = "🌙";
-    } else {
-        root.removeAttribute("data-theme");
-        body.setAttribute("data-theme", "dark");
-        if (toggle) toggle.textContent = "☀";
-    }
-}
-
-syncTheme(localStorage.getItem("theme"));
-
-if (toggle) {
-    toggle.addEventListener("click", () => {
-        const nextTheme = root.getAttribute("data-theme") === "light" ? "dark" : "light";
-        localStorage.setItem("theme", nextTheme);
-        syncTheme(nextTheme);
+    const CONFIG = Object.freeze({
+        mobileBackgroundQuery: "(max-width: 768px)",
+        reducedMotionQuery: "(prefers-reduced-motion: reduce)",
+        particleCount: 90,
+        particleConnectionDistance: 140,
+        particleMouseDistance: 160,
+        particleMouseRepelStrength: 0.35,
+        dailyRefreshMs: 24 * 60 * 60 * 1000,
+        themeStorageKey: "theme",
+        themes: Object.freeze({
+            dark: Object.freeze({
+                name: "dark",
+                icon: "☀",
+                metaColor: "#28282B",
+            }),
+            light: Object.freeze({
+                name: "light",
+                icon: "🌙",
+                metaColor: "#f8f9fb",
+            }),
+        }),
     });
-}
 
-function initializeMovingBackground() {
-    const canvas = document.getElementById("bg");
-    if (!canvas) return;
+    const root = document.documentElement;
+    const themeMeta = document.querySelector('meta[name="theme-color"]');
 
-    const mobileMedia = window.matchMedia(MOBILE_BACKGROUND_QUERY);
-    const reducedMotionMedia = window.matchMedia(REDUCED_MOTION_QUERY);
-
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-
-    let w = 0;
-    let h = 0;
-    const particles = [];
-    const PARTICLE_COUNT = 90;
-    const MAX_DIST = 140;
-    let animationId = null;
-    let isRunning = false;
-    let gradientTopColor = "#323236";
-    let gradientBottomColor = "#28282b";
-    let particleColor = "#FFC300";
-    let lineColorRgb = "253,240,213";
-    let mouse = { x: -9999, y: -9999, active: false };
-
-    function shouldRunBackground() {
-        return !mobileMedia.matches && !reducedMotionMedia.matches;
-    }
-
-    function refreshBackgroundColors() {
-        const styles = getComputedStyle(root);
-        gradientTopColor = styles.getPropertyValue("--bg-secondary").trim() || "#323236";
-        gradientBottomColor = styles.getPropertyValue("--bg-primary").trim() || "#28282b";
-        particleColor = styles.getPropertyValue("--background-particle").trim() || "#FFC300";
-        const activeTheme = root.getAttribute("data-theme") || "dark";
-        lineColorRgb = activeTheme === "light" ? "30,31,35" : "253,240,213";
-    }
-
-    function resizeCanvas() {
-        w = canvas.width = window.innerWidth;
-        h = canvas.height = window.innerHeight;
-    }
-
-    class Particle {
-        constructor() {
-            this.reset();
-        }
-
-        reset() {
-            this.x = Math.random() * w;
-            this.y = Math.random() * h;
-            this.vx = (Math.random() - 0.5) * 0.6;
-            this.vy = (Math.random() - 0.5) * 0.6;
-            this.r = Math.random() * 2 + 0.5;
-        }
-
-        update() {
-            this.x += this.vx;
-            this.y += this.vy;
-
-            if (mouse.active) {
-                const dx = mouse.x - this.x;
-                const dy = mouse.y - this.y;
-                const dist = Math.sqrt(dx * dx + dy * dy);
-
-                if (dist < 160 && dist > 0) {
-                    this.x -= (dx / dist) * 0.35;
-                    this.y -= (dy / dist) * 0.35;
-                }
-            }
-
-            if (this.x < 0 || this.x > w) this.vx *= -1;
-            if (this.y < 0 || this.y > h) this.vy *= -1;
-        }
-
-        draw() {
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-            ctx.fillStyle = particleColor;
-            ctx.fill();
+    function getStoredTheme() {
+        try {
+            return window.localStorage.getItem(CONFIG.themeStorageKey);
+        } catch (_error) {
+            return null;
         }
     }
 
-    function drawLine(a, b) {
-        const dx = a.x - b.x;
-        const dy = a.y - b.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-
-        if (dist < MAX_DIST) {
-            ctx.beginPath();
-            ctx.moveTo(a.x, a.y);
-            ctx.lineTo(b.x, b.y);
-            ctx.strokeStyle = `rgba(${lineColorRgb},${1 - dist / MAX_DIST})`;
-            ctx.lineWidth = 1;
-            ctx.stroke();
+    function setStoredTheme(theme) {
+        try {
+            window.localStorage.setItem(CONFIG.themeStorageKey, theme);
+        } catch (_error) {
+            // Storage can be unavailable in private browsing or locked-down environments.
         }
     }
 
-    function drawGradient() {
-        const gradient = ctx.createLinearGradient(0, 0, 0, h);
-        gradient.addColorStop(0, gradientTopColor);
-        gradient.addColorStop(1, gradientBottomColor);
-        ctx.fillStyle = gradient;
-        ctx.fillRect(0, 0, w, h);
+    function normalizeTheme(theme) {
+        return theme === CONFIG.themes.light.name ? CONFIG.themes.light : CONFIG.themes.dark;
     }
 
-    function renderFrame() {
-        if (!shouldRunBackground() || document.hidden) {
-            stopAnimation();
-            return;
-        }
+    function syncTheme(theme, toggleButton = document.getElementById("themeToggle")) {
+        const activeTheme = normalizeTheme(theme);
+        const isLight = activeTheme.name === CONFIG.themes.light.name;
 
-        drawGradient();
-
-        for (const particle of particles) {
-            particle.update();
-            particle.draw();
-        }
-
-        for (let i = 0; i < particles.length; i += 1) {
-            for (let j = i + 1; j < particles.length; j += 1) {
-                drawLine(particles[i], particles[j]);
-            }
-        }
-
-        animationId = window.requestAnimationFrame(renderFrame);
-    }
-
-    function startAnimation() {
-        if (isRunning || !shouldRunBackground() || document.hidden) return;
-
-        canvas.hidden = false;
-        resizeCanvas();
-        refreshBackgroundColors();
-
-        if (!particles.length) {
-            for (let i = 0; i < PARTICLE_COUNT; i += 1) particles.push(new Particle());
-        }
-
-        isRunning = true;
-        renderFrame();
-    }
-
-    function stopAnimation() {
-        if (animationId !== null) window.cancelAnimationFrame(animationId);
-        animationId = null;
-        isRunning = false;
-
-        if (!shouldRunBackground()) {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            canvas.hidden = true;
-        }
-    }
-
-    function handleEnvironmentChange() {
-        if (shouldRunBackground()) {
-            startAnimation();
+        if (isLight) {
+            root.setAttribute("data-theme", CONFIG.themes.light.name);
+            document.body?.setAttribute("data-theme", CONFIG.themes.light.name);
         } else {
-            stopAnimation();
+            root.removeAttribute("data-theme");
+            document.body?.setAttribute("data-theme", CONFIG.themes.dark.name);
+        }
+
+        if (toggleButton) {
+            toggleButton.textContent = activeTheme.icon;
+            toggleButton.setAttribute("aria-pressed", String(isLight));
+        }
+
+        if (themeMeta) {
+            themeMeta.setAttribute("content", activeTheme.metaColor);
         }
     }
 
-    window.addEventListener("resize", () => {
-        resizeCanvas();
-        handleEnvironmentChange();
-    });
+    function initThemeToggle() {
+        const toggleButton = document.getElementById("themeToggle");
+        syncTheme(getStoredTheme(), toggleButton);
 
-    window.addEventListener("mousemove", (event) => {
-        mouse.x = event.clientX;
-        mouse.y = event.clientY;
-        mouse.active = true;
-    });
+        if (!toggleButton) return;
 
-    window.addEventListener("mouseleave", () => {
-        mouse.active = false;
-    });
+        toggleButton.addEventListener("click", () => {
+            const nextTheme = root.getAttribute("data-theme") === CONFIG.themes.light.name
+                ? CONFIG.themes.dark.name
+                : CONFIG.themes.light.name;
 
-    window.addEventListener("mouseout", (event) => {
-        if (!event.relatedTarget) mouse.active = false;
-    });
-
-    new MutationObserver(() => {
-        refreshBackgroundColors();
-    }).observe(root, {
-        attributes: true,
-        attributeFilter: ["data-theme"],
-    });
-
-    document.addEventListener("visibilitychange", () => {
-        if (document.hidden) {
-            stopAnimation();
-        } else {
-            handleEnvironmentChange();
-        }
-    });
-
-    mobileMedia.addEventListener("change", handleEnvironmentChange);
-    reducedMotionMedia.addEventListener("change", handleEnvironmentChange);
-
-    handleEnvironmentChange();
-}
-
-function initSharedTodayDate() {
-    const nodes = document.querySelectorAll("[data-today-date], #today-date");
-    if (!nodes.length) return;
-
-    let dailyIntervalId = null;
-
-    function formatToday() {
-        const d = new Date();
-        return `${d.getDate()}-${d.getMonth() + 1}-${d.getFullYear()}`;
-    }
-
-    function renderToday() {
-        const value = formatToday();
-        nodes.forEach((node) => {
-            node.textContent = value;
+            setStoredTheme(nextTheme);
+            syncTheme(nextTheme, toggleButton);
         });
     }
 
-    function scheduleNextUpdate() {
-        const now = new Date();
-        const nextMidnight = new Date(now);
-        nextMidnight.setHours(24, 0, 0, 0);
-        const msUntilMidnight = nextMidnight.getTime() - now.getTime();
+    function addMediaChangeListener(mediaQuery, handler) {
+        if (typeof mediaQuery.addEventListener === "function") {
+            mediaQuery.addEventListener("change", handler);
+            return;
+        }
 
-        setTimeout(() => {
-            renderToday();
-            if (dailyIntervalId) clearInterval(dailyIntervalId);
-            dailyIntervalId = setInterval(renderToday, 24 * 60 * 60 * 1000);
-        }, msUntilMidnight);
+        if (typeof mediaQuery.addListener === "function") {
+            mediaQuery.addListener(handler);
+        }
     }
 
-    renderToday();
-    scheduleNextUpdate();
-}
+    function initializeMovingBackground() {
+        const canvas = document.getElementById("bg");
+        if (!canvas) return;
 
-document.addEventListener("DOMContentLoaded", () => {
-    initializeMovingBackground();
-    initSharedTodayDate();
-});
+        const mobileMedia = window.matchMedia(CONFIG.mobileBackgroundQuery);
+        const reducedMotionMedia = window.matchMedia(CONFIG.reducedMotionQuery);
+        const ctx = canvas.getContext("2d");
+        if (!ctx) return;
+
+        const particles = [];
+        const mouse = { x: -9999, y: -9999, active: false };
+
+        let width = 0;
+        let height = 0;
+        let animationId = null;
+        let isRunning = false;
+        let gradientTopColor = "#323236";
+        let gradientBottomColor = "#28282b";
+        let particleColor = "#ffc300";
+        let lineColorRgb = "253,240,213";
+        let resizeFrameId = null;
+
+        function shouldRunBackground() {
+            return !mobileMedia.matches && !reducedMotionMedia.matches;
+        }
+
+        function refreshBackgroundColors() {
+            const styles = window.getComputedStyle(root);
+            gradientTopColor = styles.getPropertyValue("--bg-secondary").trim() || "#323236";
+            gradientBottomColor = styles.getPropertyValue("--bg-primary").trim() || "#28282b";
+            particleColor = styles.getPropertyValue("--background-particle").trim() || "#ffc300";
+            lineColorRgb = root.getAttribute("data-theme") === CONFIG.themes.light.name
+                ? "30,31,35"
+                : "253,240,213";
+        }
+
+        function resizeCanvas() {
+            width = window.innerWidth;
+            height = window.innerHeight;
+
+            const devicePixelRatio = Math.max(1, window.devicePixelRatio || 1);
+            canvas.width = Math.round(width * devicePixelRatio);
+            canvas.height = Math.round(height * devicePixelRatio);
+            canvas.style.width = `${width}px`;
+            canvas.style.height = `${height}px`;
+            ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+        }
+
+        class Particle {
+            constructor() {
+                this.reset();
+            }
+
+            reset() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.vx = (Math.random() - 0.5) * 0.6;
+                this.vy = (Math.random() - 0.5) * 0.6;
+                this.r = Math.random() * 2 + 0.5;
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                if (mouse.active) {
+                    const dx = mouse.x - this.x;
+                    const dy = mouse.y - this.y;
+                    const dist = Math.hypot(dx, dy);
+
+                    if (dist < CONFIG.particleMouseDistance && dist > 0) {
+                        this.x -= (dx / dist) * CONFIG.particleMouseRepelStrength;
+                        this.y -= (dy / dist) * CONFIG.particleMouseRepelStrength;
+                    }
+                }
+
+                if (this.x < 0 || this.x > width) this.vx *= -1;
+                if (this.y < 0 || this.y > height) this.vy *= -1;
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+                ctx.fillStyle = particleColor;
+                ctx.fill();
+            }
+        }
+
+        function drawLine(a, b) {
+            const dx = a.x - b.x;
+            const dy = a.y - b.y;
+            const dist = Math.hypot(dx, dy);
+
+            if (dist >= CONFIG.particleConnectionDistance) return;
+
+            ctx.beginPath();
+            ctx.moveTo(a.x, a.y);
+            ctx.lineTo(b.x, b.y);
+            ctx.strokeStyle = `rgba(${lineColorRgb},${1 - dist / CONFIG.particleConnectionDistance})`;
+            ctx.lineWidth = 1;
+            ctx.stroke();
+        }
+
+        function drawGradient() {
+            const gradient = ctx.createLinearGradient(0, 0, 0, height);
+            gradient.addColorStop(0, gradientTopColor);
+            gradient.addColorStop(1, gradientBottomColor);
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, width, height);
+        }
+
+        function renderFrame() {
+            if (!shouldRunBackground() || document.hidden) {
+                stopAnimation();
+                return;
+            }
+
+            drawGradient();
+
+            for (const particle of particles) {
+                particle.update();
+                particle.draw();
+            }
+
+            for (let i = 0; i < particles.length; i += 1) {
+                for (let j = i + 1; j < particles.length; j += 1) {
+                    drawLine(particles[i], particles[j]);
+                }
+            }
+
+            animationId = window.requestAnimationFrame(renderFrame);
+        }
+
+        function ensureParticles() {
+            if (particles.length) return;
+
+            for (let i = 0; i < CONFIG.particleCount; i += 1) {
+                particles.push(new Particle());
+            }
+        }
+
+        function startAnimation() {
+            if (isRunning || !shouldRunBackground() || document.hidden) return;
+
+            canvas.hidden = false;
+            resizeCanvas();
+            refreshBackgroundColors();
+            ensureParticles();
+
+            isRunning = true;
+            renderFrame();
+        }
+
+        function stopAnimation() {
+            if (animationId !== null) {
+                window.cancelAnimationFrame(animationId);
+            }
+
+            animationId = null;
+            isRunning = false;
+
+            if (!shouldRunBackground()) {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                canvas.hidden = true;
+            }
+        }
+
+        function handleEnvironmentChange() {
+            if (shouldRunBackground()) {
+                startAnimation();
+                return;
+            }
+
+            stopAnimation();
+        }
+
+        function handleResize() {
+            if (resizeFrameId !== null) return;
+
+            resizeFrameId = window.requestAnimationFrame(() => {
+                resizeFrameId = null;
+                resizeCanvas();
+                handleEnvironmentChange();
+            });
+        }
+
+        window.addEventListener("resize", handleResize, { passive: true });
+
+        window.addEventListener("mousemove", (event) => {
+            mouse.x = event.clientX;
+            mouse.y = event.clientY;
+            mouse.active = true;
+        }, { passive: true });
+
+        window.addEventListener("mouseleave", () => {
+            mouse.active = false;
+        });
+
+        window.addEventListener("mouseout", (event) => {
+            if (!event.relatedTarget) mouse.active = false;
+        });
+
+        new MutationObserver(refreshBackgroundColors).observe(root, {
+            attributes: true,
+            attributeFilter: ["data-theme"],
+        });
+
+        document.addEventListener("visibilitychange", () => {
+            if (document.hidden) {
+                stopAnimation();
+                return;
+            }
+
+            handleEnvironmentChange();
+        });
+
+        addMediaChangeListener(mobileMedia, handleEnvironmentChange);
+        addMediaChangeListener(reducedMotionMedia, handleEnvironmentChange);
+
+        handleEnvironmentChange();
+    }
+
+    function initSharedTodayDate() {
+        const nodes = document.querySelectorAll("[data-today-date], #today-date");
+        if (!nodes.length) return;
+
+        let dailyIntervalId = null;
+        let midnightTimeoutId = null;
+
+        function formatToday(date = new Date()) {
+            return `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`;
+        }
+
+        function renderToday() {
+            const value = formatToday();
+            nodes.forEach((node) => {
+                node.textContent = value;
+            });
+        }
+
+        function scheduleNextUpdate() {
+            const now = new Date();
+            const nextMidnight = new Date(now);
+            nextMidnight.setHours(24, 0, 0, 0);
+
+            if (midnightTimeoutId !== null) {
+                window.clearTimeout(midnightTimeoutId);
+            }
+
+            midnightTimeoutId = window.setTimeout(() => {
+                renderToday();
+
+                if (dailyIntervalId !== null) {
+                    window.clearInterval(dailyIntervalId);
+                }
+
+                dailyIntervalId = window.setInterval(renderToday, CONFIG.dailyRefreshMs);
+            }, nextMidnight.getTime() - now.getTime());
+        }
+
+        renderToday();
+        scheduleNextUpdate();
+    }
+
+    function initBlogCarousel() {
+        const carousels = document.querySelectorAll("[data-carousel]");
+
+        carousels.forEach((carousel) => {
+            const track = carousel.querySelector("[data-carousel-track]");
+            const prevButton = carousel.querySelector("[data-carousel-prev]");
+            const nextButton = carousel.querySelector("[data-carousel-next]");
+            if (!track || !prevButton || !nextButton) return;
+
+            let buttonFrameId = null;
+
+            function getScrollAmount() {
+                const firstCard = track.querySelector(".blog-card");
+                if (!firstCard) return track.clientWidth;
+
+                const gap = Number.parseFloat(window.getComputedStyle(track).columnGap) || 0;
+                return firstCard.getBoundingClientRect().width + gap;
+            }
+
+            function updateButtons() {
+                const maxScroll = Math.max(0, track.scrollWidth - track.clientWidth - 2);
+                prevButton.disabled = track.scrollLeft <= 2;
+                nextButton.disabled = track.scrollLeft >= maxScroll;
+            }
+
+            function requestButtonUpdate() {
+                if (buttonFrameId !== null) return;
+
+                buttonFrameId = window.requestAnimationFrame(() => {
+                    buttonFrameId = null;
+                    updateButtons();
+                });
+            }
+
+            prevButton.addEventListener("click", () => {
+                track.scrollBy({ left: -getScrollAmount(), behavior: "smooth" });
+            });
+
+            nextButton.addEventListener("click", () => {
+                track.scrollBy({ left: getScrollAmount(), behavior: "smooth" });
+            });
+
+            track.addEventListener("scroll", requestButtonUpdate, { passive: true });
+            window.addEventListener("resize", requestButtonUpdate, { passive: true });
+            updateButtons();
+        });
+    }
+
+    syncTheme(getStoredTheme());
+
+    document.addEventListener("DOMContentLoaded", () => {
+        initThemeToggle();
+        initializeMovingBackground();
+        initSharedTodayDate();
+        initBlogCarousel();
+    });
+})();
