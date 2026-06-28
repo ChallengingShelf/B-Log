@@ -1,0 +1,241 @@
+<!--
+                 uuuuuuu
+             uu$$$$$$$$$$$uu
+          uu$$$$$$$$$$$$$$$$$uu
+         u$$$$$$$$$$$$$$$$$$$$$u
+        u$$$$$$$$$$$$$$$$$$$$$$$u
+       u$$$$$$$$$$$$$$$$$$$$$$$$$u
+       u$$$$$$$$$$$$$$$$$$$$$$$$$u
+       u$$$$$$"   "$$$"   "$$$$$$u
+       "$$$$"      u$u       $$$$"
+        $$$u       u$u       u$$$
+        $$$u      u$$$u      u$$$
+         "$$$$uu$$$   $$$uu$$$$"
+          "$$$$$$$"   "$$$$$$$"
+            u$$$$$$$u$$$$$$$u
+             u$"$"$"$"$"$"$u
+  uuu        $$u$ $ $ $ $u$$       uuu
+ u$$$$        $$$$$u$u$u$$$       u$$$$
+  $$$$$uu      "$$$$$$$$$"     uu$$$$$$
+u$$$$$$$$$$$uu    """""    uuuu$$$$$$$$$$
+$$$$"""$$$$$$$$$$uuu   uu$$$$$$$$$"""$$$"
+ """      ""$$$$$$$$$$$uu ""$"""
+           uuuu ""$$$$$$$$$$uuu
+  u$$$uuu$$$$$$$$$uu ""$$$$$$$$$$$uuu$$$
+  $$$$$$$$$$""""           ""$$$$$$$$$$$"
+   "$$$$$"                      ""$$$$""
+     $$$"                         $$$$"
+
+██╗    ██╗███████╗██╗      ██████╗ ██████╗ ███╗   ███╗███████╗
+██║    ██║██╔════╝██║     ██╔════╝██╔═══██╗████╗ ████║██╔════╝
+██║ █╗ ██║█████╗  ██║     ██║     ██║   ██║██╔████╔██║█████╗  
+██║███╗██║██╔══╝  ██║     ██║     ██║   ██║██║╚██╔╝██║██╔══╝  
+╚███╔███╔╝███████╗███████╗╚██████╗╚██████╔╝██║ ╚═╝ ██║███████╗
+ ╚══╝╚══╝ ╚══════╝╚══════╝ ╚═════╝ ╚═════╝ ╚═╝     ╚═╝╚══════╝
+-->
+
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Daniel Hamilton Cybersecurity">
+    <meta name="theme-color" content="#28282B">
+    <title>Blog | DH Cyber </title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="bg" aria-hidden="true"></canvas>
+
+    <button
+        class="theme-toggle"
+        id="themeToggle"
+        type="button"
+        aria-label="Toggle theme"
+        aria-pressed="false"
+        title="Toggle theme">
+        ☀
+    </button>
+
+    <main class="container blog-page">
+        <article class="blog-post-shell">
+            <a class="blog-back-link" href="index.html">← Back to home</a>
+
+            <header class="blog-post-header">
+                <div class="blog-post-hero-image" aria-hidden="true">
+                    <span>Landing Image</span>
+                </div>
+                <h1 class="blog-post-title">Blog Hub</h1>
+                <p class="blog-post-subheading">
+                First of all thanks for reading, I hope you enjoy my writing. This is just a place for a lot of thoughts and opinions, plus stories from the cybersecurity world.
+                </p>
+                <div class="blog-post-meta" aria-label="Article metadata">
+                    <span>Daniel Hamilton</span>
+                    <span><span data-today-date></span></span>
+                </div>
+            </header>
+
+            <div class="blog-post-content">
+                <p>
+                In 2026, every company is now a tech company, whether they like it or not. This puts securing these organisations at the forefront of the list of priorities. At least it is supposed to. 
+                In 2026 many businesses still do not prioritise their cybersecurity and we see many simple attacks that could are preventable.
+                <br> <br> 
+                Hackers are more innovative and resourceful by the day. The rise of nation state threat actors / advanced persistent threats (APTs) is shaping not only private sector organisations but 
+                also the general geopolitical landscape more than ever before. This combined with artificial intelligence lowering the technical entry barrier and increasing complexity / capability and 
+                simple volume of attacks means that defense and investment in security is no longer optional but necessary. 
+                <br> <br>
+                There has never been a more exciting time to break into the cybersecurity industry.
+                <br> <br>
+                </p>
+
+                <p>
+                    Use this opening section to frame the problem, explain why the topic matters, and set expectations for what the reader will learn. For example, a post could cover a security lab build, a conference reflection, an incident response lesson, or a deeper write-up from research work.
+                </p>
+
+                <div class="blog-post-callout">
+                    <p>
+                        KNOWLEDGE IS POWER
+                    </p>
+                </div>
+
+                <h2>Read Articles Below</h2>
+                <p>Don't use the ai summary, take your time to read. Think about it. Have opinions, have no opinions, but always learn.
+                </p>
+            </div>
+        </article>
+
+        <section class="blog-grid" aria-labelledby="blog-grid-title">
+            <div class="section-heading-row">
+                <div>
+                    <p class="eyebrow">Writing</p>
+                    <h2 id="blog-grid-title">Read Articles</h2>
+                </div>
+            </div>
+
+            <div class="blog-grid-cards">
+                <a class="blog-card" href="velocihacktor.html" target="_blank" rel="noopener noreferrer" aria-label="Read blog post: Jurassic Park was an inside job.">
+                    <img class="blog-card-image" src="velocihacktor.png" alt="" loading="lazy">
+                    <p class="blog-meta">Insider Threats</p>
+                    <h3>Jurassic Park was an inside job.</h3>
+                    <p>In the classic 1994 movie Jurassic Park, deliberate power sabotage causes the physical security system to fail and chaos to follow.</p>
+                    <span class="blog-card-link" aria-hidden="true">Read More</span>
+                </a>
+
+
+                <a class="blog-card" href="IoTBlockchain.html" target="_blank" rel="noopener noreferrer" aria-label="Read blog post: Ethereum Blockchain for IoT Node Transaction Authentication">
+                    <img class="blog-card-image" src="iot.png" alt="" loading="lazy">
+                    <p class="blog-meta">Blockchain + IoT</p>
+                    <h3>Ethereum Blockchain for IoT Node Transaction Authentication</h3>
+                    <p>Can blockchain be used to authenticate communications between IoT devices in a simulated network? Yes, but it is complicated.</p>
+                    <span class="blog-card-link" aria-hidden="true">Read More</span>
+                </a>
+
+
+                <a class="blog-card" href="index.html" target="_blank" rel="noopener noreferrer" aria-label="Read blog post: We're gonna need a bigger cable">
+                    <img class="blog-card-image" src="image.png" alt="" loading="lazy">
+                    <p class="blog-meta">Infrastructure</p>
+                    <h3>We're gonna need a bigger cable</h3>
+                    <p>The internet is under the ocean. This article highlights the genuine problem of undersea cables getting eaten by sharks.</p>
+                    <span class="blog-card-link" aria-hidden="true">Read More</span>
+                </a>
+
+
+                <a class="blog-card" href="index.html" target="_blank" rel="noopener noreferrer" aria-label="Read blog post: The internet is protected by lava lamps">
+                    <img class="blog-card-image" src="image.png" alt="" loading="lazy">
+                    <p class="blog-meta">Encryption</p>
+                    <h3>The internet is protected by lava lamps</h3>
+                    <p>A write-up on Cloudflare's obscure yet effective lava lamp wall encryption method, highlighting strength in randomisation.</p>
+                    <span class="blog-card-link" aria-hidden="true">Read More</span>
+                </a>
+
+
+                <a class="blog-card" href="index.html" target="_blank" rel="noopener noreferrer" aria-label="Read blog post: Lorem Ipsum Dolor Sit Amet">
+                    <img class="blog-card-image" src="image.png" alt="" loading="lazy">
+                    <p class="blog-meta">Lorem Ipsum Dolor Sit Amet</p>
+                    <h3>Lorem Ipsum Dolor Sit Amet</h3>
+                    <p>Lorem Ipsum Dolor Sit Amet</p>
+                    <span class="blog-card-link" aria-hidden="true">Read More</span>
+                </a>
+
+
+                <a class="blog-card" href="index.html" target="_blank" rel="noopener noreferrer" aria-label="Read blog post: Lorem Ipsum Dolor Sit Amet">
+                    <img class="blog-card-image" src="image.png" alt="" loading="lazy">
+                    <p class="blog-meta">Lorem Ipsum Dolor Sit Amet</p>
+                    <h3>Lorem Ipsum Dolor Sit Amet</h3>
+                    <p>Lorem Ipsum Dolor Sit Amet</p>
+                    <span class="blog-card-link" aria-hidden="true">Read More</span>
+                </a>
+
+
+                <a class="blog-card" href="index.html" target="_blank" rel="noopener noreferrer" aria-label="Read blog post: Lorem Ipsum Dolor Sit Amet">
+                    <img class="blog-card-image" src="image.png" alt="" loading="lazy">
+                    <p class="blog-meta">Lorem Ipsum Dolor Sit Amet</p>
+                    <h3>Lorem Ipsum Dolor Sit Amet</h3>
+                    <p>Lorem Ipsum Dolor Sit Amet</p>
+                    <span class="blog-card-link" aria-hidden="true">Read More</span>
+                </a>
+
+
+                <a class="blog-card" href="index.html" target="_blank" rel="noopener noreferrer" aria-label="Read blog post: Lorem Ipsum Dolor Sit Amet">
+                    <img class="blog-card-image" src="image.png" alt="" loading="lazy">
+                    <p class="blog-meta">Lorem Ipsum Dolor Sit Amet</p>
+                    <h3>Lorem Ipsum Dolor Sit Amet</h3>
+                    <p>Lorem Ipsum Dolor Sit Amet</p>
+                    <span class="blog-card-link" aria-hidden="true">Read More</span>
+                </a>
+
+
+                <a class="blog-card" href="index.html" target="_blank" rel="noopener noreferrer" aria-label="Read blog post: Lorem Ipsum Dolor Sit Amet">
+                    <img class="blog-card-image" src="image.png" alt="" loading="lazy">
+                    <p class="blog-meta">Lorem Ipsum Dolor Sit Amet</p>
+                    <h3>Lorem Ipsum Dolor Sit Amet</h3>
+                    <p>Lorem Ipsum Dolor Sit Amet</p>
+                    <span class="blog-card-link" aria-hidden="true">Read More</span>
+                </a>
+
+            </div>
+        </section>
+
+    </main>
+
+
+    <footer class="site-footer">
+        <p class="footer-date">© Daniel Hamilton All rights reserved <span data-today-date></span></p>
+        <div class="footer-links">
+            <a
+                href="https://github.com/ChallengingShelf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="footer-link">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill="currentColor" d="M12 .5C5.65.5.5 5.65.5 12c0 5.09 3.29 9.41 7.86 10.94.57.1.78-.25.78-.55v-2.14c-3.2.69-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.71.08-.71 1.16.08 1.78 1.2 1.78 1.2 1.04 1.76 2.71 1.25 3.37.96.1-.75.41-1.25.74-1.54-2.55-.29-5.24-1.27-5.24-5.68 0-1.26.45-2.3 1.19-3.11-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.19a10.96 10.96 0 0 1 5.79 0c2.2-1.5 3.17-1.19 3.17-1.19.64 1.59.24 2.77.12 3.06.74.81 1.18 1.85 1.18 3.11 0 4.42-2.69 5.39-5.25 5.67.42.36.79 1.06.79 2.14v3.17c0 .31.2.66.79.55A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/>
+                </svg>
+                GitHub
+            </a>
+
+            <a
+                href="https://www.linkedin.com/in/daniel-hamilton-cyber"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="footer-link">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill="currentColor" d="M4.98 3.5C4.98 4.88 3.86 6 2.49 6S0 4.88 0 3.5 1.12 1 2.49 1s2.49 1.12 2.49 2.5ZM.29 8h4.4v15.5H.29V8Zm7.01 0h4.22v2.12h.06c.59-1.12 2.03-2.3 4.18-2.3 4.47 0 5.3 2.94 5.3 6.77v8.91h-4.39v-7.9c0-1.89-.03-4.32-2.63-4.32-2.63 0-3.03 2.05-3.03 4.18v8.04H7.3V8Z"/>
+                </svg>
+                LinkedIn
+            </a>
+        </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+</body>
+
+<!--
+██╗      ██████╗  ██████╗ ██╗  ██╗██╗███╗   ██╗ ██████╗     ██████╗ 
+██║     ██╔═══██╗██╔═══██╗██║ ██╔╝██║████╗  ██║██╔════╝     ╚════██╗
+██║     ██║   ██║██║   ██║█████╔╝ ██║██╔██╗ ██║██║  ███╗      ▄███╔╝
+██║     ██║   ██║██║   ██║██╔═██╗ ██║██║╚██╗██║██║   ██║      ▀▀══╝ 
+███████╗╚██████╔╝╚██████╔╝██║  ██╗██║██║ ╚████║╚██████╔╝      ██╗   
+╚══════╝ ╚═════╝  ╚═════╝ ╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝ ╚═════╝       ╚═╝   
+-->
+</html>
