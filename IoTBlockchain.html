@@ -84,11 +84,11 @@ $$$$"""$$$$$$$$$$uuu   uu$$$$$$$$$"""$$$"
                     measures on low-powered IoT devices, use a smart contract on the Ethereum blockchain as a gatekeeper. 
                     Nodes register their public keys on the blockchain, and before any two nodes communicate, the smart contract 
                     verifies both are registered and legitimate. To my knowledge, this hadn't been done before in quite this way, 
-                    which made it interesting — and at times, very difficult.
+                    which made it interesting - and at times, very difficult.
                 </p>
                 <h2>Why IoT Security is a problem worth solving</h2>
                 <p>
-                    IoT is everywhere. Smart speakers, video doorbells, thermostats, wearables — there are projected to be 55.7 billion IoT devices worldwide by 2025*, 
+                    IoT is everywhere. Smart speakers, video doorbells, thermostats, wearables - there are projected to be 55.7 billion IoT devices worldwide by 2025*, 
                     generating 80 zettabytes of data. These devices are used in homes, hospitals, supply chains, and increasingly in critical infrastructure. The security 
                     situation is bad. Here's why:
                 </p>
@@ -97,7 +97,7 @@ $$$$"""$$$$$$$$$$uuu   uu$$$$$$$$$"""$$$"
                     <li>Weak default passwords ship with devices and rarely get changed.</li>
                     <li>Software goes unpatched for months or years, sometimes indefinitely, because devices can't afford downtime.</li>
                     <li>No standardisation exists. Every IoT network is different, with different hardware, software, and protocols. There's no blanket security approach that works across the board.</li>
-                    <li>Centralised data structures create single points of failure. If that server goes down — or gets attacked — the whole network is affected.</li>
+                    <li>Centralised data structures create single points of failure. If that server goes down - or gets attacked - the whole network is affected.</li>
                 </ul>
                 <p>
                     Traditional cybersecurity tools like TLS and PKI certificates require too much processing power for most IoT devices. Lightweight encryption alternatives exist but are weak enough that a determined attacker can break them. The field is stuck.
@@ -121,7 +121,7 @@ $$$$"""$$$$$$$$$$uuu   uu$$$$$$$$$"""$$$"
                     <li>When a node joins the network, it registers its public key with a smart contract deployed on the Ethereum blockchain.</li>
                     <li>Before any two nodes communicate, the smart contract checks whether both nodes have registered public keys.</li>
                     <li>If both are registered, communication is authenticated and proceeds. If not, it's rejected. Because blockchain records are 
-                        famously immutable — they can't be altered once written — a node's identity can't be faked. A malicious node that hasn't 
+                        famously immutable - they can't be altered once written - a node's identity can't be faked. A malicious node that hasn't 
                         registered simply can't communicate with the rest of the network.
                     </li>
                 </ul>
@@ -134,13 +134,13 @@ $$$$"""$$$$$$$$$$uuu   uu$$$$$$$$$"""$$$"
                 <h2>Tech Stack</h2>
                 <h3>What's in use here?</h3>
                 <ul>
-                    <li>Contiki OS / Cooja simulator — used to simulate the IoT network with Sky mote nodes running `hello-world.c` firmware. Very simple.
+                    <li>Contiki OS / Cooja simulator - used to simulate the IoT network with Sky mote nodes running `hello-world.c` firmware. Very simple.
                     </li>
-                    <li>Ubuntu 22.10 — required because older versions of Ubuntu (bundled with Contiki 3.0) don't support Web3</li>
-                    <li>Solidity / Remix IDE — for writing and deploying the smart contract</li>
-                    <li>MetaMask — browser wallet used to deploy the contract and sign transactions</li>
-                    <li>MQTT (Message Queuing Telemetry Transport) — protocol used to connect the C firmware with the JavaScript function calling the smart contract</li>
-                    <li>Paho MQTT C client library — to enable MQTT within the Contiki C firmware </li>
+                    <li>Ubuntu 22.10 - required because older versions of Ubuntu (bundled with Contiki 3.0) don't support Web3</li>
+                    <li>Solidity / Remix IDE - for writing and deploying the smart contract</li>
+                    <li>MetaMask - browser wallet used to deploy the contract and sign transactions</li>
+                    <li>MQTT (Message Queuing Telemetry Transport) - protocol used to connect the C firmware with the JavaScript function calling the smart contract</li>
+                    <li>Paho MQTT C client library - to enable MQTT within the Contiki C firmware </li>
                 </ul>
 
                 <div class="blog-post-hero-image" aria-hidden="true">
@@ -154,8 +154,8 @@ $$$$"""$$$$$$$$$$uuu   uu$$$$$$$$$"""$$$"
                     I'll be direct: <i>the full implementation didn't work.</i> The smart contract was written, compiled, and successfully deployed on the Goerli test network. 
                     MetaMask was configured. The `hello-world.c` firmware was modified to include MQTT functionality. The JavaScript file was written to interface with the smart 
                     contract. All the individual components were built. <br><br>
-                    The problem was the Cooja simulator itself. After multiple attempts to get the full pipeline running — including reinstalling Ubuntu and Contiki from scratch 
-                    several times — a fatal build directory error in Cooja (`fatal: Not a valid object name HEAD`) prevented simulations from running. The JavaScript integration 
+                    The problem was the Cooja simulator itself. After multiple attempts to get the full pipeline running - including reinstalling Ubuntu and Contiki from scratch 
+                    several times - a fatal build directory error in Cooja (`fatal: Not a valid object name HEAD`) prevented simulations from running. The JavaScript integration 
                     also remained incomplete; the link between the C firmware and the JavaScript file via MQTT was written but couldn't be evidenced as functional. This meant I 
                     couldn't generate the comparison data I intended to: power consumption before versus after blockchain authentication, packet delivery ratios, and latency figures.
                 </p>
@@ -166,14 +166,14 @@ $$$$"""$$$$$$$$$$uuu   uu$$$$$$$$$"""$$$"
                 <p> 
                     Before the blockchain integration was attempted, the basic Cooja simulation ran successfully. Three Sky mote nodes ran the `hello-world.c` firmware for 15 minutes. 
                     The average power consumption across the network was 1.432 milliwatts (mW). This baseline is useful context: it's the starting point against which any increase from 
-                    blockchain authentication would be measured. It was expected — and is supported by related literature — that adding blockchain authentication would significantly 
+                    blockchain authentication would be measured. It was expected - and is supported by related literature - that adding blockchain authentication would significantly 
                     increase power consumption. This is the core problem with applying blockchain to IoT. The computational overhead of interacting with a blockchain per-communication
                      is non-trivial for devices designed to sip power over months or years.
                 </p>
 
                 <h4>Related Research</h4>
                 <p>
-                    At the time of writing, there aren't many papers exploring exactly this topic — blockchain authentication of node-to-node communication in IoT simulations.
+                    At the time of writing, there aren't many papers exploring exactly this topic - blockchain authentication of node-to-node communication in IoT simulations.
                     The few that exist reach similar conclusions:
                 <ul>
                     <li> Blockchain can provide trust, integrity, and authentication in IoT environments.</li>
@@ -196,7 +196,7 @@ $$$$"""$$$$$$$$$$uuu   uu$$$$$$$$$"""$$$"
                 <h2>Honest Reflections and next steps for research</h2>
                 <p> Despite not producing simulation results, this paper does achieve its goals to an extent. Provides a working, deployed smart contract for IoT node authentication (source code included, 
                     verifiable on Etherscan). It also documents the full methodology: network setup, wallet configuration, contract deployment, and MQTT integration attempt. This establishes a proof of 
-                    concept backed by extensive literature. Identifies the specific technical blockers — Cooja compatibility issues, MQTT broker configuration complexity — that future researchers need to solve. 
+                    concept backed by extensive literature. Identifies the specific technical blockers - Cooja compatibility issues, MQTT broker configuration complexity - that future researchers need to solve. 
                     Also this sets a baseline power consumption reading for comparison in future work
                 </p>
 
@@ -212,7 +212,7 @@ $$$$"""$$$$$$$$$$uuu   uu$$$$$$$$$"""$$$"
 
                 <h4>Weaknesses</h4>
                 <ul>
-                    <li>Power consumption will increase — by how much remains unquantified because the simulation failed</li>
+                    <li>Power consumption will increase - by how much remains unquantified because the simulation failed</li>
                     <li>Transaction costs make this impractical at scale on the Ethereum mainnet</li>
                     <li>The MQTT communications between node and JavaScript file are themselves unencrypted, which introduces its own vulnerability.</li>
                     <li>IoT authentication is not currently a priority for many organisations; lightweight encryption is considered good enough by most</li>
