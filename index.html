@@ -44,20 +44,30 @@ $$$$"""$$$$$$$$$$uuu   uu$$$$$$$$$"""$$$"
     <meta name="theme-color" content="#28282B">
     <title>Daniel Hamilton | Cyber</title>
     <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..800&family=JetBrains+Mono:wght@400..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400&display=swap">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <canvas id="bg" aria-hidden="true"></canvas>
-
-    <button
-        class="theme-toggle"
-        id="themeToggle"
-        type="button"
-        aria-label="Toggle theme"
-        aria-pressed="false"
-        title="Toggle theme">
-        ☀
-    </button>
+    <header class="site-header">
+        <div class="site-header-inner">
+            <a class="brand" href="index.html">HamiltonHacks.com</a>
+            <nav class="site-nav" aria-label="Primary">
+                <a href="index.html" aria-current="page">Home</a>
+                <a href="blog.html">Blog</a>
+            </nav>
+            <button
+                class="theme-toggle"
+                id="themeToggle"
+                type="button"
+                aria-label="Toggle theme"
+                aria-pressed="false"
+                title="Toggle theme">
+                ☀
+            </button>
+        </div>
+    </header>
 
     <main class="container">
         <section class="hero">
@@ -118,15 +128,12 @@ $$$$"""$$$$$$$$$$uuu   uu$$$$$$$$$"""$$$"
                 <p>Edinburgh Napier University</p>
                 <p>NCSC Certified Degree Programme.</p>
                 <h3>Learning</h3>
-                <p>
-                    <ul>
-                        <li>Darknet Diaries</li>
-                        <li>Hack The Box</li>
-                        <li>Immersive Labs</li>
-                        <li>Infosec Twitter</li>
-                    </ul>
-                    
-                </p>
+                <ul>
+                    <li>Darknet Diaries</li>
+                    <li>Hack The Box</li>
+                    <li>Immersive Labs</li>
+                    <li>Infosec Twitter</li>
+                </ul>
             </article>
 
             <article class="card card-wide">
@@ -247,16 +254,8 @@ $$$$"""$$$$$$$$$$uuu   uu$$$$$$$$$"""$$$"
                         <p>A writeup on CloudFlare's obscure yet effective lava lamp wall encryption method. Highlighting strength in randomisation. Writing coming soon.</p>
                         <span class="blog-card-link" aria-hidden="true">Read More</span>
                     </a>
-<!--
-                    <a class="blog-card" href="blog-template.html" target="_blank" rel="noopener noreferrer" aria-label="Read blog post: Preparing for a Security Conference">
-                        <img class="blog-card-image" src="image.png" alt="" loading="lazy">
-                        <p class="blog-meta">Events · 3 min read</p>
-                        <h3>Preparing for a Security Conference</h3>
-                        <p>A lightweight checklist for getting value from talks, hallway conversations, and post-event follow-up.</p>
-                        <span class="blog-card-link" aria-hidden="true">Read template</span>
-                    </a>
                 </div>
--->
+
                 <button class="carousel-control carousel-control-next" type="button" data-carousel-next aria-label="Next blog posts">
                     <span aria-hidden="true">→</span>
                 </button>

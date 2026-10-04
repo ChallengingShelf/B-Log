@@ -43,25 +43,35 @@ $$$$"""$$$$$$$$$$uuu   uu$$$$$$$$$"""$$$"
     <meta name="theme-color" content="#28282B">
     <title>Blockchain for IoT | DH Cyber</title>
     <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..800&family=JetBrains+Mono:wght@400..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400&display=swap">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <canvas id="bg" aria-hidden="true"></canvas>
-
-    <button
-        class="theme-toggle"
-        id="themeToggle"
-        type="button"
-        aria-label="Toggle theme"
-        aria-pressed="false"
-        title="Toggle theme">
-        ☀
-    </button>
+    <header class="site-header">
+        <div class="site-header-inner">
+            <a class="brand" href="index.html">HamiltonHacks.com</a>
+            <nav class="site-nav" aria-label="Primary">
+                <a href="index.html">Home</a>
+                <a href="blog.html">Blog</a>
+            </nav>
+            <button
+                class="theme-toggle"
+                id="themeToggle"
+                type="button"
+                aria-label="Toggle theme"
+                aria-pressed="false"
+                title="Toggle theme">
+                ☀
+            </button>
+        </div>
+    </header>
 
     <main class="container blog-page">
         <article class="blog-post-shell">
-            <a class="blog-back-link" href="index.html"> ← Back to home</a><br><br>
-            <header class="blog-post-header">>
+            <a class="blog-back-link" href="index.html">← Back to home</a>
+            <header class="blog-post-header">
                 <div class="blog-post-hero-image" aria-hidden="true">
                     <img src="IoT.png" alt="poster of iot blockchain authentication"/>
                 </div>
@@ -145,7 +155,8 @@ $$$$"""$$$$$$$$$$uuu   uu$$$$$$$$$"""$$$"
 
                 <div class="blog-post-hero-image" aria-hidden="true">
                     <img src="node.png" alt="picture of metamask in use" />
-                </div><h8>IoT Node Setup</h8>
+                </div>
+                <p class="figure-caption">IoT Node Setup</p>
 
 
                 <h2>What Actually Happened</h2>
@@ -182,7 +193,6 @@ $$$$"""$$$$$$$$$$uuu   uu$$$$$$$$$"""$$$"
                 </ul>
                 <p>Yeah, that's fair enough, that's the expected result. The concept is sound but the hardware isn't there yet. Any maybe it won't be. It is a juxtaposition to be 
                     abusing IoT devices like this and expecting them to run highly resource consumptive process when they are simply not designed to by their nature. I'm okay with that.
-                </p>          
                 </p>
 
 
@@ -242,7 +252,7 @@ $$$$"""$$$$$$$$$$uuu   uu$$$$$$$$$"""$$$"
                     <p class="eyebrow">Writing + Learning</p>
                     <h2 id="blog-carousel-title">Blog</h2>
                 </div>
-                <a class="section-link" href="Blog.html">Open Blog Hub</a>
+                <a class="section-link" href="blog.html">Open Blog Hub</a>
             </div>
 
             <div class="carousel-shell" data-carousel>
@@ -283,16 +293,8 @@ $$$$"""$$$$$$$$$$uuu   uu$$$$$$$$$"""$$$"
                         <p>A writeup on CloudFlare's obscure yet effective lava lamp wall encryption method. Highlighting strength in randomisation. Writing coming soon.</p>
                         <span class="blog-card-link" aria-hidden="true">Read More</span>
                     </a>
-<!--
-                    <a class="blog-card" href="blog-template.html" target="_blank" rel="noopener noreferrer" aria-label="Read blog post: Preparing for a Security Conference">
-                        <img class="blog-card-image" src="image.png" alt="" loading="lazy">
-                        <p class="blog-meta">Events · 3 min read</p>
-                        <h3>Preparing for a Security Conference</h3>
-                        <p>A lightweight checklist for getting value from talks, hallway conversations, and post-event follow-up.</p>
-                        <span class="blog-card-link" aria-hidden="true">Read template</span>
-                    </a>
                 </div>
--->
+
                 <button class="carousel-control carousel-control-next" type="button" data-carousel-next aria-label="Next blog posts">
                     <span aria-hidden="true">→</span>
                 </button>
