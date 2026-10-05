@@ -1059,7 +1059,7 @@ blockquote {
     }
 
     .hero-title {
-        font-size: 3.1rem;
+        font-size: min(3.1rem, 11vw);
     }
 
     .hero-actions,
@@ -1144,6 +1144,20 @@ blockquote {
         flex-direction: column;
         text-align: center;
         padding: 1.75rem 1.25rem;
+    }
+}
+
+@media (max-width: 380px) {
+    .site-header-inner {
+        gap: 0.5rem;
+    }
+
+    .brand {
+        font-size: 0.85rem;
+    }
+
+    .site-nav a {
+        padding: 0.4rem 0.55rem;
     }
 }
 
