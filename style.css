@@ -313,6 +313,12 @@ a {
     transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
 }
 
+button.social-link {
+    font-family: inherit;
+    line-height: inherit;
+    cursor: pointer;
+}
+
 .social-link:hover {
     transform: translateY(-1px);
     border-color: var(--accent);
@@ -1012,6 +1018,41 @@ blockquote {
     font-size: 1.05rem;
     font-weight: 500;
     line-height: 1.6;
+}
+
+/* ==========================================================================
+   404 page
+   ========================================================================== */
+.error-code {
+    color: var(--accent);
+}
+
+.error-hero .hero-title {
+    font-size: clamp(1.5rem, 8vw, 6.5rem);
+}
+
+.error-terminal {
+    max-width: 760px;
+    margin: 2.25rem 0 0;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+}
+
+.error-terminal p {
+    margin: 0 0 0.4rem;
+    color: var(--text);
+    overflow-wrap: anywhere;
+}
+
+.error-terminal .error-prompt,
+.error-terminal .error-status {
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.error-terminal .error-muted {
+    margin: 0;
+    color: var(--muted);
 }
 
 /* ==========================================================================
