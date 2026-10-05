@@ -1,0 +1,190 @@
+<!--
+                 uuuuuuu
+             uu$$$$$$$$$$$uu
+          uu$$$$$$$$$$$$$$$$$uu
+         u$$$$$$$$$$$$$$$$$$$$$u
+        u$$$$$$$$$$$$$$$$$$$$$$$u
+       u$$$$$$$$$$$$$$$$$$$$$$$$$u
+       u$$$$$$$$$$$$$$$$$$$$$$$$$u
+       u$$$$$$"   "$$$"   "$$$$$$u
+       "$$$$"      u$u       $$$$"
+        $$$u       u$u       u$$$
+        $$$u      u$$$u      u$$$
+         "$$$$uu$$$   $$$uu$$$$"
+          "$$$$$$$"   "$$$$$$$"
+            u$$$$$$$u$$$$$$$u
+             u$"$"$"$"$"$"$u
+  uuu        $$u$ $ $ $ $u$$       uuu
+ u$$$$        $$$$$u$u$u$$$       u$$$$
+  $$$$$uu      "$$$$$$$$$"     uu$$$$$$
+u$$$$$$$$$$$uu    """""    uuuu$$$$$$$$$$
+$$$$"""$$$$$$$$$$uuu   uu$$$$$$$$$"""$$$"
+ """      ""$$$$$$$$$$$uu ""$"""
+           uuuu ""$$$$$$$$$$uuu
+  u$$$uuu$$$$$$$$$uu ""$$$$$$$$$$$uuu$$$
+  $$$$$$$$$$""""           ""$$$$$$$$$$$"
+   "$$$$$"                      ""$$$$""
+     $$$"                         $$$$"
+
+██╗    ██╗███████╗██╗      ██████╗ ██████╗ ███╗   ███╗███████╗
+██║    ██║██╔════╝██║     ██╔════╝██╔═══██╗████╗ ████║██╔════╝
+██║ █╗ ██║█████╗  ██║     ██║     ██║   ██║██╔████╔██║█████╗  
+██║███╗██║██╔══╝  ██║     ██║     ██║   ██║██║╚██╔╝██║██╔══╝  
+╚███╔███╔╝███████╗███████╗╚██████╗╚██████╔╝██║ ╚═╝ ██║███████╗
+ ╚══╝╚══╝ ╚══════╝╚══════╝ ╚═════╝ ╚═════╝ ╚═╝     ╚═╝╚══════╝
+-->
+
+
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Page not found - HamiltonHacks Cybersecurity">
+    <meta name="robots" content="noindex">
+    <meta name="theme-color" content="#28282B">
+    <title>404 Not Found | HamiltonHacks</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..800&family=JetBrains+Mono:wght@400..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400&display=swap">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="site-header-inner">
+            <a class="brand" href="/">HamiltonHacks.com</a>
+            <nav class="site-nav" aria-label="Primary">
+                <a href="/">Home</a>
+                <a href="/blog">Blog</a>
+            </nav>
+            <button
+                class="theme-toggle"
+                id="themeToggle"
+                type="button"
+                aria-label="Toggle theme"
+                aria-pressed="false"
+                title="Toggle theme">
+                ☀
+            </button>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero error-hero" aria-labelledby="error-title">
+            <p class="eyebrow">Error 404</p>
+
+            <h1 class="hero-title" id="error-title">Page not found</h1>
+
+            <p class="hero-description">
+                The page you were looking for doesn't exist or has moved.
+                Double-check the link, or reconnect using the options below.
+            </p>
+
+            <div class="about-section error-terminal" aria-label="Request details">
+                <p><span class="error-prompt">$</span> curl -I https://hamiltonhacks.com<span data-requested-path></span></p>
+                <p class="error-status">HTTP/2 404 Not Found</p>
+                <p class="error-muted">No such resource. Connection closed.</p>
+            </div>
+
+            <div class="hero-actions">
+                <a class="social-link" href="/">Back to home</a>
+                <a class="social-link" href="/blog">Read the blog</a>
+            </div>
+        </section>
+
+        <section class="blog-carousel-section" aria-labelledby="blog-carousel-title">
+            <div class="section-heading-row">
+                <div>
+                    <p class="eyebrow">Writing + Learning</p>
+                    <h2 id="blog-carousel-title">Blog</h2>
+                </div>
+                <a class="section-link" href="/blog">Open Blog Hub</a>
+            </div>
+
+            <div class="carousel-shell" data-carousel>
+                <button class="carousel-control carousel-control-prev" type="button" data-carousel-prev aria-label="Previous blog posts">
+                    <span aria-hidden="true">←</span>
+                </button>
+
+                <div class="blog-carousel" data-carousel-track tabindex="0" aria-label="Blog post carousel">
+                    <a class="blog-card" href="/velocihacktor" target="_blank" rel="noopener noreferrer" aria-label="Read blog post: Jurassic Park was an inside job.">
+                        <img class="blog-card-image" src="/velocihacktor.png" alt="" loading="lazy">
+                        <p class="blog-meta">Insider Threats</p>
+                        <h3>Jurassic Park was an inside job.</h3>
+                        <p>In the classic 1994 movie Jurassic Park, it is deliberate power sabotage that causes the physical security system to fail, 
+                    allowing the genetically engineered dinosaurs to escape their enclosures and cause chaos around the island.</p>
+                        <span class="blog-card-link" aria-hidden="true">Read More</span>
+                    </a>
+
+                    <a class="blog-card" href="/IoTBlockchain" target="_blank" rel="noopener noreferrer" aria-label="Read blog post: Ethereum Blockchain for IoT Network Transactions.">
+                        <img class="blog-card-image" src="/IoT.png" alt="" loading="lazy">
+                        <p class="blog-meta">Blockchain + IoT</p>
+                        <h3>Ethereum Blockchain for IoT Node Transaction Authentication</h3>
+                        <p>Can Blockchain be used to authenticate communications between IoT devices in a simulated network? Yes, but it's complicated. The idea was straightforward: instead of relying on weak or absent security measures on low-powered IoT devices, use a smart contract on the Ethereum blockchain as a gatekeeper.</p>
+                        <span class="blog-card-link" aria-hidden="true">Read More</span>
+                    </a>
+
+                    <a class="blog-card" href="/" target="_blank" rel="noopener noreferrer" aria-label="Read blog post: Shark Att(h)ack">
+                        <img class="blog-card-image" src="/image.png" alt="" loading="lazy">
+                        <p class="blog-meta">Infrastructure</p>
+                        <h3>We're gonna need a bigger cable</h3>
+                        <p>The internet is under the ocean. This article highlights the genuine problem of undersea cables getting eaten by sharks. Genuinely. Writing coming soon. </p>
+                        <span class="blog-card-link" aria-hidden="true">Read More</span>
+                    </a>
+
+                    <a class="blog-card" href="/" target="_blank" rel="noopener noreferrer" aria-label="Read blog post: Why my lava lamp is better than your password">
+                        <img class="blog-card-image" src="/image.png" alt="" loading="lazy">
+                        <p class="blog-meta">Encryption</p>
+                        <h3>The internet is protected by lava lamps</h3>
+                        <p>A writeup on CloudFlare's obscure yet effective lava lamp wall encryption method. Highlighting strength in randomisation. Writing coming soon.</p>
+                        <span class="blog-card-link" aria-hidden="true">Read More</span>
+                    </a>
+                </div>
+
+                <button class="carousel-control carousel-control-next" type="button" data-carousel-next aria-label="Next blog posts">
+                    <span aria-hidden="true">→</span>
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p class="footer-date">© HamiltonHacks All rights reserved <span data-today-date></span></p>
+        <div class="footer-links">
+            <a
+                href="https://github.com/ChallengingShelf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="footer-link">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill="currentColor" d="M12 .5C5.65.5.5 5.65.5 12c0 5.09 3.29 9.41 7.86 10.94.57.1.78-.25.78-.55v-2.14c-3.2.69-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.71.08-.71 1.16.08 1.78 1.2 1.78 1.2 1.04 1.76 2.71 1.25 3.37.96.1-.75.41-1.25.74-1.54-2.55-.29-5.24-1.27-5.24-5.68 0-1.26.45-2.3 1.19-3.11-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.19a10.96 10.96 0 0 1 5.79 0c2.2-1.5 3.17-1.19 3.17-1.19.64 1.59.24 2.77.12 3.06.74.81 1.18 1.85 1.18 3.11 0 4.42-2.69 5.39-5.25 5.67.42.36.79 1.06.79 2.14v3.17c0 .31.2.66.79.55A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/>
+                </svg>
+                GitHub
+            </a>
+
+            <a
+                href="https://www.linkedin.com/in/daniel-hamilton-cyber"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="footer-link">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill="currentColor" d="M4.98 3.5C4.98 4.88 3.86 6 2.49 6S0 4.88 0 3.5 1.12 1 2.49 1s2.49 1.12 2.49 2.5ZM.29 8h4.4v15.5H.29V8Zm7.01 0h4.22v2.12h.06c.59-1.12 2.03-2.3 4.18-2.3 4.47 0 5.3 2.94 5.3 6.77v8.91h-4.39v-7.9c0-1.89-.03-4.32-2.63-4.32-2.63 0-3.03 2.05-3.03 4.18v8.04H7.3V8Z"/>
+                </svg>
+                LinkedIn
+            </a>
+        </div>
+    </footer>
+
+    <script src="/script.js" defer></script>
+</body>
+
+<!--
+██╗      ██████╗  ██████╗ ██╗  ██╗██╗███╗   ██╗ ██████╗     ██████╗ 
+██║     ██╔═══██╗██╔═══██╗██║ ██╔╝██║████╗  ██║██╔════╝     ╚════██╗
+██║     ██║   ██║██║   ██║█████╔╝ ██║██╔██╗ ██║██║  ███╗      ▄███╔╝
+██║     ██║   ██║██║   ██║██╔═██╗ ██║██║╚██╗██║██║   ██║      ▀▀══╝ 
+███████╗╚██████╔╝╚██████╔╝██║  ██╗██║██║ ╚████║╚██████╔╝      ██╗   
+╚══════╝ ╚═════╝  ╚═════╝ ╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝ ╚═════╝       ╚═╝   
+-->
+</html>
