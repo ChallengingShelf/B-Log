@@ -925,6 +925,11 @@ blockquote {
     object-fit: contain;
 }
 
+/* Quotes inside articles need breathing room before the next paragraph */
+.blog-post-content blockquote {
+    margin: 1.5rem 0;
+}
+
 .figure-caption {
     margin: 0 0 2rem !important;
     color: var(--muted) !important;

@@ -1,0 +1,320 @@
+<!--
+                 uuuuuuu
+             uu$$$$$$$$$$$uu
+          uu$$$$$$$$$$$$$$$$$uu
+         u$$$$$$$$$$$$$$$$$$$$$u
+        u$$$$$$$$$$$$$$$$$$$$$$$u
+       u$$$$$$$$$$$$$$$$$$$$$$$$$u
+       u$$$$$$$$$$$$$$$$$$$$$$$$$u
+       u$$$$$$"   "$$$"   "$$$$$$u
+       "$$$$"      u$u       $$$$"
+        $$$u       u$u       u$$$
+        $$$u      u$$$u      u$$$
+         "$$$$uu$$$   $$$uu$$$$"
+          "$$$$$$$"   "$$$$$$$"
+            u$$$$$$$u$$$$$$$u
+             u$"$"$"$"$"$"$u
+  uuu        $$u$ $ $ $ $u$$       uuu
+ u$$$$        $$$$$u$u$u$$$       u$$$$
+  $$$$$uu      "$$$$$$$$$"     uu$$$$$$
+u$$$$$$$$$$$uu    """""    uuuu$$$$$$$$$$
+$$$$"""$$$$$$$$$$uuu   uu$$$$$$$$$"""$$$"
+ """      ""$$$$$$$$$$$uu ""$"""
+           uuuu ""$$$$$$$$$$uuu
+  u$$$uuu$$$$$$$$$uu ""$$$$$$$$$$$uuu$$$
+  $$$$$$$$$$""""           ""$$$$$$$$$$$"
+   "$$$$$"                      ""$$$$""
+     $$$"                         $$$$"
+
+██╗    ██╗███████╗██╗      ██████╗ ██████╗ ███╗   ███╗███████╗
+██║    ██║██╔════╝██║     ██╔════╝██╔═══██╗████╗ ████║██╔════╝
+██║ █╗ ██║█████╗  ██║     ██║     ██║   ██║██╔████╔██║█████╗  
+██║███╗██║██╔══╝  ██║     ██║     ██║   ██║██║╚██╔╝██║██╔══╝  
+╚███╔███╔╝███████╗███████╗╚██████╗╚██████╔╝██║ ╚═╝ ██║███████╗
+ ╚══╝╚══╝ ╚══════╝╚══════╝ ╚═════╝ ╚═════╝ ╚═╝     ╚═╝╚══════╝
+-->
+
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pi-hole Raspberry Pi DNS Ad Blocking Writeup">
+    <meta name="theme-color" content="#28282B">
+    <title>Pi-Hole | HamiltonHacks</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..800&family=JetBrains+Mono:wght@400..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400&display=swap">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="site-header-inner">
+            <a class="brand" href="/">HamiltonHacks.com</a>
+            <nav class="site-nav" aria-label="Primary">
+                <a href="/">Home</a>
+                <a href="/blog">Blog</a>
+            </nav>
+            <button
+                class="theme-toggle"
+                id="themeToggle"
+                type="button"
+                aria-label="Toggle theme"
+                aria-pressed="false"
+                title="Toggle theme">
+                ☀
+            </button>
+        </div>
+    </header>
+
+    <main class="container blog-page">
+        <article class="blog-post-shell">
+            <a class="blog-back-link" href="/">← Back to home</a>
+
+            <header class="blog-post-header">
+                <div class="blog-post-hero-image" aria-hidden="true">
+                    <img src="pihole-top.jpg" alt="Pi-hole on a Raspberry Pi" />
+                </div>
+                <h1 class="blog-post-title">Shut your Pi-Hole. Adkiller Writeup</h1>
+                <p class="blog-post-subheading">
+                    Themes: HomeLab | RaspberryPi | DNS | Networking | anticapitalism
+                </p>
+                <div class="blog-post-meta" aria-label="Article metadata">
+                    <span>By HamiltonHacks</span>
+                    <span>October 2026</span>
+                </div>
+            </header>
+
+            <div class="blog-post-content">
+                <p>
+                    Last year I set up a pi-hole and since then my life has significantly improved. Bricking the internet in my home and scrambling to fix my home network at 08:59 before starting work. No pain no gain.
+                </p>
+
+                <h2>What the hell is a pi-hole?</h2>
+                <p>
+                    Pi-hole is a specific use for a Raspberry Pi computer where it blocks ads across your network in short, the way it does this is by creating a DNS sinkhole where you configure your router to direct traffic to your raspberry pi which has software that moves any 'bad' DNS rerouting it to nowhere, so it never renders. It could block some legitimate things so you might have to analyse those on a case by case basis, and may turn your pi hole off if you need a specific tool but so far I have been all good.
+                </p>
+
+                <p>
+                    Like many, I generally don't like what the internet has become. It used to be a physical place, the desktop computer and it used to be to share information. Now there is so much crap, so many ads served, the internet, apps are ridden with low quality adverts which are both annoying, could affect your bandwidth, causes trackers which can weigh down your browser and are even potentially dangerous. Scams, adware potentially unwanted programs which are not obviously malicious etc etc.
+                </p>
+
+                <p>
+                    I am now completely intolerant to ads now, I look at them in disgust. When I am on the internet outside of my home network I am shocked by not only the amount of ads, but the quality. Slop slop slop. Pi-hole will cause your life to improve I promise.
+                </p>
+
+                <h2>So, a bit of a walkthrough</h2>
+                <p>
+                    but you can follow this guide yourself on the raspberrypi website.
+                    <a href="https://www.raspberrypi.com/tutorials/running-pi-hole-on-a-raspberry-pi/" target="_blank" rel="noopener noreferrer">https://www.raspberrypi.com/tutorials/running-pi-hole-on-a-raspberry-pi/</a>
+                </p>
+
+                <h3>Key phrases simplified:</h3>
+                <ul>
+                    <li><strong>Domain Name</strong> - unique alphanumeric address of a web resource (e.g. hamiltonhacks.com)</li>
+                    <li><strong>IP address</strong> - unique numeric address of a web resource (e.g. 123.45.67.8910)</li>
+                    <li><strong>DNS</strong> - Domain Name System, associates domain names with IP addresses</li>
+                    <li><strong>DNS server</strong> - a server that translates domain names into IP addresses</li>
+                </ul>
+
+                <h3>Steps</h3>
+                <p>
+                    You put in a website into your web browser, a DNS server is queried to find that domain and responds with the IP for that domain, then the IP is queried which serves the content for the website you're looking for.
+                </p>
+
+                <p>
+                    Domain names are the friendly version of IP addresses, it's a lot easier to remember HamiltonHacks.com than an IP address, for example 1.1.1.1.
+                </p>
+
+                <p>
+                    PI hole is the middle man between your device on your network and the resource from the big bad internet (querying the DNS server).
+                </p>
+
+                <p>
+                    Pi-hole will query this resource but before it does that it will check a blocklist (as part of the software)
+                </p>
+
+                <p>
+                    if the domin is all good then you get the internet resource (weird way of saying website) no problems and you don't even know pi-hole is there. if the internet resource is known bad, ie doesn't pass the blocklist then the pi-hole serves a non routable address such as 0.0.0.0
+                </p>
+
+                <p>
+                    So, websites with ads, will appear fine and the content will be there but there will be a big beautiful empty space where the ad should have been. Love it.
+                </p>
+
+                <div class="blog-post-hero-image" aria-hidden="true">
+                    <img src="pihole-wikihow-before.jpg" alt="wikiHow article with adverts, before Pi-hole" loading="lazy" />
+                </div>
+                <div class="blog-post-hero-image" aria-hidden="true">
+                    <img src="pihole-wikihow-after.jpg" alt="wikiHow article with ads blocked, after Pi-hole" loading="lazy" />
+                </div>
+
+                <p>
+                    I used a Raspberry Pi Zero 2 W for this, as recommended by the guide and installed Raspberry Pi OS Lite (32-bit).
+                </p>
+
+                <h3>the long and short of it is</h3>
+                <ul>
+                    <li>you set up your pi with the imager + wizard, giving it a name</li>
+                    <li>you connect to your pi via SSH (most commonly PuTTY on windows) using this name.</li>
+                    <li>then very simply you install a script onto this pi which runs pi-hole. it then takes you to a pretty straightforward set-up script.</li>
+                </ul>
+
+                <div class="blog-post-callout">
+                    <p>
+                        <strong>DANGER DANGER DANGER</strong><br>
+                        After this you need to configure your own network connections which is where it gets a bit tricky and dangerous. Not dangerous but more high risk. If you do this wrong you could stop your wifi working at all (as I did on my first pass very shortly before work). As per the rest of the setup its in the raspberry pi guide so I won't regurgitate that necessarily. Link: <a href="https://www.raspberrypi.com/tutorials/running-pi-hole-on-a-raspberry-pi/" target="_blank" rel="noopener noreferrer">https://www.raspberrypi.com/tutorials/running-pi-hole-on-a-raspberry-pi/</a>
+                    </p>
+                </div>
+
+                <p>
+                    Interestingly, you actually have three options to implement this project.
+                </p>
+
+                <ul>
+                    <li>configure Pi-hole as the DNS server for your network</li>
+                    <li>configure Pi-hole as the DHCP provider for your network</li>
+                    <li>manually point devices at Pi-hole for DNS</li>
+                </ul>
+
+                <p>
+                    That's pretty neat. I used Pi-hole as a DNS server for the whole network so it works for any device connected to my wifi. It was pretty tedious I am not gonna lie but well worth it in the long run. The good thing is you are not the first to do this and there are many guides out there and this is discussed on many forums out there too.
+                </p>
+
+                <p>
+                    Hallelujah it works! See these beautiful screenshots below showing Pi-Hole at work. bye bye kwiff betting and KoreaDates *chefs kiss*
+                </p>
+
+                <div class="blog-post-hero-image" aria-hidden="true">
+                    <img src="pihole-speedtest-before.jpg" alt="Speedtest page full of adverts, before Pi-hole" loading="lazy" />
+                </div>
+                <div class="blog-post-hero-image" aria-hidden="true">
+                    <img src="pihole-speedtest-after.jpg" alt="Speedtest page with no adverts, after Pi-hole" loading="lazy" />
+                </div>
+                <p class="figure-caption">Screenshot showing before and after</p>
+
+                <hr>
+
+                <p>
+                    If you do build this then here is a link to a site full of ads to test if it worked below. There are actually many sites that you can use to test this and you may have one in mind already. A popular one is speed test (the one in the screenshots above).
+                </p>
+
+                <blockquote>
+                    'Without Pi-hole, many browsers score near 0; with Pi-hole, you should see a score at or near 100.'<a href="https://adblock-tester.com/" target="_blank" rel="noopener noreferrer">https://adblock-tester.com/</a>
+                </blockquote>
+
+                <p>
+                    That was a lot of fun. More Pi's more building. Networking isn't security but security is networking.
+                </p>
+
+                <div class="blog-post-hero-image" aria-hidden="true">
+                    <img src="pihole-bottom.jpg" alt="Raspberry Pi Zero 2 W, underside" loading="lazy" />
+                </div>
+                <div class="blog-post-hero-image" aria-hidden="true">
+                    <img src="pihole-bottom2.jpg" alt="Raspberry Pi Zero 2 W, top side" loading="lazy" />
+                </div>
+
+                <h3>References:</h3>
+                <p>
+                    <a href="https://www.raspberrypi.com/tutorials/running-pi-hole-on-a-raspberry-pi/" target="_blank" rel="noopener noreferrer">https://www.raspberrypi.com/tutorials/running-pi-hole-on-a-raspberry-pi/</a>
+                </p>
+            </div>
+        </article>
+
+        <section class="blog-carousel-section" aria-labelledby="related-blog-carousel-title">
+            <div class="section-heading-row">
+                <div>
+                    <p class="eyebrow">Writing</p>
+                    <h2 id="related-blog-carousel-title">More Blog Posts</h2>
+                </div>
+                <a class="section-link" href="/blog">View Blog Hub</a>
+            </div>
+
+            <div class="carousel-shell" data-carousel>
+                <button class="carousel-control carousel-control-prev" type="button" data-carousel-prev aria-label="Previous blog posts">
+                    <span aria-hidden="true">←</span>
+                </button>
+
+                <div class="blog-carousel" data-carousel-track tabindex="0" aria-label="Blog post carousel">
+                    <a class="blog-card" href="/velocihacktor" target="_blank" rel="noopener noreferrer" aria-label="Read blog post: Jurassic Park was an inside job.">
+                        <img class="blog-card-image" src="velocihacktor.png" alt="" loading="lazy">
+                        <p class="blog-meta">Insider Threats</p>
+                        <h3>Jurassic Park was an inside job.</h3>
+                        <p>In the classic 1994 movie Jurassic Park, it is deliberate power sabotage that causes the physical security system to fail, 
+                    allowing the genetically engineered dinosaurs to escape their enclosures and cause chaos around the island.</p>
+                        <span class="blog-card-link" aria-hidden="true">Read More</span>
+                    </a>
+
+                    <a class="blog-card" href="/IoTBlockchain" target="_blank" rel="noopener noreferrer" aria-label="Read blog post: Ethereum Blockchain for IoT Network Transactions.">
+                        <img class="blog-card-image" src="IoT.png" alt="" loading="lazy">
+                        <p class="blog-meta">Blockchain + IoT</p>
+                        <h3>Ethereum Blockchain for IoT Node Transaction Authentication</h3>
+                        <p>Can Blockchain be used to authenticate communications between IoT devices in a simulated network? Yes, but it's complicated. The idea was straightforward: instead of relying on weak or absent security measures on low-powered IoT devices, use a smart contract on the Ethereum blockchain as a gatekeeper.</p>
+                        <span class="blog-card-link" aria-hidden="true">Read More</span>
+                    </a>
+
+                    <a class="blog-card" href="/" target="_blank" rel="noopener noreferrer" aria-label="Read blog post: Shark Att(h)ack">
+                        <img class="blog-card-image" src="image.png" alt="" loading="lazy">
+                        <p class="blog-meta">Infrastructure</p>
+                        <h3>We're gonna need a bigger cable</h3>
+                        <p>The internet is under the ocean. This article highlights the genuine problem of undersea cables getting eaten by sharks. Genuinely. Writing coming soon. </p>
+                        <span class="blog-card-link" aria-hidden="true">Read More</span>
+                    </a>
+
+                    <a class="blog-card" href="/" target="_blank" rel="noopener noreferrer" aria-label="Read blog post: Why my lava lamp is better than your password">
+                        <img class="blog-card-image" src="image.png" alt="" loading="lazy">
+                        <p class="blog-meta">Encryption</p>
+                        <h3>The internet is protected by lava lamps</h3>
+                        <p>A writeup on CloudFlare's obscure yet effective lava lamp wall encryption method. Highlighting strength in randomisation. Writing coming soon.</p>
+                        <span class="blog-card-link" aria-hidden="true">Read More</span>
+                    </a>
+                </div>
+
+                <button class="carousel-control carousel-control-next" type="button" data-carousel-next aria-label="Next blog posts">
+                    <span aria-hidden="true">→</span>
+                </button>
+            </div>
+        </section>
+    </main>
+
+
+    <footer class="site-footer">
+        <p class="footer-date">© HamiltonHacks All rights reserved <span data-today-date></span></p>
+        <div class="footer-links">
+            <a
+                href="https://github.com/ChallengingShelf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="footer-link">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill="currentColor" d="M12 .5C5.65.5.5 5.65.5 12c0 5.09 3.29 9.41 7.86 10.94.57.1.78-.25.78-.55v-2.14c-3.2.69-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.71.08-.71 1.16.08 1.78 1.2 1.78 1.2 1.04 1.76 2.71 1.25 3.37.96.1-.75.41-1.25.74-1.54-2.55-.29-5.24-1.27-5.24-5.68 0-1.26.45-2.3 1.19-3.11-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.19a10.96 10.96 0 0 1 5.79 0c2.2-1.5 3.17-1.19 3.17-1.19.64 1.59.24 2.77.12 3.06.74.81 1.18 1.85 1.18 3.11 0 4.42-2.69 5.39-5.25 5.67.42.36.79 1.06.79 2.14v3.17c0 .31.2.66.79.55A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/>
+                </svg>
+                GitHub
+            </a>
+
+            <a
+                href="https://www.linkedin.com/in/daniel-hamilton-cyber"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="footer-link">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill="currentColor" d="M4.98 3.5C4.98 4.88 3.86 6 2.49 6S0 4.88 0 3.5 1.12 1 2.49 1s2.49 1.12 2.49 2.5ZM.29 8h4.4v15.5H.29V8Zm7.01 0h4.22v2.12h.06c.59-1.12 2.03-2.3 4.18-2.3 4.47 0 5.3 2.94 5.3 6.77v8.91h-4.39v-7.9c0-1.89-.03-4.32-2.63-4.32-2.63 0-3.03 2.05-3.03 4.18v8.04H7.3V8Z"/>
+                </svg>
+                LinkedIn
+            </a>
+        </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+</body>
+
+<!--
+██╗      ██████╗  ██████╗ ██╗  ██╗██╗███╗   ██╗ ██████╗     ██████╗ 
+██║     ██╔═══██╗██╔═══██╗██║ ██╔╝██║████╗  ██║██╔════╝     ╚════██╗
+██║     ██║   ██║██║   ██║█████╔╝ ██║██╔██╗ ██║██║  ███╗      ▄███╔╝
+██║     ██║   ██║██║   ██║██╔═██╗ ██║██║╚██╗██║██║   ██║      ▀▀══╝ 
+███████╗╚██████╔╝╚██████╔╝██║  ██╗██║██║ ╚████║╚██████╔╝      ██╗   
+╚══════╝ ╚═════╝  ╚═════╝ ╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝ ╚═════╝       ╚═╝   
+-->
+</html>

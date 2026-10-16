@@ -167,11 +167,33 @@
         });
     }
 
+    function initBackButtons() {
+        document.querySelectorAll("[data-history-back]").forEach((button) => {
+            button.addEventListener("click", () => {
+                const cameFromThisSite = document.referrer.startsWith(window.location.origin);
+
+                if (cameFromThisSite && window.history.length > 1) {
+                    window.history.back();
+                } else {
+                    window.location.href = "/";
+                }
+            });
+        });
+    }
+
+    function initRequestedPath() {
+        document.querySelectorAll("[data-requested-path]").forEach((node) => {
+            node.textContent = window.location.pathname;
+        });
+    }
+
     syncTheme(getStoredTheme());
 
     document.addEventListener("DOMContentLoaded", () => {
         initThemeToggle();
         initSharedTodayDate();
         initBlogCarousel();
+        initRequestedPath();
+        initBackButtons();
     });
 })();
