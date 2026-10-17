@@ -41,7 +41,7 @@ $$$$"""$$$$$$$$$$uuu   uu$$$$$$$$$"""$$$"
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Pi-hole Raspberry Pi DNS Ad Blocking Writeup">
     <meta name="theme-color" content="#28282B">
-    <title>Pi-Hole | HamiltonHacks</title>
+    <title>Pi-hole | HamiltonHacks</title>
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <meta name="apple-mobile-web-app-title" content="HamiltonHacks">
@@ -78,7 +78,7 @@ $$$$"""$$$$$$$$$$uuu   uu$$$$$$$$$"""$$$"
                 <div class="blog-post-hero-image" aria-hidden="true">
                     <img src="pihole-top.jpg" alt="Pi-hole on a Raspberry Pi" />
                 </div>
-                <h1 class="blog-post-title">Shut your Pi-Hole. Adkiller Writeup</h1>
+                <h1 class="blog-post-title">Shut your Pi-hole. Adkiller Writeup</h1>
                 <p class="blog-post-subheading">
                     Themes: HomeLab | RaspberryPi | DNS | Networking | anticapitalism
                 </p>
@@ -90,20 +90,20 @@ $$$$"""$$$$$$$$$$uuu   uu$$$$$$$$$"""$$$"
 
             <div class="blog-post-content">
                 <p>
-                    Last year I set up a pi-hole and since then my life has significantly improved. Bricking the internet in my home and scrambling to fix my home network at 08:59 before starting work. No pain no gain.
+                    Last year I set up a Pi-hole and since then my life has significantly improved. Bricking the internet in my home and scrambling to fix my home network at 08:59 before starting work. No pain no gain.
                 </p>
 
-                <h2>What the hell is a pi-hole?</h2>
+                <h2>What the hell is a Pi-hole?</h2>
                 <p>
-                    Pi-hole is a specific use for a Raspberry Pi computer where it blocks ads across your network in short, the way it does this is by creating a DNS sinkhole where you configure your router to direct traffic to your raspberry pi which has software that moves any 'bad' DNS rerouting it to nowhere, so it never renders. It could block some legitimate things so you might have to analyse those on a case by case basis, and may turn your pi hole off if you need a specific tool but so far I have been all good.
-                </p>
-
-                <p>
-                    Like many, I generally don't like what the internet has become. It used to be a physical place, the desktop computer and it used to be to share information. Now there is so much crap, so many ads served, the internet, apps are ridden with low quality adverts which are both annoying, could affect your bandwidth, causes trackers which can weigh down your browser and are even potentially dangerous. Scams, adware potentially unwanted programs which are not obviously malicious etc etc.
+                    Pi-hole is a specific use for a Raspberry Pi computer where it blocks ads across your network in short, the way it does this is by creating a DNS sinkhole where you configure your router to direct traffic to your raspberry pi which has software that moves any 'bad' DNS rerouting it to nowhere, so it never renders. It could block some legitimate things so you might have to analyse those on a case by case basis, and may turn your Pi-hole off if you need a specific tool but so far I have been all good.
                 </p>
 
                 <p>
-                    I am now completely intolerant to ads now, I look at them in disgust. When I am on the internet outside of my home network I am shocked by not only the amount of ads, but the quality. Slop slop slop. Pi-hole will cause your life to improve I promise.
+                    Like many, I generally don't like what the internet has become. It used to be a physical place, the desktop computer and it used to be to share information. Now there is so much crap, so many ads served, apps are ridden with low quality adverts which are both annoying, could affect your bandwidth, cause trackers which can weigh down your browser and are even potentially dangerous. Scams, adware, potentially unwanted programs which are not obviously malicious etc etc.
+                </p>
+
+                <p>
+                    I am now completely intolerant to ads, I look at them in disgust. When I am on the internet outside of my home network I am shocked by not only the amount of ads, but the quality. Slop slop slop. Pi-hole will cause your life to improve I promise.
                 </p>
 
                 <h2>So, a bit of a walkthrough</h2>
@@ -130,7 +130,7 @@ $$$$"""$$$$$$$$$$uuu   uu$$$$$$$$$"""$$$"
                 </p>
 
                 <p>
-                    PI hole is the middle man between your device on your network and the resource from the big bad internet (querying the DNS server).
+                    Pi-hole is the middle man between your device on your network and the resource from the big bad internet (querying the DNS server).
                 </p>
 
                 <p>
@@ -138,7 +138,7 @@ $$$$"""$$$$$$$$$$uuu   uu$$$$$$$$$"""$$$"
                 </p>
 
                 <p>
-                    if the domin is all good then you get the internet resource (weird way of saying website) no problems and you don't even know pi-hole is there. if the internet resource is known bad, ie doesn't pass the blocklist then the pi-hole serves a non routable address such as 0.0.0.0
+                    if the domain is all good then you get the internet resource (weird way of saying website) no problems and you don't even know Pi-hole is there. if the internet resource is known bad, ie doesn't pass the blocklist then the Pi-hole serves a non routable address such as 0.0.0.0
                 </p>
 
                 <p>
@@ -160,13 +160,13 @@ $$$$"""$$$$$$$$$$uuu   uu$$$$$$$$$"""$$$"
                 <ul>
                     <li>you set up your pi with the imager + wizard, giving it a name</li>
                     <li>you connect to your pi via SSH (most commonly PuTTY on windows) using this name.</li>
-                    <li>then very simply you install a script onto this pi which runs pi-hole. it then takes you to a pretty straightforward set-up script.</li>
+                    <li>then very simply you install a script onto this pi which runs Pi-hole. it then takes you to a pretty straightforward set-up script.</li>
                 </ul>
 
                 <div class="blog-post-callout">
                     <p>
                         <strong>DANGER DANGER DANGER</strong><br>
-                        After this you need to configure your own network connections which is where it gets a bit tricky and dangerous. Not dangerous but more high risk. If you do this wrong you could stop your wifi working at all (as I did on my first pass very shortly before work). As per the rest of the setup its in the raspberry pi guide so I won't regurgitate that necessarily. Link: <a href="https://www.raspberrypi.com/tutorials/running-pi-hole-on-a-raspberry-pi/" target="_blank" rel="noopener noreferrer">https://www.raspberrypi.com/tutorials/running-pi-hole-on-a-raspberry-pi/</a>
+                        After this you need to configure your own network connections which is where it gets a bit tricky and dangerous. Not dangerous but more high risk. If you do this wrong you could stop your wifi working at all (as I did on my first pass very shortly before work). As per the rest of the setup it's in the raspberry pi guide so I won't regurgitate that necessarily. Link: <a href="https://www.raspberrypi.com/tutorials/running-pi-hole-on-a-raspberry-pi/" target="_blank" rel="noopener noreferrer">https://www.raspberrypi.com/tutorials/running-pi-hole-on-a-raspberry-pi/</a>
                     </p>
                 </div>
 
@@ -185,7 +185,7 @@ $$$$"""$$$$$$$$$$uuu   uu$$$$$$$$$"""$$$"
                 </p>
 
                 <p>
-                    Hallelujah it works! See these beautiful screenshots below showing Pi-Hole at work. bye bye kwiff betting and KoreaDates *chefs kiss*
+                    Hallelujah it works! See these beautiful screenshots below showing Pi-hole at work. bye bye kwiff betting and KoreaDates *chef's kiss*
                 </p>
 
                 <div class="blog-post-hero-image" aria-hidden="true">
@@ -207,7 +207,7 @@ $$$$"""$$$$$$$$$$uuu   uu$$$$$$$$$"""$$$"
                 </blockquote>
 
                 <p>
-                    That was a lot of fun. More Pi's more building. Networking isn't security but security is networking.
+                    That was a lot of fun. More Pis more building. Networking isn't security but security is networking.
                 </p>
 
                 <div class="blog-post-hero-image" aria-hidden="true">
