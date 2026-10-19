@@ -197,12 +197,22 @@
 
         function burst() {
             const rect = footer.getBoundingClientRect();
-            let startX = rect.left + rect.width / 2;
-            let spread = 0;
+            let startX;
+            let spread;
             if (motto) {
                 const mottoRect = motto.getBoundingClientRect();
                 startX = mottoRect.left;
                 spread = mottoRect.width;
+            } else {
+                // Pages without the motto: measure a hidden copy so the confetti matches its width.
+                const probe = document.createElement("section");
+                probe.className = "motto-section";
+                probe.style.cssText = "visibility:hidden;height:0;overflow:hidden;margin:0;";
+                probe.innerHTML = "<blockquote>WORK HARD &amp; BE NICE TO PEOPLE</blockquote>";
+                (document.querySelector("main") || document.body).appendChild(probe);
+                spread = probe.firstElementChild.getBoundingClientRect().width;
+                probe.remove();
+                startX = rect.left + (rect.width - spread) / 2;
             }
             for (let i = 0; i < 40; i += 1) {
                 const piece = document.createElement("span");
