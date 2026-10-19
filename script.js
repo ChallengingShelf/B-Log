@@ -200,7 +200,7 @@
                 const piece = document.createElement("span");
                 const size = 4 + Math.random() * 5;
                 piece.setAttribute("aria-hidden", "true");
-                piece.style.cssText = `position:fixed;left:${rect.left + Math.random() * rect.width}px;top:${rect.top}px;`
+                piece.style.cssText = `position:fixed;left:${rect.left + rect.width / 2}px;top:${rect.top}px;`
                     + `width:${size}px;height:${size * 0.6}px;background:var(--accent);border-radius:1px;`
                     + "pointer-events:none;z-index:9999;";
                 document.body.appendChild(piece);
