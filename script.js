@@ -187,6 +187,47 @@
         });
     }
 
+    function initFooterConfetti() {
+        const footer = document.querySelector(".site-footer");
+        if (!footer || typeof Element.prototype.animate !== "function") return;
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+        let armed = true;
+
+        function burst() {
+            const rect = footer.getBoundingClientRect();
+            for (let i = 0; i < 40; i += 1) {
+                const piece = document.createElement("span");
+                const size = 4 + Math.random() * 5;
+                piece.setAttribute("aria-hidden", "true");
+                piece.style.cssText = `position:fixed;left:${rect.left + Math.random() * rect.width}px;top:${rect.top}px;`
+                    + `width:${size}px;height:${size * 0.6}px;background:var(--accent);border-radius:1px;`
+                    + "pointer-events:none;z-index:9999;";
+                document.body.appendChild(piece);
+
+                const dx = (Math.random() - 0.5) * 120;
+                const dy = -(60 + Math.random() * 120);
+                const spin = (Math.random() - 0.5) * 720;
+                piece.animate([
+                    { transform: "translate(0, 0) rotate(0deg)", opacity: 1 },
+                    { transform: `translate(${dx}px, ${dy}px) rotate(${spin / 2}deg)`, opacity: 1, offset: 0.5 },
+                    { transform: `translate(${dx * 1.4}px, ${dy * 0.4}px) rotate(${spin}deg)`, opacity: 0 },
+                ], { duration: 1200 + Math.random() * 500, easing: "cubic-bezier(0.2, 0.7, 0.4, 1)" })
+                    .onfinish = () => piece.remove();
+            }
+        }
+
+        window.addEventListener("scroll", () => {
+            const distanceFromBottom = document.documentElement.scrollHeight - (window.scrollY + window.innerHeight);
+            if (armed && distanceFromBottom <= 2) {
+                armed = false;
+                burst();
+            } else if (distanceFromBottom > 100) {
+                armed = true;
+            }
+        }, { passive: true });
+    }
+
     syncTheme(getStoredTheme());
 
     document.addEventListener("DOMContentLoaded", () => {
@@ -195,5 +236,6 @@
         initBlogCarousel();
         initRequestedPath();
         initBackButtons();
+        initFooterConfetti();
     });
 })();
