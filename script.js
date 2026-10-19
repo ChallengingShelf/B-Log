@@ -192,15 +192,23 @@
         if (!footer || typeof Element.prototype.animate !== "function") return;
         if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
+        const motto = document.querySelector(".motto-section blockquote");
         let armed = true;
 
         function burst() {
             const rect = footer.getBoundingClientRect();
+            let startX = rect.left + rect.width / 2;
+            let spread = 0;
+            if (motto) {
+                const mottoRect = motto.getBoundingClientRect();
+                startX = mottoRect.left;
+                spread = mottoRect.width;
+            }
             for (let i = 0; i < 40; i += 1) {
                 const piece = document.createElement("span");
                 const size = 4 + Math.random() * 5;
                 piece.setAttribute("aria-hidden", "true");
-                piece.style.cssText = `position:fixed;left:${rect.left + rect.width / 2}px;top:${rect.top}px;`
+                piece.style.cssText = `position:fixed;left:${startX + Math.random() * spread}px;top:${rect.top}px;`
                     + `width:${size}px;height:${size * 0.6}px;background:var(--accent);border-radius:1px;`
                     + "pointer-events:none;z-index:9999;";
                 document.body.appendChild(piece);
