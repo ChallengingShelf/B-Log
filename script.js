@@ -119,6 +119,17 @@
         scheduleNextUpdate();
     }
 
+    // Randomise card order on every page load (Fisher-Yates shuffle).
+    function shuffleCards(track) {
+        const cards = Array.from(track.querySelectorAll(":scope > .blog-card"));
+        for (let i = cards.length - 1; i > 0; i -= 1) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [cards[i], cards[j]] = [cards[j], cards[i]];
+        }
+        cards.forEach((card) => track.appendChild(card));
+        track.scrollLeft = 0;
+    }
+
     function initBlogCarousel() {
         const carousels = document.querySelectorAll("[data-carousel]");
 
@@ -127,6 +138,8 @@
             const prevButton = carousel.querySelector("[data-carousel-prev]");
             const nextButton = carousel.querySelector("[data-carousel-next]");
             if (!track || !prevButton || !nextButton) return;
+
+            shuffleCards(track);
 
             let buttonFrameId = null;
 
