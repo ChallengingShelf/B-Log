@@ -1,0 +1,255 @@
+<!--
+                 uuuuuuu
+             uu$$$$$$$$$$$uu
+          uu$$$$$$$$$$$$$$$$$uu
+         u$$$$$$$$$$$$$$$$$$$$$u
+        u$$$$$$$$$$$$$$$$$$$$$$$u
+       u$$$$$$$$$$$$$$$$$$$$$$$$$u
+       u$$$$$$$$$$$$$$$$$$$$$$$$$u
+       u$$$$$$"   "$$$"   "$$$$$$u
+       "$$$$"      u$u       $$$$"
+        $$$u       u$u       u$$$
+        $$$u      u$$$u      u$$$
+         "$$$$uu$$$   $$$uu$$$$"
+          "$$$$$$$"   "$$$$$$$"
+            u$$$$$$$u$$$$$$$u
+             u$"$"$"$"$"$"$u
+  uuu        $$u$ $ $ $ $u$$       uuu
+ u$$$$        $$$$$u$u$u$$$       u$$$$
+  $$$$$uu      "$$$$$$$$$"     uu$$$$$$
+u$$$$$$$$$$$uu    """""    uuuu$$$$$$$$$$
+$$$$"""$$$$$$$$$$uuu   uu$$$$$$$$$"""$$$"
+ """      ""$$$$$$$$$$$uu ""$"""
+           uuuu ""$$$$$$$$$$uuu
+  u$$$uuu$$$$$$$$$uu ""$$$$$$$$$$$uuu$$$
+  $$$$$$$$$$""""           ""$$$$$$$$$$$"
+   "$$$$$"                      ""$$$$""
+     $$$"                         $$$$"
+
+██╗    ██╗███████╗██╗      ██████╗ ██████╗ ███╗   ███╗███████╗
+██║    ██║██╔════╝██║     ██╔════╝██╔═══██╗████╗ ████║██╔════╝
+██║ █╗ ██║█████╗  ██║     ██║     ██║   ██║██╔████╔██║█████╗  
+██║███╗██║██╔══╝  ██║     ██║     ██║   ██║██║╚██╔╝██║██╔══╝  
+╚███╔███╔╝███████╗███████╗╚██████╗╚██████╔╝██║ ╚═╝ ██║███████╗
+ ╚══╝╚══╝ ╚══════╝╚══════╝ ╚═════╝ ╚═════╝ ╚═╝     ╚═╝╚══════╝
+-->
+
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A write-up on Cloudflare's obscure yet effective lava lamp wall encryption method, highlighting strength in randomisation.">
+    <meta name="theme-color" content="#28282B">
+    <title>The internet is protected by lava lamps | HamiltonHacks</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-title" content="HamiltonHacks">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..800&family=JetBrains+Mono:wght@400..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400&display=swap">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="site-header-inner">
+            <a class="brand" href="/">HamiltonHacks.com</a>
+            <nav class="site-nav" aria-label="Primary">
+                <a href="/">Home</a>
+                <a href="/blog">Blog</a>
+            </nav>
+            <button
+                class="theme-toggle"
+                id="themeToggle"
+                type="button"
+                aria-label="Toggle theme"
+                aria-pressed="false"
+                title="Toggle theme">
+                ☀
+            </button>
+        </div>
+    </header>
+
+    <main class="container blog-page">
+        <article class="blog-post-shell">
+            <a class="blog-back-link" href="/blog">← Back to blog hub</a>
+
+            <header class="blog-post-header">
+                <div class="blog-post-hero-image" aria-hidden="true">
+                    <img src="lavalamps-waves.webp" alt="Wall of wave machines in Cloudflare's Lisbon office" />
+                </div>
+                <h1 class="blog-post-title">The internet is protected by lava lamps</h1>
+                <p class="blog-post-subheading">
+                    A write-up on Cloudflare's obscure yet effective lava lamp wall encryption method, highlighting strength in randomisation.
+                </p>
+                <div class="blog-post-meta" aria-label="Article metadata">
+                    <span>HamiltonHacks</span>
+                    <span>October 2026</span>
+                    <span>3 min read</span>
+                </div>
+            </header>
+
+            <div class="blog-post-content">
+                <p>
+                    Here's why a lava lamp is a more secure encryption method. Wtf? I promise it's not a clickbait title this time.
+                </p>
+
+                <p>
+                    Encryption aims to encrypt using random numbers, but computers are actually never truly random. Instead they are pseudo-random, meaning that numbers may look random but are ultimately defined in a logical and deterministic way, and so they could be reproduced if this deterministic way is known. Y'know?
+                </p>
+
+                <h2>So how do we get truly random data?</h2>
+                <p>
+                    Well, the real, non-digital world is actually pretty random and unpredictable. One way is using lava lamps, and this gets some bonus points because it looks cool as f*ck whilst being super secure.
+                </p>
+
+                <p>
+                    The way that this works is that in the Cloudflare San Francisco office there is a wall of 100 lava lamps with a camera pointed at them tracking their movements. These images of the lava lamps' shapes and blobs are stored as a series of numbers (every single pixel has its own number value assigned to it), meaning that each picture of a lava lamp becomes a truly completely random number which can then be used to create secure encryption keys. Because the movements are truly random, then turned into images with matching numbers, the numbers used for the encryption are truly random too.
+                </p>
+
+                <div class="blog-post-hero-image" aria-hidden="true">
+                    <img src="lavalamps-camera.webp" alt="Wall of lava lamps in Cloudflare's San Francisco office" loading="lazy" />
+                </div>
+                <p class="figure-caption">The wall of lava lamps in Cloudflare's San Francisco office</p>
+
+                <p>
+                    And so, to generate encryption keys for SSL/TLS encryption, Cloudflare uses these lava lamps and their corresponding photo data to feed a cryptographically secure pseudorandom number generator. I will let Cloudflare themselves explain much better than I can in the following two articles:
+                </p>
+
+                <ul>
+                    <li><a href="https://www.cloudflare.com/en-gb/learning/ssl/lava-lamp-encryption/" target="_blank" rel="noopener noreferrer">https://www.cloudflare.com/en-gb/learning/ssl/lava-lamp-encryption/</a></li>
+                    <li><a href="https://blog.cloudflare.com/harnessing-office-chaos/" target="_blank" rel="noopener noreferrer">https://blog.cloudflare.com/harnessing-office-chaos/</a></li>
+                </ul>
+
+                <h2>Nothing new under the sun (or the lamp)</h2>
+                <p>
+                    Strength in complete randomisation isn't new, this is just such a great example. The idea was actually originally patented by Silicon Graphics as Lavarand way back in 1996. You can read about the expired patent here:
+                    <a href="https://patents.google.com/patent/US5732138" target="_blank" rel="noopener noreferrer">https://patents.google.com/patent/US5732138</a>
+                </p>
+
+                <h2>Pendulums, mobiles and wave machines</h2>
+                <p>
+                    In addition to the lava lamp random movement tracker, Cloudflare have actually created some similar, interesting alternative methods with that same goal of strength in randomisation:
+                </p>
+
+                <ul>
+                    <li><strong>London</strong> - a wall of many, many double pendulums whose swings generate more random movement.</li>
+                    <li><strong>Austin</strong> - a series of hanging translucent mobiles, which actually move when the doors in the office open and close, and with the sunlight throughout the day.</li>
+                    <li><strong>Lisbon</strong> - a series of small wave machines working as their source of entropy. It's actually the cover image for this write-up and I think it looks fantastic.</li>
+                </ul>
+
+                <div class="blog-post-callout">
+                    <p>
+                        Naturally, I have written this as a high-level overview of how this works, but if you want a deeper dive on the technical details of each method I would refer you to the Cloudflare tech blogs for each project.
+                    </p>
+                </div>
+
+                <p>
+                    Keeping the internet safe and looking cool doing it. Vibes + Security.
+                </p>
+
+                <h3>References:</h3>
+                <p>
+                    Harnessing Chaos in Cloudflare Offices:
+                    <a href="https://blog.cloudflare.com/harnessing-office-chaos/" target="_blank" rel="noopener noreferrer">https://blog.cloudflare.com/harnessing-office-chaos/</a>
+                </p>
+                <p class="blog-post-signoff">Written by a human</p>
+            </div>
+        </article>
+
+        <section class="blog-carousel-section" aria-labelledby="related-blog-carousel-title">
+            <div class="section-heading-row">
+                <div>
+                    <p class="eyebrow">Writing</p>
+                    <h2 id="related-blog-carousel-title">More Blog Posts</h2>
+                </div>
+                <a class="section-link" href="/blog">View Blog Hub</a>
+            </div>
+
+            <div class="carousel-shell" data-carousel>
+                <button class="carousel-control carousel-control-prev" type="button" data-carousel-prev aria-label="Previous blog posts">
+                    <span aria-hidden="true">←</span>
+                </button>
+
+                <div class="blog-carousel" data-carousel-track tabindex="0" aria-label="Blog post carousel">
+                    <a class="blog-card" href="/velocihacktor" target="_blank" rel="noopener noreferrer" aria-label="Read blog post: Jurassic Park was an inside job.">
+                        <img class="blog-card-image" src="velocihacktor.png" alt="" loading="lazy">
+                        <p class="blog-meta">Insider Threats</p>
+                        <h3>Jurassic Park was an inside job.</h3>
+                        <p>In the classic 1994 movie Jurassic Park, it is deliberate power sabotage that causes the physical security system to fail, 
+                    allowing the genetically engineered dinosaurs to escape their enclosures and cause chaos around the island.</p>
+                        <span class="blog-card-link" aria-hidden="true">Read More</span>
+                    </a>
+
+                    <a class="blog-card" href="/IoTBlockchain" target="_blank" rel="noopener noreferrer" aria-label="Read blog post: Ethereum Blockchain for IoT Network Transactions.">
+                        <img class="blog-card-image" src="IoT.png" alt="" loading="lazy">
+                        <p class="blog-meta">Blockchain + IoT</p>
+                        <h3>Ethereum Blockchain for IoT Node Transaction Authentication</h3>
+                        <p>Can Blockchain be used to authenticate communications between IoT devices in a simulated network? Yes, but it's complicated. The idea was straightforward: instead of relying on weak or absent security measures on low-powered IoT devices, use a smart contract on the Ethereum blockchain as a gatekeeper.</p>
+                        <span class="blog-card-link" aria-hidden="true">Read More</span>
+                    </a>
+
+                    <a class="blog-card" href="/PiHole" target="_blank" rel="noopener noreferrer" aria-label="Read blog post: Shut your Pi-hole. Adkiller Writeup">
+                        <img class="blog-card-image" src="pihole-top.jpg" alt="" loading="lazy">
+                        <p class="blog-meta">Networking</p>
+                        <h3>Shut your Pi-hole. Adkiller Writeup</h3>
+                        <p>Last year I set up a Pi-hole and since then my life has significantly improved. Bricking the internet in my home and scrambling to fix my home network at 08:59 before starting work. No pain no gain.</p>
+                        <span class="blog-card-link" aria-hidden="true">Read More</span>
+                    </a>
+
+                    <a class="blog-card" href="/" target="_blank" rel="noopener noreferrer" aria-label="Read blog post: Shark Att(h)ack">
+                        <img class="blog-card-image" src="image.png" alt="" loading="lazy">
+                        <p class="blog-meta">Infrastructure</p>
+                        <h3>We're gonna need a bigger cable</h3>
+                        <p>The internet is under the ocean. This article highlights the genuine problem of undersea cables getting eaten by sharks. Genuinely. Writing coming soon. </p>
+                        <span class="blog-card-link" aria-hidden="true">Read More</span>
+                    </a>
+                </div>
+
+                <button class="carousel-control carousel-control-next" type="button" data-carousel-next aria-label="Next blog posts">
+                    <span aria-hidden="true">→</span>
+                </button>
+            </div>
+        </section>
+    </main>
+
+
+    <footer class="site-footer">
+        <p class="footer-date">© HamiltonHacks All rights reserved <span data-today-date></span></p>
+        <div class="footer-links">
+            <a
+                href="https://github.com/ChallengingShelf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="footer-link">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill="currentColor" d="M12 .5C5.65.5.5 5.65.5 12c0 5.09 3.29 9.41 7.86 10.94.57.1.78-.25.78-.55v-2.14c-3.2.69-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.71.08-.71 1.16.08 1.78 1.2 1.78 1.2 1.04 1.76 2.71 1.25 3.37.96.1-.75.41-1.25.74-1.54-2.55-.29-5.24-1.27-5.24-5.68 0-1.26.45-2.3 1.19-3.11-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.19a10.96 10.96 0 0 1 5.79 0c2.2-1.5 3.17-1.19 3.17-1.19.64 1.59.24 2.77.12 3.06.74.81 1.18 1.85 1.18 3.11 0 4.42-2.69 5.39-5.25 5.67.42.36.79 1.06.79 2.14v3.17c0 .31.2.66.79.55A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/>
+                </svg>
+                GitHub
+            </a>
+
+            <a
+                href="https://www.linkedin.com/in/daniel-hamilton-cyber"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="footer-link">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill="currentColor" d="M4.98 3.5C4.98 4.88 3.86 6 2.49 6S0 4.88 0 3.5 1.12 1 2.49 1s2.49 1.12 2.49 2.5ZM.29 8h4.4v15.5H.29V8Zm7.01 0h4.22v2.12h.06c.59-1.12 2.03-2.3 4.18-2.3 4.47 0 5.3 2.94 5.3 6.77v8.91h-4.39v-7.9c0-1.89-.03-4.32-2.63-4.32-2.63 0-3.03 2.05-3.03 4.18v8.04H7.3V8Z"/>
+                </svg>
+                LinkedIn
+            </a>
+        </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+</body>
+
+<!--
+██╗      ██████╗  ██████╗ ██╗  ██╗██╗███╗   ██╗ ██████╗     ██████╗ 
+██║     ██╔═══██╗██╔═══██╗██║ ██╔╝██║████╗  ██║██╔════╝     ╚════██╗
+██║     ██║   ██║██║   ██║█████╔╝ ██║██╔██╗ ██║██║  ███╗      ▄███╔╝
+██║     ██║   ██║██║   ██║██╔═██╗ ██║██║╚██╗██║██║   ██║      ▀▀══╝ 
+███████╗╚██████╔╝╚██████╔╝██║  ██╗██║██║ ╚████║╚██████╔╝      ██╗   
+╚══════╝ ╚═════╝  ╚═════╝ ╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝ ╚═════╝       ╚═╝   
+-->
+</html>

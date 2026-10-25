@@ -990,6 +990,19 @@ blockquote {
     color: var(--text);
 }
 
+/* Sign-off at the end of every article */
+.blog-post-content .blog-post-signoff {
+    margin: 3rem 0 0;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-align: center;
+}
+
 .blog-post-callout {
     margin: 2.5rem 0;
     padding: 1.25rem 1.5rem;
