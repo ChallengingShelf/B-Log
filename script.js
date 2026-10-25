@@ -194,12 +194,6 @@
         });
     }
 
-    function initRequestedPath() {
-        document.querySelectorAll("[data-requested-path]").forEach((node) => {
-            node.textContent = window.location.pathname;
-        });
-    }
-
     function initFooterConfetti() {
         const footer = document.querySelector(".site-footer");
         if (!footer || typeof Element.prototype.animate !== "function") return;
@@ -265,7 +259,6 @@
         initThemeToggle();
         initSharedTodayDate();
         initBlogCarousel();
-        initRequestedPath();
         initBackButtons();
         initFooterConfetti();
     });

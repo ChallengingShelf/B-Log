@@ -990,6 +990,24 @@ blockquote {
     color: var(--text);
 }
 
+/* External links in articles get the brand yellow underline */
+.blog-post-content a[href^="http"] {
+    text-decoration: underline;
+    text-decoration-color: var(--accent);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+}
+
+/* Thin brand-yellow outline on carousel cards */
+.blog-carousel .blog-card {
+    border: 1px solid var(--accent);
+}
+
+/* Thin brand-yellow outline on article images (not blog cards) */
+.blog-post-shell .blog-post-hero-image:has(img) {
+    border: 1px solid var(--accent);
+}
+
 /* Sign-off at the end of every article */
 .blog-post-content .blog-post-signoff {
     margin: 3rem 0 0;
@@ -1040,30 +1058,6 @@ blockquote {
 
 .error-hero .hero-title {
     font-size: clamp(1.5rem, 8vw, 6.5rem);
-}
-
-.error-terminal {
-    max-width: 760px;
-    margin: 2.25rem 0 0;
-    font-family: var(--font-mono);
-    font-size: 0.9rem;
-}
-
-.error-terminal p {
-    margin: 0 0 0.4rem;
-    color: var(--text);
-    overflow-wrap: anywhere;
-}
-
-.error-terminal .error-prompt,
-.error-terminal .error-status {
-    color: var(--accent);
-    font-weight: 600;
-}
-
-.error-terminal .error-muted {
-    margin: 0;
-    color: var(--muted);
 }
 
 /* ==========================================================================
