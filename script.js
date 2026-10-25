@@ -24,7 +24,7 @@
     function getStoredTheme() {
         try {
             return window.localStorage.getItem(CONFIG.themeStorageKey);
-        } catch (_error) {
+        } catch {
             return null;
         }
     }
@@ -32,7 +32,7 @@
     function setStoredTheme(theme) {
         try {
             window.localStorage.setItem(CONFIG.themeStorageKey, theme);
-        } catch (_error) {
+        } catch {
             // Storage can be unavailable in private browsing or locked-down environments.
         }
     }
@@ -78,7 +78,7 @@
     }
 
     function initSharedTodayDate() {
-        const nodes = document.querySelectorAll("[data-today-date], #today-date");
+        const nodes = document.querySelectorAll("[data-today-date]");
         if (!nodes.length) return;
 
         let dailyIntervalId = null;
@@ -194,6 +194,72 @@
         });
     }
 
+    // Click / tap an article image to view it full screen.
+    // Closes with the X button, a click / tap outside the image, or Escape.
+    function initImageLightbox() {
+        const images = document.querySelectorAll(".blog-post-shell .blog-post-hero-image img");
+        if (!images.length) return;
+
+        const overlay = document.createElement("div");
+        overlay.className = "lightbox";
+        overlay.setAttribute("role", "dialog");
+        overlay.setAttribute("aria-modal", "true");
+        overlay.setAttribute("aria-label", "Expanded image");
+        overlay.hidden = true;
+        overlay.innerHTML = '<button class="lightbox-close" type="button" aria-label="Close image">&times;</button>'
+            + '<img class="lightbox-image" alt="">';
+        document.body.appendChild(overlay);
+
+        const closeButton = overlay.querySelector(".lightbox-close");
+        const bigImage = overlay.querySelector(".lightbox-image");
+        let opener = null;
+
+        function open(img) {
+            opener = img;
+            bigImage.src = img.currentSrc || img.src;
+            bigImage.alt = img.alt;
+            overlay.hidden = false;
+            document.body.classList.add("lightbox-open");
+            closeButton.focus();
+        }
+
+        function close() {
+            if (overlay.hidden) return;
+            overlay.hidden = true;
+            bigImage.removeAttribute("src");
+            document.body.classList.remove("lightbox-open");
+            if (opener) opener.focus();
+        }
+
+        images.forEach((img) => {
+            img.classList.add("is-expandable");
+            img.setAttribute("tabindex", "0");
+            img.setAttribute("role", "button");
+            img.setAttribute("aria-label", `Expand image: ${img.alt || "article image"}`);
+            img.addEventListener("click", () => open(img));
+            img.addEventListener("keydown", (event) => {
+                if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    open(img);
+                }
+            });
+        });
+
+        // Anything except the image itself closes it (backdrop or X).
+        overlay.addEventListener("click", (event) => {
+            if (event.target !== bigImage) close();
+        });
+
+        document.addEventListener("keydown", (event) => {
+            if (overlay.hidden) return;
+            if (event.key === "Escape") close();
+            if (event.key === "Tab") {
+                event.preventDefault();
+                closeButton.focus();
+            }
+        });
+    }
+
     function initFooterConfetti() {
         const footer = document.querySelector(".site-footer");
         if (!footer || typeof Element.prototype.animate !== "function") return;
@@ -260,6 +326,7 @@
         initSharedTodayDate();
         initBlogCarousel();
         initBackButtons();
+        initImageLightbox();
         initFooterConfetti();
     });
 })();

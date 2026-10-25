@@ -86,7 +86,7 @@ $$$$"""$$$$$$$$$$uuu   uu$$$$$$$$$"""$$$"
         <article class="blog-post-shell">
             <a class="blog-back-link" href="/blog">← Back to blog hub</a>
             <header class="blog-post-header">
-                <div class="blog-post-hero-image" aria-hidden="true">
+                <div class="blog-post-hero-image">
                     <img src="IoT.png" alt="poster of iot blockchain authentication"/>
                 </div>
                 <h1 class="blog-post-title">Using Ethereum Blockchain to Authenticate IoT Node Transaction: What I Found Out</h1>
@@ -167,8 +167,8 @@ $$$$"""$$$$$$$$$$uuu   uu$$$$$$$$$"""$$$"
                     <li>Paho MQTT C client library - to enable MQTT within the Contiki C firmware </li>
                 </ul>
 
-                <div class="blog-post-hero-image" aria-hidden="true">
-                    <img src="node.png" alt="picture of metamask in use" />
+                <div class="blog-post-hero-image">
+                    <img src="node.png" alt="picture of metamask in use" loading="lazy" />
                 </div>
                 <p class="figure-caption">IoT Node Setup</p>
 
@@ -193,7 +193,7 @@ $$$$"""$$$$$$$$$$uuu   uu$$$$$$$$$"""$$$"
                     The average power consumption across the network was 1.432 milliwatts (mW). This baseline is useful context: it's the starting point against which any increase from 
                     blockchain authentication would be measured. It was expected - and is supported by related literature - that adding blockchain authentication would significantly 
                     increase power consumption. This is the core problem with applying blockchain to IoT. The computational overhead of interacting with a blockchain per-communication
-                     is non-trivial for devices designed to sip power over months or years.
+                    is non-trivial for devices designed to sip power over months or years.
                 </p>
 
                 <h4>Related Research</h4>
@@ -213,8 +213,8 @@ $$$$"""$$$$$$$$$$uuu   uu$$$$$$$$$"""$$$"
                 <h2>The Cost Problem</h2>
                 <p>There's also a financial reality to acknowledge. Every interaction with a smart contract on the Ethereum network costs Ether (gas fees). Deploying the contract costs 
                     a small amount. Every node registration costs a small amount. Every authentication check costs a small amount. In a small network this is manageable. In a network with
-                     hundreds or thousands of nodes all constantly authenticating communications, costs accumulate fast. For organisations that already underspend on cybersecurity, this is
-                      a hard sell. <br><br>The Goerli test network was used throughout to avoid real costs, but any real-world deployment would require the Ethereum mainnet. <h5><i>Expensive</i></h5>
+                    hundreds or thousands of nodes all constantly authenticating communications, costs accumulate fast. For organisations that already underspend on cybersecurity, this is
+                    a hard sell. <br><br>The Goerli test network was used throughout to avoid real costs, but any real-world deployment would require the Ethereum mainnet. <h5><i>Expensive</i></h5>
                 </p>
 
                 <h2>Honest Reflections and next steps for research</h2>
@@ -246,12 +246,12 @@ $$$$"""$$$$$$$$$$uuu   uu$$$$$$$$$"""$$$"
                 <p>The two conditions that need to change before this becomes viable. <h4>Better IoT batteries</h4> More processing headroom means devices can handle the computational overhead 
                     of blockchain interactions.<br> <h4>Standardisation.</h4> If an organisation like NIST were to standardise a blockchain-based authentication approach for IoT, it would force 
                     device manufacturers to build it in from the start. Future research should run this on real IoT hardware rather than Cooja, resolve the MQTT broker configuration, and produce
-                     actual power consumption comparison data. The methodology is here. The smart contract is deployed and verifiable.
+                    actual power consumption comparison data. The methodology is here. The smart contract is deployed and verifiable.
                 </p>
 
                 <h2>At a glance:</h2>
-                <div class="blog-post-hero-image" aria-hidden="true">
-                    <img src="blockchainIoTOverview.png" alt="Project Overview Graph" />
+                <div class="blog-post-hero-image">
+                    <img src="blockchainIoTOverview.png" alt="Project Overview Graph" loading="lazy" />
                 </div>
                 <p class="blog-post-signoff">Written by a human</p>
             </div>
