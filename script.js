@@ -119,14 +119,81 @@
         scheduleNextUpdate();
     }
 
-    // Randomise card order on every page load (Fisher-Yates shuffle).
-    function shuffleCards(track) {
-        const cards = Array.from(track.querySelectorAll(":scope > .blog-card"));
-        for (let i = cards.length - 1; i > 0; i -= 1) {
+    // ----------------------------------------------------------------------
+    // Blog cards are built from the single list in posts.js.
+    // ----------------------------------------------------------------------
+    const POSTS = Array.isArray(window.HAMILTONHACKS_POSTS) ? window.HAMILTONHACKS_POSTS : [];
+
+    // Card images are resolved relative to script.js, so they work on every
+    // page (including the 404 page at any address) and when opened locally.
+    const ASSET_BASE = (document.querySelector('script[src$="script.js"]') || {}).src || window.location.href;
+
+    function pageName(path) {
+        const last = path.split("/").filter(Boolean).pop() || "";
+        return last.replace(/\.html$/i, "").toLowerCase();
+    }
+
+    const CURRENT_PAGE = pageName(window.location.pathname);
+
+    function buildCard(post) {
+        const card = document.createElement("a");
+        card.className = "blog-card";
+        card.href = post.url;
+        card.target = "_blank";
+        card.rel = "noopener noreferrer";
+        card.setAttribute("aria-label", `Read blog post: ${post.title}`);
+
+        const image = document.createElement("img");
+        image.className = "blog-card-image";
+        image.src = new URL(post.image, ASSET_BASE).href;
+        image.alt = "";
+        image.loading = "lazy";
+
+        const tag = document.createElement("p");
+        tag.className = "blog-meta";
+        tag.textContent = post.tag;
+
+        const title = document.createElement("h3");
+        title.textContent = post.title;
+
+        const summary = document.createElement("p");
+        summary.textContent = post.summary;
+
+        const more = document.createElement("span");
+        more.className = "blog-card-link";
+        more.setAttribute("aria-hidden", "true");
+        more.textContent = "Read More";
+
+        card.append(image, tag, title, summary, more);
+        return card;
+    }
+
+    // Fisher-Yates shuffle: a fresh random order on every load.
+    function shuffled(list) {
+        const copy = list.slice();
+        for (let i = copy.length - 1; i > 0; i -= 1) {
             const j = Math.floor(Math.random() * (i + 1));
-            [cards[i], cards[j]] = [cards[j], cards[i]];
+            [copy[i], copy[j]] = [copy[j], copy[i]];
         }
-        cards.forEach((card) => track.appendChild(card));
+        return copy;
+    }
+
+    // Blog Hub grid: every post, in list order.
+    function renderPostGrid() {
+        document.querySelectorAll("[data-post-grid]").forEach((grid) => {
+            grid.replaceChildren(...POSTS.map(buildCard));
+        });
+    }
+
+    // Placeholder cards link to "/" and are never treated as the current page.
+    function isCurrentPage(post) {
+        return post.url !== "/" && pageName(post.url) === CURRENT_PAGE;
+    }
+
+    // Carousels: shuffled, without placeholders or the page you're on.
+    function renderCarouselCards(track) {
+        const posts = POSTS.filter((post) => post.carousel !== false && !isCurrentPage(post));
+        track.replaceChildren(...shuffled(posts).map(buildCard));
         track.scrollLeft = 0;
     }
 
@@ -139,7 +206,7 @@
             const nextButton = carousel.querySelector("[data-carousel-next]");
             if (!track || !prevButton || !nextButton) return;
 
-            shuffleCards(track);
+            renderCarouselCards(track);
 
             let buttonFrameId = null;
 
@@ -324,6 +391,7 @@
     document.addEventListener("DOMContentLoaded", () => {
         initThemeToggle();
         initSharedTodayDate();
+        renderPostGrid();
         initBlogCarousel();
         initBackButtons();
         initImageLightbox();
