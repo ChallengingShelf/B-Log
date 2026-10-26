@@ -168,7 +168,7 @@ $$$$"""$$$$$$$$$$uuu   uu$$$$$$$$$"""$$$"
                 </ul>
 
                 <div class="blog-post-hero-image">
-                    <img width="1600" height="626" src="node.webp" alt="picture of metamask in use" loading="lazy" />
+                    <img width="1600" height="626" src="node.webp" alt="Cooja Mote Type Information window for the Sky mote (sky1), running the hello-world firmware" loading="lazy" />
                 </div>
                 <p class="figure-caption">IoT Node Setup</p>
 
@@ -200,6 +200,7 @@ $$$$"""$$$$$$$$$$uuu   uu$$$$$$$$$"""$$$"
                 <p>
                     At the time of writing, there aren't many papers exploring exactly this topic - blockchain authentication of node-to-node communication in IoT simulations.
                     The few that exist reach similar conclusions:
+                </p>
                 <ul>
                     <li> Blockchain can provide trust, integrity, and authentication in IoT environments.</li>
                     <li>It is likely not feasible in current IoT deployments because of resource-constrained, low-powered devices.</li>
@@ -214,8 +215,9 @@ $$$$"""$$$$$$$$$$uuu   uu$$$$$$$$$"""$$$"
                 <p>There's also a financial reality to acknowledge. Every interaction with a smart contract on the Ethereum network costs Ether (gas fees). Deploying the contract costs 
                     a small amount. Every node registration costs a small amount. Every authentication check costs a small amount. In a small network this is manageable. In a network with
                     hundreds or thousands of nodes all constantly authenticating communications, costs accumulate fast. For organisations that already underspend on cybersecurity, this is
-                    a hard sell. <br><br>The Goerli test network was used throughout to avoid real costs, but any real-world deployment would require the Ethereum mainnet. <h5><i>Expensive</i></h5>
+                    a hard sell. <br><br>The Goerli test network was used throughout to avoid real costs, but any real-world deployment would require the Ethereum mainnet.
                 </p>
+                <h5><i>Expensive</i></h5>
 
                 <h2>Honest Reflections and next steps for research</h2>
                 <p> Despite not producing simulation results, this paper does achieve its goals to an extent. Provides a working, deployed smart contract for IoT node authentication (source code included, 
@@ -243,8 +245,13 @@ $$$$"""$$$$$$$$$$uuu   uu$$$$$$$$$"""$$$"
                 </ul>
                 
                 <h2>Next Steps for Research</h2>
-                <p>The two conditions that need to change before this becomes viable. <h4>Better IoT batteries</h4> More processing headroom means devices can handle the computational overhead 
-                    of blockchain interactions.<br> <h4>Standardisation.</h4> If an organisation like NIST were to standardise a blockchain-based authentication approach for IoT, it would force 
+                <p>The two conditions that need to change before this becomes viable.</p>
+                <h4>Better IoT batteries</h4>
+                <p>More processing headroom means devices can handle the computational overhead 
+                    of blockchain interactions.
+                </p>
+                <h4>Standardisation.</h4>
+                <p>If an organisation like NIST were to standardise a blockchain-based authentication approach for IoT, it would force 
                     device manufacturers to build it in from the start. Future research should run this on real IoT hardware rather than Cooja, resolve the MQTT broker configuration, and produce
                     actual power consumption comparison data. The methodology is here. The smart contract is deployed and verifiable.
                 </p>

@@ -235,8 +235,6 @@
         const card = document.createElement("a");
         card.className = "blog-card";
         card.href = post.url;
-        card.target = "_blank";
-        card.rel = "noopener noreferrer";
         card.setAttribute("aria-label", `Read blog post: ${post.title}`);
 
         const image = document.createElement("img");
