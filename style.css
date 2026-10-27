@@ -990,6 +990,13 @@ blockquote {
     color: var(--text);
 }
 
+/* Inline code in articles, e.g. header names */
+.blog-post-content code {
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+    overflow-wrap: anywhere;
+}
+
 /* External links in articles get the brand yellow underline */
 .blog-post-content a[href^="http"] {
     text-decoration: underline;

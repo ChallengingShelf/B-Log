@@ -57,6 +57,13 @@
             summary: "A write-up on Cloudflare's obscure yet effective lava lamp wall encryption method, highlighting strength in randomisation.",
         },
         {
+            url: "/SecurityHeaders",
+            image: "securityheaders.webp",
+            tag: "Web Security",
+            title: "Top of the class. A+ security headers",
+            summary: "hamiltonhacks.com now scores an A+ on securityheaders.com. What security headers are, what that grade means, and how Cloudflare added them for free.",
+        },
+        {
             url: "/",
             image: "image.png",
             tag: "Lorem Ipsum Dolor Sit Amet",

@@ -1,0 +1,234 @@
+<!--
+                 uuuuuuu
+             uu$$$$$$$$$$$uu
+          uu$$$$$$$$$$$$$$$$$uu
+         u$$$$$$$$$$$$$$$$$$$$$u
+        u$$$$$$$$$$$$$$$$$$$$$$$u
+       u$$$$$$$$$$$$$$$$$$$$$$$$$u
+       u$$$$$$$$$$$$$$$$$$$$$$$$$u
+       u$$$$$$"   "$$$"   "$$$$$$u
+       "$$$$"      u$u       $$$$"
+        $$$u       u$u       u$$$
+        $$$u      u$$$u      u$$$
+         "$$$$uu$$$   $$$uu$$$$"
+          "$$$$$$$"   "$$$$$$$"
+            u$$$$$$$u$$$$$$$u
+             u$"$"$"$"$"$"$u
+  uuu        $$u$ $ $ $ $u$$       uuu
+ u$$$$        $$$$$u$u$u$$$       u$$$$
+  $$$$$uu      "$$$$$$$$$"     uu$$$$$$
+u$$$$$$$$$$$uu    """""    uuuu$$$$$$$$$$
+$$$$"""$$$$$$$$$$uuu   uu$$$$$$$$$"""$$$"
+ """      ""$$$$$$$$$$$uu ""$"""
+           uuuu ""$$$$$$$$$$uuu
+  u$$$uuu$$$$$$$$$uu ""$$$$$$$$$$$uuu$$$
+  $$$$$$$$$$""""           ""$$$$$$$$$$$"
+   "$$$$$"                      ""$$$$""
+     $$$"                         $$$$"
+
+██╗    ██╗███████╗██╗      ██████╗ ██████╗ ███╗   ███╗███████╗
+██║    ██║██╔════╝██║     ██╔════╝██╔═══██╗████╗ ████║██╔════╝
+██║ █╗ ██║█████╗  ██║     ██║     ██║   ██║██╔████╔██║█████╗  
+██║███╗██║██╔══╝  ██║     ██║     ██║   ██║██║╚██╔╝██║██╔══╝  
+╚███╔███╔╝███████╗███████╗╚██████╗╚██████╔╝██║ ╚═╝ ██║███████╗
+ ╚══╝╚══╝ ╚══════╝╚══════╝ ╚═════╝ ╚═════╝ ╚═╝     ╚═╝╚══════╝
+-->
+
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="hamiltonhacks.com now scores an A+ on securityheaders.com. What security headers are, what that grade means, and how Cloudflare added them for free.">
+    <meta name="theme-color" content="#28282B">
+    <title>Security Headers | HamiltonHacks</title>
+    <!-- Link preview (iMessage, WhatsApp, Slack, LinkedIn, X). Image URL must be absolute. -->
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="HamiltonHacks">
+    <meta property="og:title" content="Top of the class. A+ security headers">
+    <meta property="og:description" content="hamiltonhacks.com now scores an A+ on securityheaders.com. What security headers are, what that grade means, and how Cloudflare added them for free.">
+    <meta property="og:url" content="https://hamiltonhacks.com/SecurityHeaders">
+    <meta property="og:image" content="https://hamiltonhacks.com/securityheaders-og.jpg">
+    <meta property="og:image:alt" content="securityheaders.com Security Report Summary for hamiltonhacks.com, showing an A+ grade with all six headers passing">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Top of the class. A+ security headers">
+    <meta name="twitter:description" content="hamiltonhacks.com now scores an A+ on securityheaders.com. What security headers are, what that grade means, and how Cloudflare added them for free.">
+    <meta name="twitter:image" content="https://hamiltonhacks.com/securityheaders-og.jpg">
+    <link rel="icon" type="image/png" href="favicon-64.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-title" content="HamiltonHacks">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..800&family=JetBrains+Mono:wght@400..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400&display=swap">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="site-header-inner">
+            <a class="brand" href="/">HamiltonHacks.com</a>
+            <nav class="site-nav" aria-label="Primary">
+                <a href="/">Home</a>
+                <a href="/blog">Blog</a>
+            </nav>
+            <button
+                class="theme-toggle"
+                id="themeToggle"
+                type="button"
+                aria-label="Toggle theme"
+                aria-pressed="false"
+                title="Toggle theme">
+                ☀
+            </button>
+        </div>
+    </header>
+
+    <main class="container blog-page">
+        <article class="blog-post-shell">
+            <a class="blog-back-link" href="/blog">← Back to blog hub</a>
+
+            <header class="blog-post-header">
+                <div class="blog-post-hero-image">
+                    <img width="1600" height="900" src="securityheaders.webp" alt="securityheaders.com Security Report Summary for hamiltonhacks.com, showing an A+ grade with all six headers passing" />
+                </div>
+                <h1 class="blog-post-title">Top of the class. A+ security headers</h1>
+                <p class="blog-post-subheading">
+                    Themes: Web Security | HTTP Headers | Cloudflare | CSP | free wins
+                </p>
+                <div class="blog-post-meta" aria-label="Article metadata">
+                    <span>HamiltonHacks</span>
+                    <span>October 2026</span>
+                </div>
+            </header>
+
+            <div class="blog-post-content">
+                <p>
+                    Good news! hamiltonhacks.com now gets an A+ on securityheaders.com. Not an academic achievement or any real form of validation but we’ll take it. Just a bit of tinkering in Cloudflare and the site is more secure. I immediately don’t like that phrase “more secure”.
+                </p>
+
+                <h2>What am I on about this time?</h2>
+                <p>
+                    Every time you visit a website, the server sends back the page plus a bit of hidden info called headers.
+                </p>
+
+                <p>
+                    These headers are the instructions that tell a browser how to handle the site safely. Only ever connect over HTTPS, only run code from places I trust, do not let other websites hide me inside theirs blah blah blah. The browser does the real enforcing, the website just has to ask.
+                </p>
+
+                <h2>Introducing SecurityHeaders[.]com</h2>
+                <p>
+                    This is a nifty little website that checks this stuff for you. You put in a web address and it reads the headers which that site sends back and then you get a grade back. Just like school. From F to A+
+                </p>
+
+                <p>
+                    It does it really quickly and for all your favourite sites !!! Go on check your bank, yknow just for funsies.
+                </p>
+
+                <h2>What did I tell cloudflare to do?</h2>
+                <ul>
+                    <li><strong>Strict-Transport-Security (HSTS)</strong> - always use HTTPS, never plain old HTTP</li>
+                    <li><strong>Content-Security-Policy (CSP)</strong> - the bouncer. Only scripts, styles and images from my approved list get</li>
+                    <li><strong>X-Frame-Options</strong> - nobody can load my site inside an invisible frame on theirs to trick you into clicking things (clickjacking)</li>
+                    <li><strong>X-Content-Type-Options</strong> - stops the browser guessing what a file is. A picture is a picture, let’s call a spade a spade.</li>
+                    <li><strong>Referrer-Policy</strong> - when you click a link off my site, the next site doesn't get the full address you came from</li>
+                    <li><strong>Permissions-Policy</strong> - no camera, microphone, location or payments. None of that nonsense</li>
+                    <li><strong>Cross-Origin-Opener-Policy</strong> - keeps my pages separate from any tabs they open.</li>
+                </ul>
+
+                <h2>How’s that then?</h2>
+                <p>
+                    The site is hosted somewhere which doesn’t let me set my own headers :(( but Cloudflare sits on top of that which adds headers to every response with a ‘Transform Rule’. HSTS is quite simply a toggle in the SSL / TLS settings.
+                </p>
+
+                <div class="blog-post-hero-image">
+                    <img width="1788" height="561" src="securityheaders-hsts.webp" alt="Cloudflare dashboard: HTTP Strict Transport Security (HSTS) setting with the Change HSTS Settings button" loading="lazy" />
+                </div>
+                <p class="figure-caption">HSTS in Cloudflare's SSL / TLS settings</p>
+
+                <div class="blog-post-callout">
+                    <p>
+                        <strong>Top tip:</strong> roll out the CSP as <code>Content-Security-Policy-Report-Only</code> first. The browser just logs anything it WOULD have been blocked instead of ACTUALLY blocking it, so you can make sure nothing blows up before going ahead. That got me an A grade and then enforcing it got the A+. Congraduations.
+                    </p>
+                </div>
+
+                <p>
+                    It’s a pretty interesting process and fairly straightforward so why not do it? It doesn’t do any harm. Obviously it’s not suddenly unhackable, it’s just a very niche nice little bit of protection. Also, there is actually nothing of real value on this site so there’s nothing really to protect, but good practice and all that.
+                </p>
+
+                <h3>References:</h3>
+                <p>
+                    <a href="https://developers.cloudflare.com/ssl/edge-certificates/http-strict-transport-security" target="_blank" rel="noopener noreferrer">https://developers.cloudflare.com/ssl/edge-certificates/http-strict-transport-security</a>
+                </p>
+                <p>
+                    <a href="https://securityheaders.com/?q=hamiltonhacks.com" target="_blank" rel="noopener noreferrer">https://securityheaders.com/?q=hamiltonhacks.com</a>
+                </p>
+                <p>
+                    The internet
+                </p>
+                <p class="blog-post-signoff">Written by a human</p>
+            </div>
+        </article>
+
+        <section class="blog-carousel-section" aria-labelledby="related-blog-carousel-title">
+            <div class="section-heading-row">
+                <div>
+                    <p class="eyebrow">Writing</p>
+                    <h2 id="related-blog-carousel-title">More Blog Posts</h2>
+                </div>
+                <a class="section-link" href="/blog">View Blog Hub</a>
+            </div>
+
+            <div class="carousel-shell" data-carousel>
+                <button class="carousel-control carousel-control-prev" type="button" data-carousel-prev aria-label="Previous blog posts">
+                    <span aria-hidden="true">←</span>
+                </button>
+
+                <div class="blog-carousel" data-carousel-track tabindex="0" aria-label="Blog post carousel"></div>
+
+                <button class="carousel-control carousel-control-next" type="button" data-carousel-next aria-label="Next blog posts">
+                    <span aria-hidden="true">→</span>
+                </button>
+            </div>
+        </section>
+    </main>
+
+
+    <footer class="site-footer">
+        <p class="footer-date">© HamiltonHacks All rights reserved <span data-today-date></span></p>
+        <div class="footer-links">
+            <a
+                href="https://github.com/ChallengingShelf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="footer-link">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill="currentColor" d="M12 .5C5.65.5.5 5.65.5 12c0 5.09 3.29 9.41 7.86 10.94.57.1.78-.25.78-.55v-2.14c-3.2.69-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.71.08-.71 1.16.08 1.78 1.2 1.78 1.2 1.04 1.76 2.71 1.25 3.37.96.1-.75.41-1.25.74-1.54-2.55-.29-5.24-1.27-5.24-5.68 0-1.26.45-2.3 1.19-3.11-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.19a10.96 10.96 0 0 1 5.79 0c2.2-1.5 3.17-1.19 3.17-1.19.64 1.59.24 2.77.12 3.06.74.81 1.18 1.85 1.18 3.11 0 4.42-2.69 5.39-5.25 5.67.42.36.79 1.06.79 2.14v3.17c0 .31.2.66.79.55A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/>
+                </svg>
+                GitHub
+            </a>
+
+            <a
+                href="https://www.linkedin.com/in/daniel-hamilton-cyber"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="footer-link">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill="currentColor" d="M4.98 3.5C4.98 4.88 3.86 6 2.49 6S0 4.88 0 3.5 1.12 1 2.49 1s2.49 1.12 2.49 2.5ZM.29 8h4.4v15.5H.29V8Zm7.01 0h4.22v2.12h.06c.59-1.12 2.03-2.3 4.18-2.3 4.47 0 5.3 2.94 5.3 6.77v8.91h-4.39v-7.9c0-1.89-.03-4.32-2.63-4.32-2.63 0-3.03 2.05-3.03 4.18v8.04H7.3V8Z"/>
+                </svg>
+                LinkedIn
+            </a>
+        </div>
+    </footer>
+
+
+    <script src="script.js" defer></script>
+</body>
+
+<!--
+██╗      ██████╗  ██████╗ ██╗  ██╗██╗███╗   ██╗ ██████╗     ██████╗ 
+██║     ██╔═══██╗██╔═══██╗██║ ██╔╝██║████╗  ██║██╔════╝     ╚════██╗
+██║     ██║   ██║██║   ██║█████╔╝ ██║██╔██╗ ██║██║  ███╗      ▄███╔╝
+██║     ██║   ██║██║   ██║██╔═██╗ ██║██║╚██╗██║██║   ██║      ▀▀══╝ 
+███████╗╚██████╔╝╚██████╔╝██║  ██╗██║██║ ╚████║╚██████╔╝      ██╗   
+╚══════╝ ╚═════╝  ╚═════╝ ╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝ ╚═════╝       ╚═╝   
+-->
+</html>
