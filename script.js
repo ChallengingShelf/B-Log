@@ -61,7 +61,7 @@
             image: "securityheaders-header.webp",
             tag: "Web Security",
             title: "Top of the class. A+ security headers",
-            summary: "hamiltonhacks.com now scores an A+ on securityheaders.com. What security headers are, what that grade means, and how Cloudflare added them for free.",
+            summary: "hamiltonhacks.com now scores an A+ on securityheaders.com. Cool.",
         },
         {
             url: "/",
