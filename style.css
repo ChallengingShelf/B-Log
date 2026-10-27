@@ -921,6 +921,16 @@ blockquote {
     object-fit: contain;
 }
 
+/* Top image shown whole at its own shape (e.g. wide screenshots), not cropped */
+.blog-post-hero-image--full {
+    height: auto;
+}
+
+.blog-post-hero-image--full img {
+    height: auto;
+    object-fit: contain;
+}
+
 /* Quotes inside articles need breathing room before the next paragraph */
 .blog-post-content blockquote {
     margin: 1.5rem 0;
