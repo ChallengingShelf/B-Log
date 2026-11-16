@@ -298,6 +298,44 @@
         track.scrollLeft = 0;
     }
 
+    // Keep carousel cards on whole device pixels. With display scaling
+    // (e.g. 125%/150%/175%) and a centred layout, the cards can land on
+    // half pixels, which smears their 1px yellow border into a faint,
+    // broken-looking edge/corner. This nudges the track's padding and
+    // rounds the column, gap and row sizes so every card edge is crisp.
+    function alignCarouselToPixels(track) {
+        const dpr = window.devicePixelRatio || 1;
+
+        track.style.paddingLeft = "";
+        track.style.paddingTop = "";
+        track.style.columnGap = "";
+        track.style.gridAutoColumns = "";
+        track.style.gridAutoRows = "";
+
+        const firstCard = track.querySelector(".blog-card");
+        if (!firstCard) return;
+
+        const style = window.getComputedStyle(track);
+        const rect = track.getBoundingClientRect();
+        const cardRect = firstCard.getBoundingClientRect();
+        const padLeft = Number.parseFloat(style.paddingLeft) || 0;
+        const padTop = Number.parseFloat(style.paddingTop) || 0;
+        const gap = Number.parseFloat(style.columnGap) || 0;
+
+        const toNextPixel = (cssValue) => (Math.ceil(cssValue * dpr - 0.001) - cssValue * dpr) / dpr;
+        const roundDown = (cssValue) => Math.floor(cssValue * dpr + 0.001) / dpr;
+        const roundUp = (cssValue) => Math.ceil(cssValue * dpr - 0.001) / dpr;
+
+        const left = rect.left + window.scrollX + padLeft;
+        const top = rect.top + window.scrollY + padTop;
+
+        track.style.paddingLeft = `${padLeft + toNextPixel(left)}px`;
+        track.style.paddingTop = `${padTop + toNextPixel(top)}px`;
+        track.style.columnGap = `${Math.round(gap * dpr) / dpr}px`;
+        track.style.gridAutoColumns = `${roundDown(cardRect.width)}px`;
+        track.style.gridAutoRows = `${roundUp(cardRect.height)}px`;
+    }
+
     function initBlogCarousel() {
         const carousels = document.querySelectorAll("[data-carousel]");
 
@@ -308,6 +346,23 @@
             if (!track || !prevButton || !nextButton) return;
 
             renderCarouselCards(track);
+
+            let alignFrameId = null;
+            const requestAlign = () => {
+                if (alignFrameId !== null) return;
+                alignFrameId = window.requestAnimationFrame(() => {
+                    alignFrameId = null;
+                    alignCarouselToPixels(track);
+                });
+            };
+
+            alignCarouselToPixels(track);
+            window.addEventListener("resize", requestAlign, { passive: true });
+            window.addEventListener("load", requestAlign);
+            if (document.fonts && document.fonts.ready) document.fonts.ready.then(requestAlign);
+            // Content above the carousel (images, fonts) can shift it by a
+            // fraction of a pixel after load, so re-align when the page resizes.
+            if ("ResizeObserver" in window) new ResizeObserver(requestAlign).observe(document.body);
 
             let buttonFrameId = null;
 
