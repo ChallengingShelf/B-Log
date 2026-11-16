@@ -520,7 +520,11 @@ a {
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     scrollbar-width: none;
-    padding: 0.25rem 0.1rem 1rem;
+    /* Horizontal padding + matching scroll-padding keep the 1px yellow
+       border on the outer cards fully inside the scroll area, so snapping
+       never clips the edge card's left/right border. */
+    padding: 0.25rem 0.25rem 1rem;
+    scroll-padding-inline: 0.25rem;
 }
 
 .blog-carousel::-webkit-scrollbar {
