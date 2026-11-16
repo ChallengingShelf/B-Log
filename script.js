@@ -68,7 +68,7 @@
             image: "notsosmartbed-header.webp",
             tag: "IoT + Cloud",
             title: "He’s got his bed in the clouds",
-            summary: "An AWS outage left Eight Sleep smart beds stuck, some overheating, some mid-recline. A real-life Black Mirror episode about IoT and cloud risk.",
+            summary: "We rely on internet connected services for so much but what happens when that goes wrong? Some are losing sleep over it",
         },
         {
             url: "/",

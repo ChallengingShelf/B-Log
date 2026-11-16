@@ -39,20 +39,20 @@ $$$$"""$$$$$$$$$$uuu   uu$$$$$$$$$"""$$$"
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="An AWS outage left Eight Sleep smart beds stuck, some overheating, some mid-recline. A real-life Black Mirror episode about IoT and cloud risk.">
+    <meta name="description" content="We rely on internet connected services for so much but what happens when that goes wrong? Some are losing sleep over it">
     <meta name="theme-color" content="#28282B">
     <title>Bed in the Clouds | HamiltonHacks</title>
     <!-- Link preview (iMessage, WhatsApp, Slack, LinkedIn, X). Image URL must be absolute. -->
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="HamiltonHacks">
     <meta property="og:title" content="He’s got his bed in the clouds">
-    <meta property="og:description" content="An AWS outage left Eight Sleep smart beds stuck, some overheating, some mid-recline. A real-life Black Mirror episode about IoT and cloud risk.">
+    <meta property="og:description" content="We rely on internet connected services for so much but what happens when that goes wrong? Some are losing sleep over it">
     <meta property="og:url" content="https://hamiltonhacks.com/NotSoSmartBed">
     <meta property="og:image" content="https://hamiltonhacks.com/notsosmartbed-og.jpg">
     <meta property="og:image:alt" content="Yellow line drawing of a double bed floating among yellow clouds, with circuit-board traces hanging down, on a dark background">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="He’s got his bed in the clouds">
-    <meta name="twitter:description" content="An AWS outage left Eight Sleep smart beds stuck, some overheating, some mid-recline. A real-life Black Mirror episode about IoT and cloud risk.">
+    <meta name="twitter:description" content="We rely on internet connected services for so much but what happens when that goes wrong? Some are losing sleep over it">
     <meta name="twitter:image" content="https://hamiltonhacks.com/notsosmartbed-og.jpg">
     <link rel="icon" type="image/png" href="favicon-64.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -92,7 +92,7 @@ $$$$"""$$$$$$$$$$uuu   uu$$$$$$$$$"""$$$"
                 </div>
                 <h1 class="blog-post-title">He’s got his bed in the clouds</h1>
                 <p class="blog-post-subheading">
-                    Themes: IoT | Cloud | AWS | Outages | Resilience
+                    Themes: IoT | Cloud | Outages | Infrastructure Dependence | Sleeping | Eggs in 1 basket
                 </p>
                 <div class="blog-post-meta" aria-label="Article metadata">
                     <span>HamiltonHacks</span>
@@ -102,32 +102,26 @@ $$$$"""$$$$$$$$$$uuu   uu$$$$$$$$$"""$$$"
 
             <div class="blog-post-content">
                 <p>
-                    Ur bed got hacked. Kinda. Same effect as a DDoS I suppose.
+                    Ur bed got hacked. Kinda. Same effect as a DDOS I suppose.
                 </p>
                 <p>
-                    There’s been a lot of widespread outages reported in mainstream media recently and it’s reminded me of an outage just over a year ago that had some real world impact, in the bedroom.
+                    There’s been a lot of widespread outages reported in mainstream media recently and it’s reminded me of an outage a couple years ago that had some real world impact, in the bedroom.
                 </p>
                 <p>
-                    Have you seen the TV series Black Mirror? I think there’s 7 seasons now, it’s great! It’s dystopian, not-so-distant-futuristic, tech themed. Every day we inch closer and closer to living in a real life Black Mirror episode.
+                    Have you seen the tv series black mirror? I think there’s 7 seasons now, it’s great! it’s dystopian, not-so-distant-futuristic, tech themed. Every day we inch closer and closer to living in a real life black mirror episode.
                 </p>
 
                 <h2>What happened?</h2>
                 <p>
-                    Back in October 2025, there was a major outage on AWS US-East-1, the region of Amazon’s infrastructure which physically lives in Northern Virginia.
+                    Back in October 2025, there was a major outage on AWS US-East-1, infrastructure which has its physical location based in North Virginia *factcheck, if I’m not mistaken.
                 </p>
                 <p>
-                    Many many many many internet services are hosted here on these Amazon servers. A big chunk of the internet was broke because of a timing bug / race condition which erased the DNS address of DynamoDB, a database service that loads of other AWS services lean on.
-                </p>
-                <p>
-                    Wordy bit: there was an automatic updater to keep the address up to date, and there was more than one of them running so it would keep working if one failed. One of them was running slow, overwrote a newer update with an old one, and then the cleanup process deleted the address entirely. Nobody could find it for a while, and everything that depended on it fell over like dominoes. It was back to normal in about 15 hours. 15 hours! Imagine the legal compensation claims.
-                </p>
-                <p>
-                    Anyway, <a href="https://outagecost.com/case-studies/aws-october-2025" target="_blank" rel="noopener noreferrer">OutageCost.com</a> covers this and explains it better than I can to be honest.
+                    Many many many many internet services are hosted here on these Amazon servers. A big chunk of the internet was broke because of a timing bug / race condition which erased the DNS Address of the server itself (wordy bit —- there was an automatic updater to keep the address of it updated and there was a backup one both running so it would keep working if one failed, one of them deleted the true address and no one could find it for a while and it was back to normal in about 15 hours). 15 hours! Imagine the legal compensation claims. Anyway, <a href="https://outagecost.com/case-studies/aws-october-2025" target="_blank" rel="noopener noreferrer">OutageCost.com/case-studies/aws-october-2025</a> covers this and explains it better than I can to be honest.
                 </p>
 
                 <div class="blog-post-callout">
                     <p>
-                        These things happen. The cloud is not up in the sky, it’s a big dirty building in the middle of nowhere somewhere. If something happens to this building or the electric black boxes inside it, something happens to your cloud dependent services. Obviously. But the point is, the service and the building aren’t invincible and shit happens.
+                        these things happen. The cloud is not up in the sky, it’s a big dirty building in the middle of nowhere somewhere. If something happens to this building or the electric black boxes inside it, something happens to your cloud dependent services. Obviously. But the point is, the service, and the building isn’t invincible and shit happens.
                     </p>
                 </div>
 
@@ -135,46 +129,41 @@ $$$$"""$$$$$$$$$$uuu   uu$$$$$$$$$"""$$$"
                     Due to the many services using this specific cloud the impact of this was pretty widespread and global.
                 </p>
                 <ul>
-                    <li><strong>Snapchat</strong> - app was down for most users</li>
-                    <li><strong>Fortnite and Roblox</strong> - login and matchmaking issues</li>
-                    <li><strong>Coinbase and Robinhood</strong> - account access disrupted</li>
-                    <li><strong>Ring doorbells and Alexa</strong> - Amazon’s own kit was dead (maybe that’s a good thing)</li>
-                    <li><strong>Perplexity AI</strong> - down too</li>
+                    <li>Snapchat app was down for most users</li>
+                    <li>Fortnite and Roblox had login and matchmaking issues</li>
+                    <li>Coinbase and Robin Hood and account access disrupted</li>
+                    <li>Amazons Ring doorbell was dead (maybe that’s a good thing) and Alexa too. Etc etc, the impact was massive.</li>
+                    <li>Perplexity Ai</li>
                 </ul>
                 <p>
-                    Etc etc, the impact was massive.
-                </p>
-
-                <p>
-                    Eight Sleep is a luxury bed company. Premium quality, internet connected beds that rely on the cloud for temperature control and bed positioning / elevation. Flying cars, they said.
+                    However, my personal favourite example, is from EightSleep a luxury bed company,
                 </p>
                 <p>
-                    The smart home is the future! So when this outage happened, the beds wouldn’t respond to their usual commands and were stuck on whatever setting they were last on.
+                    Premium quality internet connected beds that rely on temperature control and bed positioning/ elevation via the cloud. Flying cars, they said.
                 </p>
                 <p>
-                    Some beds were stuck in awkward positions and in some cases beds overheated to 110°F. Now that’s actually dangerous.
+                    The smart home is the future! So when this outage happened, the bed wouldn’t respond to its usual commands and in fact would be stuck on its current setting whatever that would be. So the bed unresponsive would be stuck on its settings.
                 </p>
                 <p>
-                    Can you imagine, your bed is connected to the internet. Akin to a WiFi enabled kettle / microwave.
+                    Some beds stuck in awkward positions and in some cases beds overheated to 110° F, now that’s actually dangerous.
                 </p>
                 <p>
-                    In theory, and please picture this image in your mind, people could have been stuck in bed mid-movement, for example in a V shape. Quite funny really, no deaths reported to my knowledge. It’s just a good example of IoT and cloud risk. I just like the nature of this case study, and it’s actually real. Hilarious.
+                    Can you imagine, your bed is connected to the internet. Akin to a WiFi enabled kettle/ microwave.
+                </p>
+                <p>
+                    In theory, and please picture this image in your mind, people could have been stuck in bed, mid-movement of the bed for example a V shape. Quite funny really, no deaths reported to my knowledge. It’s just a good example about IoT and cloud risk, I just like the nature of this case study, and it’s actually real. Hilarious.
                 </p>
 
                 <h2>Lessons learned?</h2>
                 <p>
-                    I don’t know really, it’s quite subjective this one. Yes, IoT is designed to make things easier and lives marginally better, built for convenience and solving micro problems. And yes, a remote control bed is a nice idea. You’re on the commute home, you turn on your WiFi enabled kettle, you switch the lights on remotely and you move your bed to its favourite setting so when you lie down, it’s exactly as comfortable as you want. Great.
+                    I don’t know really, it’s quite subjective this one. Yes, IoT is designed to make things easier to make lives marginally better, built for convenience and solving micro problems. And yes a remote control bed is a nice idea, you’re on the commute home and you turn on your WiFi enabled kettle, you switch the lights on remotely and you move your bed to its favourite setting so when you lie down, it’s exactly how as comfortable as you want. Great.
                 </p>
                 <p>
                     But another angle is always that there are people that need this, that rely on this for their health conditions or disability. This should always be considered.
                 </p>
                 <p>
-                    It’s yet another example to chuck on the pile of reliance-on-infrastructure wake up calls and redundancies. If a huge chunk of the internet lives in a few buildings in one corner of Virginia, how high is that risk? And are people aware?
+                    It’s yet another example to chuck on the pile of reliance on infrastructure wake up calls and redundancies. If the whole internet is on a few boxes in 1 warehouse how high is that risk? And are people aware? The bed company added and “outage” mode to the beds and I think everyone lived happily ever after. Maybe a bit of sue-ing over in the US, obviously.
                 </p>
-                <p>
-                    Eight Sleep added an “outage mode” to the beds and I think everyone lived happily ever after. Maybe a bit of suing over in the US, obviously.
-                </p>
-
                 <p>
                     Otherwise, in this day and age, if you can help it, do you really want your bed, your place of sleep, connected to the big bad internet? I don’t.
                 </p>
