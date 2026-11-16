@@ -1,0 +1,259 @@
+<!--
+                 uuuuuuu
+             uu$$$$$$$$$$$uu
+          uu$$$$$$$$$$$$$$$$$uu
+         u$$$$$$$$$$$$$$$$$$$$$u
+        u$$$$$$$$$$$$$$$$$$$$$$$u
+       u$$$$$$$$$$$$$$$$$$$$$$$$$u
+       u$$$$$$$$$$$$$$$$$$$$$$$$$u
+       u$$$$$$"   "$$$"   "$$$$$$u
+       "$$$$"      u$u       $$$$"
+        $$$u       u$u       u$$$
+        $$$u      u$$$u      u$$$
+         "$$$$uu$$$   $$$uu$$$$"
+          "$$$$$$$"   "$$$$$$$"
+            u$$$$$$$u$$$$$$$u
+             u$"$"$"$"$"$"$u
+  uuu        $$u$ $ $ $ $u$$       uuu
+ u$$$$        $$$$$u$u$u$$$       u$$$$
+  $$$$$uu      "$$$$$$$$$"     uu$$$$$$
+u$$$$$$$$$$$uu    """""    uuuu$$$$$$$$$$
+$$$$"""$$$$$$$$$$uuu   uu$$$$$$$$$"""$$$"
+ """      ""$$$$$$$$$$$uu ""$"""
+           uuuu ""$$$$$$$$$$uuu
+  u$$$uuu$$$$$$$$$uu ""$$$$$$$$$$$uuu$$$
+  $$$$$$$$$$""""           ""$$$$$$$$$$$"
+   "$$$$$"                      ""$$$$""
+     $$$"                         $$$$"
+
+██╗    ██╗███████╗██╗      ██████╗ ██████╗ ███╗   ███╗███████╗
+██║    ██║██╔════╝██║     ██╔════╝██╔═══██╗████╗ ████║██╔════╝
+██║ █╗ ██║█████╗  ██║     ██║     ██║   ██║██╔████╔██║█████╗  
+██║███╗██║██╔══╝  ██║     ██║     ██║   ██║██║╚██╔╝██║██╔══╝  
+╚███╔███╔╝███████╗███████╗╚██████╗╚██████╔╝██║ ╚═╝ ██║███████╗
+ ╚══╝╚══╝ ╚══════╝╚══════╝ ╚═════╝ ╚═════╝ ╚═╝     ╚═╝╚══════╝
+-->
+
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="An AWS outage left Eight Sleep smart beds stuck, some overheating, some mid-recline. A real-life Black Mirror episode about IoT and cloud risk.">
+    <meta name="theme-color" content="#28282B">
+    <title>Bed in the Clouds | HamiltonHacks</title>
+    <!-- Link preview (iMessage, WhatsApp, Slack, LinkedIn, X). Image URL must be absolute. -->
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="HamiltonHacks">
+    <meta property="og:title" content="He’s got his bed in the clouds">
+    <meta property="og:description" content="An AWS outage left Eight Sleep smart beds stuck, some overheating, some mid-recline. A real-life Black Mirror episode about IoT and cloud risk.">
+    <meta property="og:url" content="https://hamiltonhacks.com/NotSoSmartBed">
+    <meta property="og:image" content="https://hamiltonhacks.com/notsosmartbed-og.jpg">
+    <meta property="og:image:alt" content="Yellow line drawing of a double bed floating among yellow clouds, with circuit-board traces hanging down, on a dark background">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="He’s got his bed in the clouds">
+    <meta name="twitter:description" content="An AWS outage left Eight Sleep smart beds stuck, some overheating, some mid-recline. A real-life Black Mirror episode about IoT and cloud risk.">
+    <meta name="twitter:image" content="https://hamiltonhacks.com/notsosmartbed-og.jpg">
+    <link rel="icon" type="image/png" href="favicon-64.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-title" content="HamiltonHacks">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..800&family=JetBrains+Mono:wght@400..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400&display=swap">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="site-header-inner">
+            <a class="brand" href="/">HamiltonHacks.com</a>
+            <nav class="site-nav" aria-label="Primary">
+                <a href="/">Home</a>
+                <a href="/blog">Blog</a>
+            </nav>
+            <button
+                class="theme-toggle"
+                id="themeToggle"
+                type="button"
+                aria-label="Toggle theme"
+                aria-pressed="false"
+                title="Toggle theme">
+                ☀
+            </button>
+        </div>
+    </header>
+
+    <main class="container blog-page">
+        <article class="blog-post-shell">
+            <a class="blog-back-link" href="/blog">← Back to blog hub</a>
+
+            <header class="blog-post-header">
+                <div class="blog-post-hero-image">
+                    <img width="1600" height="900" src="notsosmartbed-header.webp" alt="Yellow line drawing of a double bed floating among yellow clouds, with circuit-board traces hanging down, on a dark background" />
+                </div>
+                <h1 class="blog-post-title">He’s got his bed in the clouds</h1>
+                <p class="blog-post-subheading">
+                    Themes: IoT | Cloud | AWS | Outages | Resilience
+                </p>
+                <div class="blog-post-meta" aria-label="Article metadata">
+                    <span>HamiltonHacks</span>
+                    <span>November 2026</span>
+                </div>
+            </header>
+
+            <div class="blog-post-content">
+                <p>
+                    Ur bed got hacked. Kinda. Same effect as a DDoS I suppose.
+                </p>
+                <p>
+                    There’s been a lot of widespread outages reported in mainstream media recently and it’s reminded me of an outage just over a year ago that had some real world impact, in the bedroom.
+                </p>
+                <p>
+                    Have you seen the TV series Black Mirror? I think there’s 7 seasons now, it’s great! It’s dystopian, not-so-distant-futuristic, tech themed. Every day we inch closer and closer to living in a real life Black Mirror episode.
+                </p>
+
+                <h2>What happened?</h2>
+                <p>
+                    Back in October 2025, there was a major outage on AWS US-East-1, the region of Amazon’s infrastructure which physically lives in Northern Virginia.
+                </p>
+                <p>
+                    Many many many many internet services are hosted here on these Amazon servers. A big chunk of the internet was broke because of a timing bug / race condition which erased the DNS address of DynamoDB, a database service that loads of other AWS services lean on.
+                </p>
+                <p>
+                    Wordy bit: there was an automatic updater to keep the address up to date, and there was more than one of them running so it would keep working if one failed. One of them was running slow, overwrote a newer update with an old one, and then the cleanup process deleted the address entirely. Nobody could find it for a while, and everything that depended on it fell over like dominoes. It was back to normal in about 15 hours. 15 hours! Imagine the legal compensation claims.
+                </p>
+                <p>
+                    Anyway, <a href="https://outagecost.com/case-studies/aws-october-2025" target="_blank" rel="noopener noreferrer">OutageCost.com</a> covers this and explains it better than I can to be honest.
+                </p>
+
+                <div class="blog-post-callout">
+                    <p>
+                        These things happen. The cloud is not up in the sky, it’s a big dirty building in the middle of nowhere somewhere. If something happens to this building or the electric black boxes inside it, something happens to your cloud dependent services. Obviously. But the point is, the service and the building aren’t invincible and shit happens.
+                    </p>
+                </div>
+
+                <p>
+                    Due to the many services using this specific cloud the impact of this was pretty widespread and global.
+                </p>
+                <ul>
+                    <li><strong>Snapchat</strong> - app was down for most users</li>
+                    <li><strong>Fortnite and Roblox</strong> - login and matchmaking issues</li>
+                    <li><strong>Coinbase and Robinhood</strong> - account access disrupted</li>
+                    <li><strong>Ring doorbells and Alexa</strong> - Amazon’s own kit was dead (maybe that’s a good thing)</li>
+                    <li><strong>Perplexity AI</strong> - down too</li>
+                </ul>
+                <p>
+                    Etc etc, the impact was massive.
+                </p>
+
+                <p>
+                    Eight Sleep is a luxury bed company. Premium quality, internet connected beds that rely on the cloud for temperature control and bed positioning / elevation. Flying cars, they said.
+                </p>
+                <p>
+                    The smart home is the future! So when this outage happened, the beds wouldn’t respond to their usual commands and were stuck on whatever setting they were last on.
+                </p>
+                <p>
+                    Some beds were stuck in awkward positions and in some cases beds overheated to 110°F. Now that’s actually dangerous.
+                </p>
+                <p>
+                    Can you imagine, your bed is connected to the internet. Akin to a WiFi enabled kettle / microwave.
+                </p>
+                <p>
+                    In theory, and please picture this image in your mind, people could have been stuck in bed mid-movement, for example in a V shape. Quite funny really, no deaths reported to my knowledge. It’s just a good example of IoT and cloud risk. I just like the nature of this case study, and it’s actually real. Hilarious.
+                </p>
+
+                <h2>Lessons learned?</h2>
+                <p>
+                    I don’t know really, it’s quite subjective this one. Yes, IoT is designed to make things easier and lives marginally better, built for convenience and solving micro problems. And yes, a remote control bed is a nice idea. You’re on the commute home, you turn on your WiFi enabled kettle, you switch the lights on remotely and you move your bed to its favourite setting so when you lie down, it’s exactly as comfortable as you want. Great.
+                </p>
+                <p>
+                    But another angle is always that there are people that need this, that rely on this for their health conditions or disability. This should always be considered.
+                </p>
+                <p>
+                    It’s yet another example to chuck on the pile of reliance-on-infrastructure wake up calls and redundancies. If a huge chunk of the internet lives in a few buildings in one corner of Virginia, how high is that risk? And are people aware?
+                </p>
+                <p>
+                    Eight Sleep added an “outage mode” to the beds and I think everyone lived happily ever after. Maybe a bit of suing over in the US, obviously.
+                </p>
+
+                <p>
+                    Otherwise, in this day and age, if you can help it, do you really want your bed, your place of sleep, connected to the big bad internet? I don’t.
+                </p>
+
+                <h3>References:</h3>
+                <p>
+                    <a href="https://megabits.io/index.php/2025/10/23/when-the-cloud-fails-how-the-aws-outage-bricked-2700-smart-beds/" target="_blank" rel="noopener noreferrer">https://megabits.io/index.php/2025/10/23/when-the-cloud-fails-how-the-aws-outage-bricked-2700-smart-beds/</a>
+                </p>
+                <p>
+                    <a href="https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-regions.html" target="_blank" rel="noopener noreferrer">https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-regions.html</a>
+                </p>
+                <p>
+                    <a href="https://outagecost.com/case-studies/aws-october-2025" target="_blank" rel="noopener noreferrer">https://outagecost.com/case-studies/aws-october-2025</a>
+                </p>
+                <p class="blog-post-signoff">Written by a human</p>
+            </div>
+        </article>
+
+        <section class="blog-carousel-section" aria-labelledby="related-blog-carousel-title">
+            <div class="section-heading-row">
+                <div>
+                    <p class="eyebrow">Writing</p>
+                    <h2 id="related-blog-carousel-title">More Blog Posts</h2>
+                </div>
+                <a class="section-link" href="/blog">View Blog Hub</a>
+            </div>
+
+            <div class="carousel-shell" data-carousel>
+                <button class="carousel-control carousel-control-prev" type="button" data-carousel-prev aria-label="Previous blog posts">
+                    <span aria-hidden="true">←</span>
+                </button>
+
+                <div class="blog-carousel" data-carousel-track tabindex="0" aria-label="Blog post carousel"></div>
+
+                <button class="carousel-control carousel-control-next" type="button" data-carousel-next aria-label="Next blog posts">
+                    <span aria-hidden="true">→</span>
+                </button>
+            </div>
+        </section>
+    </main>
+
+
+    <footer class="site-footer">
+        <p class="footer-date">© HamiltonHacks All rights reserved <span data-today-date></span></p>
+        <div class="footer-links">
+            <a
+                href="https://github.com/ChallengingShelf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="footer-link">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill="currentColor" d="M12 .5C5.65.5.5 5.65.5 12c0 5.09 3.29 9.41 7.86 10.94.57.1.78-.25.78-.55v-2.14c-3.2.69-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.71.08-.71 1.16.08 1.78 1.2 1.78 1.2 1.04 1.76 2.71 1.25 3.37.96.1-.75.41-1.25.74-1.54-2.55-.29-5.24-1.27-5.24-5.68 0-1.26.45-2.3 1.19-3.11-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.19a10.96 10.96 0 0 1 5.79 0c2.2-1.5 3.17-1.19 3.17-1.19.64 1.59.24 2.77.12 3.06.74.81 1.18 1.85 1.18 3.11 0 4.42-2.69 5.39-5.25 5.67.42.36.79 1.06.79 2.14v3.17c0 .31.2.66.79.55A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/>
+                </svg>
+                GitHub
+            </a>
+
+            <a
+                href="https://www.linkedin.com/in/daniel-hamilton-cyber"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="footer-link">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill="currentColor" d="M4.98 3.5C4.98 4.88 3.86 6 2.49 6S0 4.88 0 3.5 1.12 1 2.49 1s2.49 1.12 2.49 2.5ZM.29 8h4.4v15.5H.29V8Zm7.01 0h4.22v2.12h.06c.59-1.12 2.03-2.3 4.18-2.3 4.47 0 5.3 2.94 5.3 6.77v8.91h-4.39v-7.9c0-1.89-.03-4.32-2.63-4.32-2.63 0-3.03 2.05-3.03 4.18v8.04H7.3V8Z"/>
+                </svg>
+                LinkedIn
+            </a>
+        </div>
+    </footer>
+
+
+    <script src="script.js" defer></script>
+</body>
+
+<!--
+██╗      ██████╗  ██████╗ ██╗  ██╗██╗███╗   ██╗ ██████╗     ██████╗ 
+██║     ██╔═══██╗██╔═══██╗██║ ██╔╝██║████╗  ██║██╔════╝     ╚════██╗
+██║     ██║   ██║██║   ██║█████╔╝ ██║██╔██╗ ██║██║  ███╗      ▄███╔╝
+██║     ██║   ██║██║   ██║██╔═██╗ ██║██║╚██╗██║██║   ██║      ▀▀══╝ 
+███████╗╚██████╔╝╚██████╔╝██║  ██╗██║██║ ╚████║╚██████╔╝      ██╗   
+╚══════╝ ╚═════╝  ╚═════╝ ╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝ ╚═════╝       ╚═╝   
+-->
+</html>

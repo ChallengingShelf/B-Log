@@ -64,6 +64,13 @@
             summary: "hamiltonhacks.com now scores an A+ on securityheaders.com. Cool.",
         },
         {
+            url: "/NotSoSmartBed",
+            image: "notsosmartbed-header.webp",
+            tag: "IoT + Cloud",
+            title: "He’s got his bed in the clouds",
+            summary: "An AWS outage left Eight Sleep smart beds stuck, some overheating, some mid-recline. A real-life Black Mirror episode about IoT and cloud risk.",
+        },
+        {
             url: "/",
             image: "image.png",
             tag: "Lorem Ipsum Dolor Sit Amet",
