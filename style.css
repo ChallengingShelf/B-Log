@@ -805,6 +805,19 @@ blockquote {
     letter-spacing: 0.02em;
 }
 
+.footer-text {
+    display: grid;
+    gap: 0.35rem;
+}
+
+.footer-disclaimer {
+    margin: 0;
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.02em;
+}
+
 .footer-links {
     align-items: center;
     gap: 1.5rem;
