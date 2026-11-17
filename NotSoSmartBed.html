@@ -116,12 +116,18 @@ $$$$"""$$$$$$$$$$uuu   uu$$$$$$$$$"""$$$"
                     Back in October 2025, there was a major outage on AWS US-East-1, infrastructure which has its physical location based in North Virginia *factcheck, if I’m not mistaken.
                 </p>
                 <p>
-                    Many many many many internet services are hosted here on these Amazon servers. A big chunk of the internet was broke because of a timing bug / race condition which erased the DNS Address of the server itself (wordy bit —- there was an automatic updater to keep the address of it updated and there was a backup one both running so it would keep working if one failed, one of them deleted the true address and no one could find it for a while and it was back to normal in about 15 hours). 15 hours! Imagine the legal compensation claims. Anyway, <a href="https://outagecost.com/case-studies/aws-october-2025" target="_blank" rel="noopener noreferrer">OutageCost.com/case-studies/aws-october-2025</a> covers this and explains it better than I can to be honest.
+                    Many many many many internet services are hosted here on these Amazon servers. A big chunk of the internet was broke because of a timing bug / race condition which erased the DNS address of DynamoDB, a database service that loads of other AWS services lean on.
+                </p>
+                <p>
+                    Wordy bit: there was an automatic updater to keep the address up to date, and there was more than one of them running so it would keep working if one failed. One of them was running slow, overwrote a newer update with an old one, and then the cleanup process deleted the address entirely. Nobody could find it for a while, and everything that depended on it fell over like dominoes. It was back to normal in about 15 hours. 15 hours! Imagine the legal compensation claims.
+                </p>
+                <p>
+                    Anyway, <a href="https://outagecost.com/case-studies/aws-october-2025" target="_blank" rel="noopener noreferrer">OutageCost.com</a> covers this and explains it better than I can to be honest.
                 </p>
 
                 <div class="blog-post-callout">
                     <p>
-                        these things happen. The cloud is not up in the sky, it’s a big dirty building in the middle of nowhere somewhere. If something happens to this building or the electric black boxes inside it, something happens to your cloud dependent services. Obviously. But the point is, the service, and the building isn’t invincible and shit happens.
+                        These things happen. The cloud is not up in the sky, it’s a big dirty building in the middle of nowhere somewhere. If something happens to this building or the electric black boxes inside it, something happens to your cloud dependent services. Obviously. But the point is, the service and the building aren’t invincible and shit happens.
                     </p>
                 </div>
 
@@ -136,19 +142,16 @@ $$$$"""$$$$$$$$$$uuu   uu$$$$$$$$$"""$$$"
                     <li>Perplexity Ai</li>
                 </ul>
                 <p>
-                    However, my personal favourite example, is from EightSleep a luxury bed company,
+                    However, my personal favourite example, is from EightSleep a luxury bed company. Premium quality, internet connected beds that rely on the cloud for temperature control and bed positioning / elevation. Flying cars, they said.
                 </p>
                 <p>
-                    Premium quality internet connected beds that rely on temperature control and bed positioning/ elevation via the cloud. Flying cars, they said.
+                    The smart home is the future! So when this outage happened, the beds wouldn’t respond to their usual commands and were stuck on whatever setting they were last on.
                 </p>
                 <p>
-                    The smart home is the future! So when this outage happened, the bed wouldn’t respond to its usual commands and in fact would be stuck on its current setting whatever that would be. So the bed unresponsive would be stuck on its settings.
+                    Some beds were stuck in awkward positions and in some cases beds overheated to 110°F. Now that’s actually dangerous.
                 </p>
                 <p>
-                    Some beds stuck in awkward positions and in some cases beds overheated to 110° F, now that’s actually dangerous.
-                </p>
-                <p>
-                    Can you imagine, your bed is connected to the internet. Akin to a WiFi enabled kettle/ microwave.
+                    Can you imagine, your bed is connected to the internet. Akin to a WiFi enabled kettle / microwave.
                 </p>
                 <p>
                     In theory, and please picture this image in your mind, people could have been stuck in bed, mid-movement of the bed for example a V shape. Quite funny really, no deaths reported to my knowledge. It’s just a good example about IoT and cloud risk, I just like the nature of this case study, and it’s actually real. Hilarious.
@@ -162,7 +165,10 @@ $$$$"""$$$$$$$$$$uuu   uu$$$$$$$$$"""$$$"
                     But another angle is always that there are people that need this, that rely on this for their health conditions or disability. This should always be considered.
                 </p>
                 <p>
-                    It’s yet another example to chuck on the pile of reliance on infrastructure wake up calls and redundancies. If the whole internet is on a few boxes in 1 warehouse how high is that risk? And are people aware? The bed company added and “outage” mode to the beds and I think everyone lived happily ever after. Maybe a bit of sue-ing over in the US, obviously.
+                    It’s yet another example to chuck on the pile of reliance-on-infrastructure wake up calls and redundancies. If a huge chunk of the internet lives in a few buildings in one corner of Virginia, how high is that risk? And are people aware?
+                </p>
+                <p>
+                    Eight Sleep added an “outage mode” to the beds and I think everyone lived happily ever after. Maybe a bit of suing over in the US, obviously.
                 </p>
                 <p>
                     Otherwise, in this day and age, if you can help it, do you really want your bed, your place of sleep, connected to the big bad internet? I don’t.
