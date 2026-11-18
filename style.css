@@ -725,6 +725,8 @@ a {
     align-self: center;
     height: 140px;
     margin: 0;
+    border: 1px solid var(--accent);
+    box-sizing: border-box;
 }
 
 .blog-grid .blog-meta { grid-area: meta; justify-self: start; }
